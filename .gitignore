@@ -1,0 +1,7 @@
+node_modules/
+.claude/
+.mcp.json
+.playwright-mcp/
+.DS_Store
+Thumbs.db
+*.tmp

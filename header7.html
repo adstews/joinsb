@@ -1964,8 +1964,12 @@
         animation-play-state: paused;
       }
       @keyframes industriesScroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-100% / 3)); }
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-100% / 3));
+        }
       }
       .industry-card {
         flex-shrink: 0;
@@ -1974,7 +1978,9 @@
         border-radius: 20px;
         background: #fff;
         border: 1px solid rgba(37, 99, 235, 0.15);
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
       }
       .industry-card:hover {
         border-color: var(--blue);
@@ -1990,12 +1996,30 @@
         margin-bottom: 16px;
         font-size: 22px;
       }
-      .industry-card-icon.ic-blue { background: rgba(37, 99, 235, 0.1); color: var(--blue); }
-      .industry-card-icon.ic-green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
-      .industry-card-icon.ic-purple { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
-      .industry-card-icon.ic-amber { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
-      .industry-card-icon.ic-red { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
-      .industry-card-icon.ic-teal { background: rgba(20, 184, 166, 0.1); color: #14b8a6; }
+      .industry-card-icon.ic-blue {
+        background: rgba(37, 99, 235, 0.1);
+        color: var(--blue);
+      }
+      .industry-card-icon.ic-green {
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+      }
+      .industry-card-icon.ic-purple {
+        background: rgba(139, 92, 246, 0.1);
+        color: #8b5cf6;
+      }
+      .industry-card-icon.ic-amber {
+        background: rgba(245, 158, 11, 0.1);
+        color: #f59e0b;
+      }
+      .industry-card-icon.ic-red {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+      }
+      .industry-card-icon.ic-teal {
+        background: rgba(20, 184, 166, 0.1);
+        color: #14b8a6;
+      }
       .industry-card h3 {
         font-size: 18px;
         font-weight: 700;
@@ -2026,6 +2050,290 @@
         .industries-marquee-wrap::before,
         .industries-marquee-wrap::after {
           width: 60px;
+        }
+      }
+
+      /* ── Header 7: Dark Comparison Hero ── */
+      .hero-h7 {
+        background: #080c16;
+        padding: 120px 24px 60px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .hero-h7-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .hero-h7-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid rgba(37, 99, 235, 0.3);
+        color: #3b82f6;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 14px;
+        border-radius: 999px;
+        margin-bottom: 20px;
+        background: rgba(37, 99, 235, 0.08);
+      }
+      .hero-h7-heading {
+        font-size: clamp(32px, 5vw, 52px);
+        font-weight: 700;
+        color: #f8fafc;
+        line-height: 1.1;
+        margin-bottom: 16px;
+        background: none !important;
+        -webkit-text-fill-color: #f8fafc !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+      }
+      .hero-h7-heading .accent {
+        color: #3b82f6;
+        -webkit-text-fill-color: #3b82f6 !important;
+      }
+      .hero-h7-sub {
+        font-size: 20px;
+        color: #94a3b8;
+        margin-bottom: 48px;
+      }
+
+      /* Comparison Grid */
+      .hero-h7-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin-bottom: 40px;
+      }
+
+      /* Message Cards */
+      .hero-h7-card {
+        position: relative;
+        background: #0b111e;
+        border: 1px solid rgba(31, 42, 61, 0.5);
+        border-radius: 24px;
+        padding: 32px;
+        text-align: left;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+      }
+      .hero-h7-card--imessage {
+        border-color: rgba(37, 99, 235, 0.3);
+      }
+      .hero-h7-card::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: 25px;
+        z-index: -1;
+        filter: blur(20px);
+        opacity: 0.4;
+        transition: opacity 0.3s, filter 0.3s;
+      }
+      .hero-h7-card--sms::before {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+      }
+      .hero-h7-card--imessage::before {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.25), rgba(139, 92, 246, 0.1));
+      }
+      .hero-h7-card:hover::before {
+        opacity: 0.7;
+        filter: blur(30px);
+      }
+
+      /* Card Headers */
+      .hero-h7-card-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(31, 42, 61, 0.5);
+      }
+      .hero-h7-card--imessage .hero-h7-card-header {
+        border-bottom-color: rgba(37, 99, 235, 0.2);
+      }
+      .hero-h7-card-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+      }
+      .hero-h7-card-icon--sms {
+        background: rgba(34, 197, 94, 0.15);
+      }
+      .hero-h7-card-icon--imessage {
+        background: rgba(37, 99, 235, 0.15);
+      }
+      .hero-h7-card-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #f8fafc;
+      }
+      .hero-h7-card-subtitle {
+        font-size: 12px;
+        color: #94a3b8;
+      }
+      .hero-h7-card--imessage .hero-h7-card-subtitle {
+        color: #3b82f6;
+      }
+
+      /* Message Bubbles */
+      .hero-h7-messages {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        min-height: 280px;
+      }
+      .hero-h7-bubble {
+        max-width: 85%;
+        padding: 12px 16px;
+        border-radius: 16px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .hero-h7-bubble--sent-green {
+        background: #16a34a;
+        color: #fff;
+        border-bottom-right-radius: 6px;
+        align-self: flex-end;
+      }
+      .hero-h7-bubble--sent-green.compliance {
+        background: rgba(22, 163, 74, 0.8);
+        color: rgba(255, 255, 255, 0.9);
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+      .hero-h7-bubble--received {
+        background: #1a2333;
+        color: #f8fafc;
+        border-bottom-left-radius: 6px;
+        align-self: flex-start;
+      }
+      .hero-h7-bubble--sent-blue {
+        background: #2563eb;
+        color: #fff;
+        border-bottom-right-radius: 6px;
+        align-self: flex-end;
+      }
+      .hero-h7-bubble--system {
+        background: rgba(26, 35, 51, 0.5);
+        border: 1px solid rgba(31, 42, 61, 0.5);
+        color: #94a3b8;
+        font-size: 12px;
+        padding: 8px 16px;
+        align-self: center;
+        text-align: center;
+      }
+      .hero-h7-read-receipt {
+        font-size: 12px;
+        color: #94a3b8;
+        text-align: right;
+      }
+      .hero-h7-bubble-wrap {
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+      }
+      .hero-h7-reactions {
+        display: flex;
+        gap: 4px;
+        position: absolute;
+        bottom: -10px;
+        right: 8px;
+      }
+      .hero-h7-reaction {
+        font-size: 13px;
+        background: #0b111e;
+        border: 1px solid rgba(31, 42, 61, 0.5);
+        border-radius: 999px;
+        padding: 2px 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Card Bottom Labels */
+      .hero-h7-card-bottom {
+        margin-top: 28px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(31, 42, 61, 0.5);
+        text-align: center;
+      }
+      .hero-h7-card--imessage .hero-h7-card-bottom {
+        border-top-color: rgba(37, 99, 235, 0.2);
+      }
+      .hero-h7-card-label {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+      .hero-h7-card-label--sms {
+        color: #22c55e;
+      }
+      .hero-h7-card-label--imessage {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero-h7-card-sublabel {
+        font-size: 14px;
+        color: #94a3b8;
+        margin-top: 4px;
+      }
+
+      /* Stats Bar */
+      .hero-h7-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 24px;
+        border-radius: 16px;
+        background: linear-gradient(90deg, rgba(37, 99, 235, 0.08), rgba(139, 92, 246, 0.08), rgba(37, 99, 235, 0.08));
+        border: 1px solid rgba(37, 99, 235, 0.2);
+      }
+      .hero-h7-stat {
+        text-align: center;
+      }
+      .hero-h7-stat:nth-child(2) {
+        border-left: 1px solid rgba(37, 99, 235, 0.2);
+        border-right: 1px solid rgba(37, 99, 235, 0.2);
+      }
+      .hero-h7-stat-value {
+        font-size: clamp(28px, 3vw, 36px);
+        font-weight: 700;
+        color: #3b82f6;
+      }
+      .hero-h7-stat-label {
+        font-size: 14px;
+        color: #94a3b8;
+        margin-top: 4px;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .hero-h7 {
+          padding: 100px 16px 40px;
+        }
+        .hero-h7-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .hero-h7-card {
+          padding: 24px;
+        }
+        .hero-h7-messages {
+          min-height: auto;
+        }
+        .hero-h7-stats {
+          padding: 20px 16px;
+        }
+        .hero-h7-card-label {
+          font-size: 16px;
         }
       }
     </style>
@@ -2217,971 +2525,74 @@
         </button>
       </div>
     </nav>
-    <section class="hero">
-      <div class="hero-orbit-bg" aria-hidden="true">
-        <div class="orbit-wrap">
-          <div class="orbit-center">
-            <svg
-              width="32"
-              height="32"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-              />
-            </svg>
-          </div>
-          <div class="orbit-ring">
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"
-                />
-                <path d="M12 8v4l3 1.5" />
-              </svg>
-            </div>
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="3" />
-                <path d="M12 8v8M8 12h8" />
-              </svg>
-            </div>
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-            </div>
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"
-                />
-              </svg>
-            </div>
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="platform-tags-wrapper" id="platform-tags">
-          <div class="platform-tag-slide active">
-            <span>Built for Salesforce</span>
-          </div>
-          <div class="platform-tag-slide"><span>Built for HubSpot</span></div>
-          <div class="platform-tag-slide"><span>Built for HighLevel</span></div>
-          <div class="platform-tag-slide"><span>Built for Close</span></div>
-        </div>
-        <br />
-        <h1>
-          2x Your Conversions<br />with
-          <span class="script-text">iMessage</span>
-        </h1>
-        <p>
-          Reach customers where they actually respond. Sendblue lets you send
-          iMessages directly from your CRM with 80% response rates and zero spam
-          filters.
-        </p>
-        <div class="hero-ctas">
-          <a href="#cta" class="btn btn-primary btn-lg">Request a Demo</a>
-          <a href="#features" class="btn btn-outline btn-lg"
-            >See How It Works</a
-          >
-        </div>
-        <div class="hero-badge" style="margin-top: 24px">
-          <span class="pulse"></span> Y Combinator Backed
-        </div>
-        <div class="story-row">
-          <div class="story-item" data-video="WhatWeDo.mp4">
-            <div class="story-btn">
-              <div class="story-btn-inner">
-                <video
-                  src="WhatWeDo.mp4#t=0.5"
-                  muted
-                  playsinline
-                  preload="metadata"
-                ></video
-                ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                  <path
-                    d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                  />
-                </svg>
+    <section class="hero hero-h7">
+      <div class="hero-h7-inner">
+        <div class="hero-h7-badge">💬 The Difference Is Clear</div>
+        <h1 class="hero-h7-heading">People Reply to People. <span class="accent">Not Broadcasts.</span></h1>
+        <p class="hero-h7-sub">Your outreach deserves a channel that feels human.</p>
+
+        <div class="hero-h7-grid">
+          <!-- SMS Card -->
+          <div class="hero-h7-card hero-h7-card--sms">
+            <div class="hero-h7-card-header">
+              <div class="hero-h7-card-icon hero-h7-card-icon--sms">🟢</div>
+              <div>
+                <div class="hero-h7-card-title">SMS Marketing</div>
+                <div class="hero-h7-card-subtitle">Traditional approach</div>
               </div>
             </div>
-            <div class="story-label">What Is Sendblue</div>
+            <div class="hero-h7-messages">
+              <div class="hero-h7-bubble hero-h7-bubble--sent-green">Hi George, I noticed your interest in our new product line. How can I help you out?</div>
+              <div class="hero-h7-bubble hero-h7-bubble--sent-green compliance">Reply STOP to opt-out. Msg & data rates may apply, frequency varies.</div>
+              <div class="hero-h7-bubble hero-h7-bubble--received">STOP</div>
+              <div class="hero-h7-bubble hero-h7-bubble--system">✓ You've successfully unsubscribed from all messages.</div>
+            </div>
+            <div class="hero-h7-card-bottom">
+              <div class="hero-h7-card-label hero-h7-card-label--sms">GREEN BUBBLES FEEL AUTOMATED.</div>
+              <div class="hero-h7-card-sublabel">Compliance-heavy. Easy to ignore.</div>
+            </div>
           </div>
-          <div class="story-item" data-video="WhatWeDo2.mp4">
-            <div class="story-btn">
-              <div class="story-btn-inner">
-                <video
-                  src="WhatWeDo2.mp4#t=0.5"
-                  muted
-                  playsinline
-                  preload="metadata"
-                ></video
-                ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                  <path
-                    d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                  />
-                </svg>
+
+          <!-- iMessage Card -->
+          <div class="hero-h7-card hero-h7-card--imessage">
+            <div class="hero-h7-card-header">
+              <div class="hero-h7-card-icon hero-h7-card-icon--imessage">💙</div>
+              <div>
+                <div class="hero-h7-card-title">iMessage + AI</div>
+                <div class="hero-h7-card-subtitle">Sendblue powered</div>
               </div>
             </div>
-            <div class="story-label">What We Do</div>
-          </div>
-          <div class="story-item" data-video="WhatWeDo3.mp4">
-            <div class="story-btn">
-              <div class="story-btn-inner">
-                <video
-                  src="WhatWeDo3.mp4#t=0.5"
-                  muted
-                  playsinline
-                  preload="metadata"
-                ></video
-                ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                  <path
-                    d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                  />
-                </svg>
+            <div class="hero-h7-messages">
+              <div class="hero-h7-bubble hero-h7-bubble--sent-blue">Hi George, I noticed your interest in our new product line. How can I help you out?</div>
+              <div class="hero-h7-bubble hero-h7-bubble--received">Hi! I'm interested in your new release from yesterday. Can I have more info?</div>
+              <div class="hero-h7-read-receipt">Read 11:24 AM</div>
+              <div class="hero-h7-bubble-wrap">
+                <div class="hero-h7-bubble hero-h7-bubble--sent-blue">Absolutely! I'd love to walk you through it. Are you free for a quick call today? 🤙</div>
+                <div class="hero-h7-reactions">
+                  <span class="hero-h7-reaction">❤️</span>
+                  <span class="hero-h7-reaction">👍</span>
+                </div>
               </div>
             </div>
-            <div class="story-label">Sizzle Reel</div>
-          </div>
-        </div>
-        <div class="crm-scroll">
-          <div class="crm-track">
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/6916fdb2e4c7038e45899dfd_salesforce_logo.svg.svg"
-              alt="Salesforce"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/6916fdb2e4c7038e45899e00_hubspot_symbol.svg.svg"
-              alt="HubSpot"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373b4486ba83ec3e3a7829_mark.svg"
-              alt="Close"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/6916fdb2e4c7038e45899dff_highlevel_icon.jpeg.svg"
-              alt="GoHighLevel"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373bd213f202d7e07079d0_follow-up-boss-squareLogo-1712167366475.webp"
-              alt="Follow Up Boss"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373ca77dd09295fec491aa_Zapier-Symbol-p-500.png"
-              alt="Zapier"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373cdf6f136f04b8433193_make-color-p-500.png"
-              alt="Make"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/6916fdb2e4c7038e45899dfd_salesforce_logo.svg.svg"
-              alt="Salesforce"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/6916fdb2e4c7038e45899e00_hubspot_symbol.svg.svg"
-              alt="HubSpot"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373b4486ba83ec3e3a7829_mark.svg"
-              alt="Close"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/6916fdb2e4c7038e45899dff_highlevel_icon.jpeg.svg"
-              alt="GoHighLevel"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373bd213f202d7e07079d0_follow-up-boss-squareLogo-1712167366475.webp"
-              alt="Follow Up Boss"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373ca77dd09295fec491aa_Zapier-Symbol-p-500.png"
-              alt="Zapier"
-            />
-            <img
-              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373cdf6f136f04b8433193_make-color-p-500.png"
-              alt="Make"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div>
-            <div class="stat-num">3x<span>+</span></div>
-            <div class="stat-label">Show Up Rates</div>
-          </div>
-          <div>
-            <div class="stat-num">35K<span>+</span></div>
-            <div class="stat-label">Installations</div>
-          </div>
-          <div>
-            <div class="stat-num">92<span>%</span></div>
-            <div class="stat-label">Response Rate</div>
-          </div>
-          <div>
-            <div class="stat-num">10M<span>+</span></div>
-            <div class="stat-label">iMessages Sent</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="stories-section">
-      <div class="stories-title">Watch Our Ads</div>
-      <div class="stories-row">
-        <div class="stories-item" data-video="Agencies.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Agencies.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Agencies</div>
-        </div>
-        <div class="stories-item" data-video="Blender.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Blender.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Blender</div>
-        </div>
-        <div class="stories-item" data-video="Dating.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Dating.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Dating</div>
-        </div>
-        <div class="stories-item" data-video="Facetime.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Facetime.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Facetime</div>
-        </div>
-        <div class="stories-item" data-video="Green.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Green.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Green</div>
-        </div>
-        <div class="stories-item" data-video="Hubspot.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Hubspot.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Hubspot</div>
-        </div>
-        <div class="stories-item" data-video="Lending.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Lending.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Lending</div>
-        </div>
-        <div class="stories-item" data-video="Pills.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Pills.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Pills</div>
-        </div>
-        <div class="stories-item" data-video="Pointing.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Pointing.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Pointing</div>
-        </div>
-        <div class="stories-item" data-video="Protest.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Protest.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Protest</div>
-        </div>
-        <div class="stories-item" data-video="Screening.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Screening.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Screening</div>
-        </div>
-        <div class="stories-item" data-video="Telemed.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                data-src="Telemed.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Telemed</div>
-        </div>
-      </div>
-    </section>
-    <section class="info-list-section">
-      <div class="info-list-title">
-        Why leading sales teams switch to Sendblue
-      </div>
-      <div class="info-list">
-        <div class="info-list-item">
-          <div class="info-list-icon">
-            <svg
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-              />
-            </svg>
-          </div>
-          <div class="info-list-content">
-            <h4>Blue bubble messages</h4>
-            <p>
-              iMessages bypass spam filters and land directly in your prospect's
-              inbox. 98% open rates vs 20% for SMS.
-            </p>
-          </div>
-        </div>
-        <div class="info-list-item">
-          <div class="info-list-icon">
-            <svg
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-              />
-            </svg>
-          </div>
-          <div class="info-list-content">
-            <h4>CRM integration</h4>
-            <p>
-              Connect Salesforce, HubSpot, Close, or any tool via Zapier.
-              Message directly from your existing workflow.
-            </p>
-          </div>
-        </div>
-        <div class="info-list-item">
-          <div class="info-list-icon">
-            <svg
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div class="info-list-content">
-            <h4>Automated follow-ups</h4>
-            <p>
-              Build sequences with triggers, delays, and smart branching. No
-              lead falls through the cracks.
-            </p>
-          </div>
-        </div>
-        <div class="info-list-item">
-          <div class="info-list-icon">
-            <svg
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              />
-            </svg>
-          </div>
-          <div class="info-list-content">
-            <h4>FaceTime Audio calls</h4>
-            <p>
-              Call from the same number you message from. Build trust with a
-              consistent presence across channels.
-            </p>
-          </div>
-        </div>
-        <div class="info-list-item">
-          <div class="info-list-icon">
-            <svg
-              width="18"
-              height="18"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-              />
-            </svg>
-          </div>
-          <div class="info-list-content">
-            <h4>Enterprise security</h4>
-            <p>
-              SOC 2 Type 2 and HIPAA compliant. Your data and your customers'
-              data are protected at every step.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="logos">
-      <div class="container"><p>Trusted by leading sales teams</p></div>
-      <div class="logo-scroll">
-        <div class="logo-track">
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628728bf41a1054fbbf2b_Placeholder%20-%207.avif"
-            alt="Dope"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8017_Placeholder%20-%208.avif"
-            alt="Life Rx"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fb5feef1108f4df33_Placeholder%20-%209.avif"
-            alt="Credit Captain"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fd12c2d66db97546d_Placeholder%20-%201.avif"
-            alt="iClosed"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f62850b20d3c571a3f304d_Placeholder%20-%202.avif"
-            alt="Compass"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f84c49bd40a5f1f82_Placeholder%20-%204.avif"
-            alt="Whop"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628508324ac3e3b8284c4_Placeholder%20-%205.avif"
-            alt="Fanbasis"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f2b55b32977257124_Placeholder%20-%2010.avif"
-            alt="America First Healthcare"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f5916fbc4b9a12fd2_Placeholder%20-%2011.avif"
-            alt="Done For Your Tax"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8023_Placeholder%20-%2012.avif"
-            alt="Textla"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fa9ff03ce2854f6d6_Placeholder%20-%206.avif"
-            alt="Elliott"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628728bf41a1054fbbf2b_Placeholder%20-%207.avif"
-            alt="Dope"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8017_Placeholder%20-%208.avif"
-            alt="Life Rx"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fb5feef1108f4df33_Placeholder%20-%209.avif"
-            alt="Credit Captain"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fd12c2d66db97546d_Placeholder%20-%201.avif"
-            alt="iClosed"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f62850b20d3c571a3f304d_Placeholder%20-%202.avif"
-            alt="Compass"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f84c49bd40a5f1f82_Placeholder%20-%204.avif"
-            alt="Whop"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628508324ac3e3b8284c4_Placeholder%20-%205.avif"
-            alt="Fanbasis"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f2b55b32977257124_Placeholder%20-%2010.avif"
-            alt="America First Healthcare"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f5916fbc4b9a12fd2_Placeholder%20-%2011.avif"
-            alt="Done For Your Tax"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8023_Placeholder%20-%2012.avif"
-            alt="Textla"
-            loading="lazy"
-          />
-          <img
-            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fa9ff03ce2854f6d6_Placeholder%20-%206.avif"
-            alt="Elliott"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    </section>
-    <section class="social-proof">
-      <div class="social-proof-inner">
-        <div class="orbit-wrap">
-          <div class="orbit-center">
-            <svg
-              width="32"
-              height="32"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-              />
-            </svg>
-          </div>
-          <div class="orbit-ring">
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"
-                />
-                <path d="M12 8v4l3 1.5" />
-              </svg>
-            </div>
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="3" />
-                <path d="M12 8v8M8 12h8" />
-              </svg>
-            </div>
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-            </div>
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"
-                />
-              </svg>
-            </div>
-            <div class="orbit-icon">
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-              </svg>
+            <div class="hero-h7-card-bottom">
+              <div class="hero-h7-card-label hero-h7-card-label--imessage">BLUE BUBBLES + AI = PERSONAL.</div>
+              <div class="hero-h7-card-sublabel">Authentic. Engaging. Converts.</div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="section" id="features">
-      <div class="container">
-        <div class="section-label"><span class="bar"></span> Features</div>
-        <div class="section-title">
-          Everything you need to<br />close more deals
-        </div>
-        <p class="section-desc">
-          Send iMessages, make calls, and automate follow-ups — all from your
-          existing CRM.
-        </p>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                />
-              </svg>
-            </div>
-            <h3>iMessage & SMS</h3>
-            <p>
-              Send blue-bubble iMessages with automatic SMS fallback for
-              non-Apple users. No A2P registration required.
-            </p>
+
+        <div class="hero-h7-stats">
+          <div class="hero-h7-stat">
+            <div class="hero-h7-stat-value">198%</div>
+            <div class="hero-h7-stat-label">Higher Conversion</div>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-            </div>
-            <h3>FaceTime Audio</h3>
-            <p>
-              Make calls from the same numbers you message from. Build trust
-              with a consistent presence across channels.
-            </p>
+          <div class="hero-h7-stat">
+            <div class="hero-h7-stat-value">88%</div>
+            <div class="hero-h7-stat-label">Response Rate</div>
           </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                />
-              </svg>
-            </div>
-            <h3>Workflow Builder</h3>
-            <p>
-              Automate sequences with personal touches. Combine triggers,
-              delays, and smart branching for hands-off follow-up.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                />
-              </svg>
-            </div>
-            <h3>Rich Media</h3>
-            <p>
-              Send voice memos, HD videos, high-res photos, and more. Stand out
-              in conversations with content that pops.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
-            </div>
-            <h3>Zero Spam</h3>
-            <p>
-              iMessages bypass carrier spam filters entirely. SOC 2 Type 2 and
-              HIPAA compliant. Your messages always land.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <svg
-                width="22"
-                height="22"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                />
-              </svg>
-            </div>
-            <h3>Power Dialer & Buckets</h3>
-            <p>
-              Organize contacts into smart buckets and power through call lists
-              efficiently. Maximize your daily outreach.
-            </p>
+          <div class="hero-h7-stat">
+            <div class="hero-h7-stat-value">$0</div>
+            <div class="hero-h7-stat-label">Per Message</div>
           </div>
         </div>
       </div>
@@ -3189,138 +2600,390 @@
     <section class="industries-section">
       <div class="industries-header">
         <h2>Where <span class="industries-accent">Blue Bubbles</span> Win</h2>
-        <p>Industries that rely on trust, personal connection, and guaranteed delivery.</p>
+        <p>
+          Industries that rely on trust, personal connection, and guaranteed
+          delivery.
+        </p>
       </div>
       <div class="industries-marquee-wrap">
         <div class="industries-marquee-track">
           <!-- Set 1 -->
           <div class="industry-card">
             <div class="industry-card-icon ic-blue">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                />
+              </svg>
             </div>
             <h3>iMessage Bots</h3>
-            <p>Automate lead engagement with blue bubble conversations that feel personal.</p>
+            <p>
+              Automate lead engagement with blue bubble conversations that feel
+              personal.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-green">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"
+                />
+              </svg>
             </div>
             <h3>GLP-1 Clinics</h3>
-            <p>Reach patients on their preferred channel with trusted blue bubbles.</p>
+            <p>
+              Reach patients on their preferred channel with trusted blue
+              bubbles.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-purple">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"
+                />
+              </svg>
             </div>
             <h3>Hormone Clinics</h3>
-            <p>TRT &amp; HRT patient engagement that actually lands in the inbox.</p>
+            <p>
+              TRT &amp; HRT patient engagement that actually lands in the inbox.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-amber">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                />
+              </svg>
             </div>
             <h3>High-Risk Industries</h3>
-            <p>Reliable message delivery where traditional SMS gets filtered or blocked.</p>
+            <p>
+              Reliable message delivery where traditional SMS gets filtered or
+              blocked.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-red">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"
+                />
+              </svg>
             </div>
             <h3>Legal Services</h3>
-            <p>Direct client communication without carrier filtering or spam flags.</p>
+            <p>
+              Direct client communication without carrier filtering or spam
+              flags.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-teal">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                />
+              </svg>
             </div>
             <h3>Lead Gen Agencies</h3>
-            <p>Scale outreach with human-like delivery that drives real responses.</p>
+            <p>
+              Scale outreach with human-like delivery that drives real
+              responses.
+            </p>
           </div>
           <!-- Set 2 (duplicate for infinite scroll) -->
           <div class="industry-card">
             <div class="industry-card-icon ic-blue">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                />
+              </svg>
             </div>
             <h3>iMessage Bots</h3>
-            <p>Automate lead engagement with blue bubble conversations that feel personal.</p>
+            <p>
+              Automate lead engagement with blue bubble conversations that feel
+              personal.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-green">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"
+                />
+              </svg>
             </div>
             <h3>GLP-1 Clinics</h3>
-            <p>Reach patients on their preferred channel with trusted blue bubbles.</p>
+            <p>
+              Reach patients on their preferred channel with trusted blue
+              bubbles.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-purple">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"
+                />
+              </svg>
             </div>
             <h3>Hormone Clinics</h3>
-            <p>TRT &amp; HRT patient engagement that actually lands in the inbox.</p>
+            <p>
+              TRT &amp; HRT patient engagement that actually lands in the inbox.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-amber">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                />
+              </svg>
             </div>
             <h3>High-Risk Industries</h3>
-            <p>Reliable message delivery where traditional SMS gets filtered or blocked.</p>
+            <p>
+              Reliable message delivery where traditional SMS gets filtered or
+              blocked.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-red">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"
+                />
+              </svg>
             </div>
             <h3>Legal Services</h3>
-            <p>Direct client communication without carrier filtering or spam flags.</p>
+            <p>
+              Direct client communication without carrier filtering or spam
+              flags.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-teal">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                />
+              </svg>
             </div>
             <h3>Lead Gen Agencies</h3>
-            <p>Scale outreach with human-like delivery that drives real responses.</p>
+            <p>
+              Scale outreach with human-like delivery that drives real
+              responses.
+            </p>
           </div>
           <!-- Set 3 (duplicate for seamless loop) -->
           <div class="industry-card">
             <div class="industry-card-icon ic-blue">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                />
+              </svg>
             </div>
             <h3>iMessage Bots</h3>
-            <p>Automate lead engagement with blue bubble conversations that feel personal.</p>
+            <p>
+              Automate lead engagement with blue bubble conversations that feel
+              personal.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-green">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"
+                />
+              </svg>
             </div>
             <h3>GLP-1 Clinics</h3>
-            <p>Reach patients on their preferred channel with trusted blue bubbles.</p>
+            <p>
+              Reach patients on their preferred channel with trusted blue
+              bubbles.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-purple">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"
+                />
+              </svg>
             </div>
             <h3>Hormone Clinics</h3>
-            <p>TRT &amp; HRT patient engagement that actually lands in the inbox.</p>
+            <p>
+              TRT &amp; HRT patient engagement that actually lands in the inbox.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-amber">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                />
+              </svg>
             </div>
             <h3>High-Risk Industries</h3>
-            <p>Reliable message delivery where traditional SMS gets filtered or blocked.</p>
+            <p>
+              Reliable message delivery where traditional SMS gets filtered or
+              blocked.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-red">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"
+                />
+              </svg>
             </div>
             <h3>Legal Services</h3>
-            <p>Direct client communication without carrier filtering or spam flags.</p>
+            <p>
+              Direct client communication without carrier filtering or spam
+              flags.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-teal">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                />
+              </svg>
             </div>
             <h3>Lead Gen Agencies</h3>
-            <p>Scale outreach with human-like delivery that drives real responses.</p>
+            <p>
+              Scale outreach with human-like delivery that drives real
+              responses.
+            </p>
           </div>
         </div>
       </div>

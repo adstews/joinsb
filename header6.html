@@ -1964,8 +1964,12 @@
         animation-play-state: paused;
       }
       @keyframes industriesScroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-100% / 3)); }
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-100% / 3));
+        }
       }
       .industry-card {
         flex-shrink: 0;
@@ -1974,7 +1978,9 @@
         border-radius: 20px;
         background: #fff;
         border: 1px solid rgba(37, 99, 235, 0.15);
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
       }
       .industry-card:hover {
         border-color: var(--blue);
@@ -1990,12 +1996,30 @@
         margin-bottom: 16px;
         font-size: 22px;
       }
-      .industry-card-icon.ic-blue { background: rgba(37, 99, 235, 0.1); color: var(--blue); }
-      .industry-card-icon.ic-green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
-      .industry-card-icon.ic-purple { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
-      .industry-card-icon.ic-amber { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
-      .industry-card-icon.ic-red { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
-      .industry-card-icon.ic-teal { background: rgba(20, 184, 166, 0.1); color: #14b8a6; }
+      .industry-card-icon.ic-blue {
+        background: rgba(37, 99, 235, 0.1);
+        color: var(--blue);
+      }
+      .industry-card-icon.ic-green {
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+      }
+      .industry-card-icon.ic-purple {
+        background: rgba(139, 92, 246, 0.1);
+        color: #8b5cf6;
+      }
+      .industry-card-icon.ic-amber {
+        background: rgba(245, 158, 11, 0.1);
+        color: #f59e0b;
+      }
+      .industry-card-icon.ic-red {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+      }
+      .industry-card-icon.ic-teal {
+        background: rgba(20, 184, 166, 0.1);
+        color: #14b8a6;
+      }
       .industry-card h3 {
         font-size: 18px;
         font-weight: 700;
@@ -2026,6 +2050,372 @@
         .industries-marquee-wrap::before,
         .industries-marquee-wrap::after {
           width: 60px;
+        }
+      }
+
+      /* Header 6 — Light Hero (Breezy style) */
+      .hero-h6 {
+        background: linear-gradient(135deg, #eef2ff 0%, #f0f4ff 40%, #f8fafc 100%);
+        padding: 80px 0 60px;
+        overflow: hidden;
+        position: relative;
+      }
+      .hero-h6::before,
+      .hero-h6::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .hero-h6::before {
+        width: 300px;
+        height: 300px;
+        top: -80px;
+        right: -60px;
+        background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%);
+      }
+      .hero-h6::after {
+        width: 200px;
+        height: 200px;
+        bottom: -40px;
+        left: 10%;
+        background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
+      }
+      .hero-h6 .container {
+        position: relative;
+        z-index: 1;
+      }
+      .hero-h6-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 440px;
+        gap: 60px;
+        align-items: center;
+      }
+      .hero-h6-badges {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .hero-h6-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .hero-h6-badge.primary {
+        background: rgba(37,99,235,0.1);
+        color: var(--blue);
+      }
+      .hero-h6-badge.outline {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        color: #334155;
+      }
+      .hero-h6-heading {
+        font-size: 56px;
+        font-weight: 800;
+        line-height: 1.08;
+        color: #0f172a;
+        margin: 0 0 8px;
+        letter-spacing: -0.02em;
+        background: none !important;
+        -webkit-text-fill-color: unset !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+      }
+      .hero-h6-heading .h6-accent {
+        color: var(--blue);
+      }
+      .hero-h6-typer-wrap {
+        font-size: 40px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 20px;
+        min-height: 52px;
+      }
+      .hero-h6-typer {
+        color: #64748b;
+      }
+      .hero-h6-typer .h6-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1em;
+        background: var(--blue);
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        animation: h6Blink 0.7s step-end infinite;
+      }
+      @keyframes h6Blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+      .hero-h6-subtext {
+        font-size: 18px;
+        color: #475569;
+        line-height: 1.7;
+        margin: 0 0 32px;
+        max-width: 520px;
+      }
+      .hero-h6-cta-row {
+        margin-bottom: 12px;
+      }
+      .hero-h6-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 32px;
+        background: var(--blue);
+        color: #fff;
+        font-weight: 700;
+        font-size: 16px;
+        border-radius: 14px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        box-shadow: 0 4px 14px rgba(37,99,235,0.3);
+      }
+      .hero-h6-btn:hover {
+        background: var(--blue-light);
+        transform: translateY(-1px);
+      }
+      .hero-h6-btn svg {
+        width: 18px;
+        height: 18px;
+      }
+      .hero-h6-note {
+        font-size: 13px;
+        color: #94a3b8;
+        margin-bottom: 28px;
+      }
+      .hero-h6-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .hero-h6-feat {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: 100px;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        color: #334155;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .hero-h6-feat svg {
+        width: 16px;
+        height: 16px;
+        color: var(--blue);
+      }
+
+      /* Right side — floating notification cards */
+      .h6-cards-wrap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .h6-cards-panel {
+        width: 400px;
+        background: #fff;
+        border-radius: 24px;
+        padding: 28px 24px;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+        position: relative;
+      }
+      /* Decorative circles */
+      .h6-cards-panel::before,
+      .h6-cards-panel::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .h6-cards-panel::before {
+        width: 28px;
+        height: 28px;
+        top: -14px;
+        right: -14px;
+        background: var(--blue-light);
+        opacity: 0.5;
+      }
+      .h6-cards-panel::after {
+        width: 16px;
+        height: 16px;
+        bottom: 30px;
+        left: -8px;
+        background: var(--blue-light);
+        opacity: 0.3;
+      }
+      .h6-panel-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #f1f5f9;
+      }
+      .h6-panel-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(37,99,235,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--blue);
+      }
+      .h6-panel-header-text h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: #0f172a;
+        margin: 0;
+      }
+      .h6-panel-header-text p {
+        font-size: 13px;
+        color: #94a3b8;
+        margin: 2px 0 0;
+      }
+      .h6-panel-status {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #22c55e;
+        margin-left: auto;
+      }
+
+      /* Notification cards */
+      .h6-notif {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .h6-notif.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .h6-notif-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 4px;
+      }
+      .h6-notif-icon.blue { background: rgba(37,99,235,0.1); color: var(--blue); }
+      .h6-notif-icon.green { background: rgba(34,197,94,0.1); color: #22c55e; }
+      .h6-notif-icon.purple { background: rgba(139,92,246,0.1); color: #8b5cf6; }
+      .h6-notif-body {
+        background: #f8fafc;
+        border-radius: 14px;
+        padding: 14px 16px;
+        flex: 1;
+        border: 1px solid #f1f5f9;
+      }
+      .h6-notif-body p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      .h6-notif-body .h6-notif-title {
+        font-weight: 600;
+        color: #0f172a;
+      }
+      .h6-notif-body .h6-msg-green {
+        background: #dcfce7;
+        color: #166534;
+        padding: 6px 12px;
+        border-radius: 12px;
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 13px;
+      }
+      .h6-notif-body .h6-msg-blue {
+        background: var(--blue);
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 12px;
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 13px;
+      }
+      .h6-notif-body .h6-notif-sub {
+        color: #64748b;
+        font-size: 13px;
+      }
+      .h6-notif-body .h6-notif-action {
+        color: var(--blue);
+        font-weight: 600;
+        font-size: 13px;
+      }
+
+      /* Stats bar */
+      .h6-stats-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        background: linear-gradient(135deg, #eef2ff, #f0f4ff);
+        border-radius: 16px;
+        border: 1px solid rgba(37,99,235,0.1);
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .h6-stats-bar.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .h6-stat-item {
+        text-align: center;
+        padding: 16px;
+      }
+      .h6-stat-item:first-child {
+        border-right: 1px solid rgba(37,99,235,0.1);
+      }
+      .h6-stat-num {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--blue);
+      }
+      .h6-stat-label {
+        font-size: 12px;
+        color: #64748b;
+        margin-top: 2px;
+      }
+
+      @media (max-width: 900px) {
+        .hero-h6 {
+          padding: 60px 0 40px;
+        }
+        .hero-h6-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .hero-h6-heading {
+          font-size: 36px;
+        }
+        .hero-h6-typer-wrap {
+          font-size: 28px;
+          min-height: 40px;
+        }
+        .h6-cards-panel {
+          width: 100%;
+          max-width: 380px;
+          margin: 0 auto;
+        }
+        .hero-h6-badges {
+          flex-wrap: wrap;
         }
       }
     </style>
@@ -2217,10 +2607,82 @@
         </button>
       </div>
     </nav>
-    <section class="hero">
-      <div class="hero-orbit-bg" aria-hidden="true">
-        <div class="orbit-wrap">
-          <div class="orbit-center">
+    <section class="hero hero-h6">
+      <div class="container">
+        <div class="hero-h6-grid">
+          <div class="hero-h6-content">
+            <div class="hero-h6-badges">
+              <span class="hero-h6-badge primary">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                iMessage API
+              </span>
+              <span class="hero-h6-badge outline">Trusted by 35,000+ businesses</span>
+            </div>
+            <h1 class="hero-h6-heading"><span class="h6-accent">Never miss</span><br>another lead</h1>
+            <div class="hero-h6-typer-wrap">
+              <span class="hero-h6-typer" id="h6-typer"></span>
+            </div>
+            <p class="hero-h6-subtext">
+              Send real iMessages from your CRM with typing indicators and read receipts. 80%+ response rates, zero spam filters, 2-minute setup.
+            </p>
+            <div class="hero-h6-cta-row">
+              <a href="#cta" class="hero-h6-btn">
+                Request a Demo
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
+            </div>
+            <div class="hero-h6-note">Free trial &middot; No credit card required</div>
+            <div class="hero-h6-features">
+              <span class="hero-h6-feat">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                iMessage
+              </span>
+              <span class="hero-h6-feat">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                SMS Fallback
+              </span>
+              <span class="hero-h6-feat">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+                CRM Integrations
+              </span>
+              <span class="hero-h6-feat">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Automation
+              </span>
+            </div>
+          </div>
+          <div class="h6-cards-wrap">
+            <div class="h6-cards-panel">
+              <div class="h6-panel-header">
+                <div class="h6-panel-icon">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                </div>
+                <div class="h6-panel-header-text">
+                  <h3>Sendblue</h3>
+                  <p>Sending iMessages automatically</p>
+                </div>
+                <div class="h6-panel-status"></div>
+              </div>
+              <div id="h6-notifs">
+                <!-- Notification cards injected by JS -->
+              </div>
+              <div class="h6-stats-bar" id="h6-stats">
+                <div class="h6-stat-item">
+                  <div class="h6-stat-num">24/7</div>
+                  <div class="h6-stat-label">Always Available</div>
+                </div>
+                <div class="h6-stat-item">
+                  <div class="h6-stat-num">92%</div>
+                  <div class="h6-stat-label">Response Rates</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:none" aria-hidden="true">
+        <div>
+          <div>
             <svg
               width="32"
               height="32"
@@ -2317,7 +2779,6 @@
             </div>
           </div>
         </div>
-      </div>
       <div class="container">
         <div class="platform-tags-wrapper" id="platform-tags">
           <div class="platform-tag-slide active">
@@ -2463,6 +2924,7 @@
           </div>
         </div>
       </div>
+      </div><!-- close hidden wrapper -->
     </section>
     <section class="stats">
       <div class="container">
@@ -3189,138 +3651,390 @@
     <section class="industries-section">
       <div class="industries-header">
         <h2>Where <span class="industries-accent">Blue Bubbles</span> Win</h2>
-        <p>Industries that rely on trust, personal connection, and guaranteed delivery.</p>
+        <p>
+          Industries that rely on trust, personal connection, and guaranteed
+          delivery.
+        </p>
       </div>
       <div class="industries-marquee-wrap">
         <div class="industries-marquee-track">
           <!-- Set 1 -->
           <div class="industry-card">
             <div class="industry-card-icon ic-blue">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                />
+              </svg>
             </div>
             <h3>iMessage Bots</h3>
-            <p>Automate lead engagement with blue bubble conversations that feel personal.</p>
+            <p>
+              Automate lead engagement with blue bubble conversations that feel
+              personal.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-green">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"
+                />
+              </svg>
             </div>
             <h3>GLP-1 Clinics</h3>
-            <p>Reach patients on their preferred channel with trusted blue bubbles.</p>
+            <p>
+              Reach patients on their preferred channel with trusted blue
+              bubbles.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-purple">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"
+                />
+              </svg>
             </div>
             <h3>Hormone Clinics</h3>
-            <p>TRT &amp; HRT patient engagement that actually lands in the inbox.</p>
+            <p>
+              TRT &amp; HRT patient engagement that actually lands in the inbox.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-amber">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                />
+              </svg>
             </div>
             <h3>High-Risk Industries</h3>
-            <p>Reliable message delivery where traditional SMS gets filtered or blocked.</p>
+            <p>
+              Reliable message delivery where traditional SMS gets filtered or
+              blocked.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-red">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"
+                />
+              </svg>
             </div>
             <h3>Legal Services</h3>
-            <p>Direct client communication without carrier filtering or spam flags.</p>
+            <p>
+              Direct client communication without carrier filtering or spam
+              flags.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-teal">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                />
+              </svg>
             </div>
             <h3>Lead Gen Agencies</h3>
-            <p>Scale outreach with human-like delivery that drives real responses.</p>
+            <p>
+              Scale outreach with human-like delivery that drives real
+              responses.
+            </p>
           </div>
           <!-- Set 2 (duplicate for infinite scroll) -->
           <div class="industry-card">
             <div class="industry-card-icon ic-blue">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                />
+              </svg>
             </div>
             <h3>iMessage Bots</h3>
-            <p>Automate lead engagement with blue bubble conversations that feel personal.</p>
+            <p>
+              Automate lead engagement with blue bubble conversations that feel
+              personal.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-green">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"
+                />
+              </svg>
             </div>
             <h3>GLP-1 Clinics</h3>
-            <p>Reach patients on their preferred channel with trusted blue bubbles.</p>
+            <p>
+              Reach patients on their preferred channel with trusted blue
+              bubbles.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-purple">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"
+                />
+              </svg>
             </div>
             <h3>Hormone Clinics</h3>
-            <p>TRT &amp; HRT patient engagement that actually lands in the inbox.</p>
+            <p>
+              TRT &amp; HRT patient engagement that actually lands in the inbox.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-amber">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                />
+              </svg>
             </div>
             <h3>High-Risk Industries</h3>
-            <p>Reliable message delivery where traditional SMS gets filtered or blocked.</p>
+            <p>
+              Reliable message delivery where traditional SMS gets filtered or
+              blocked.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-red">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"
+                />
+              </svg>
             </div>
             <h3>Legal Services</h3>
-            <p>Direct client communication without carrier filtering or spam flags.</p>
+            <p>
+              Direct client communication without carrier filtering or spam
+              flags.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-teal">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                />
+              </svg>
             </div>
             <h3>Lead Gen Agencies</h3>
-            <p>Scale outreach with human-like delivery that drives real responses.</p>
+            <p>
+              Scale outreach with human-like delivery that drives real
+              responses.
+            </p>
           </div>
           <!-- Set 3 (duplicate for seamless loop) -->
           <div class="industry-card">
             <div class="industry-card-icon ic-blue">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                />
+              </svg>
             </div>
             <h3>iMessage Bots</h3>
-            <p>Automate lead engagement with blue bubble conversations that feel personal.</p>
+            <p>
+              Automate lead engagement with blue bubble conversations that feel
+              personal.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-green">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"
+                />
+              </svg>
             </div>
             <h3>GLP-1 Clinics</h3>
-            <p>Reach patients on their preferred channel with trusted blue bubbles.</p>
+            <p>
+              Reach patients on their preferred channel with trusted blue
+              bubbles.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-purple">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-1.482 4.446a2.25 2.25 0 01-2.133 1.554H8.615a2.25 2.25 0 01-2.133-1.554L5 14.5m14 0H5"
+                />
+              </svg>
             </div>
             <h3>Hormone Clinics</h3>
-            <p>TRT &amp; HRT patient engagement that actually lands in the inbox.</p>
+            <p>
+              TRT &amp; HRT patient engagement that actually lands in the inbox.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-amber">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                />
+              </svg>
             </div>
             <h3>High-Risk Industries</h3>
-            <p>Reliable message delivery where traditional SMS gets filtered or blocked.</p>
+            <p>
+              Reliable message delivery where traditional SMS gets filtered or
+              blocked.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-red">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"
+                />
+              </svg>
             </div>
             <h3>Legal Services</h3>
-            <p>Direct client communication without carrier filtering or spam flags.</p>
+            <p>
+              Direct client communication without carrier filtering or spam
+              flags.
+            </p>
           </div>
           <div class="industry-card">
             <div class="industry-card-icon ic-teal">
-              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                />
+              </svg>
             </div>
             <h3>Lead Gen Agencies</h3>
-            <p>Scale outreach with human-like delivery that drives real responses.</p>
+            <p>
+              Scale outreach with human-like delivery that drives real
+              responses.
+            </p>
           </div>
         </div>
       </div>
@@ -4239,6 +4953,113 @@
             });
           });
         })());
+    </script>
+    <script>
+      /* Header 6 — Typing subheadline */
+      (function () {
+        var el = document.getElementById("h6-typer");
+        if (!el) return;
+
+        var phrases = [
+          "Bypass spam filters entirely",
+          "80% response rates on autopilot",
+          "Real blue bubbles from your CRM",
+          "No A2P registration needed",
+          "Typing indicators build trust"
+        ];
+        var cursor = '<span class="h6-cursor"></span>';
+        var phraseIdx = 0;
+        var charIdx = 0;
+        var deleting = false;
+        var pauseAfterType = 2000;
+        var pauseAfterDelete = 400;
+        var typeSpeed = 45;
+        var deleteSpeed = 25;
+
+        function tick() {
+          var phrase = phrases[phraseIdx];
+          if (!deleting) {
+            charIdx++;
+            el.innerHTML = phrase.substring(0, charIdx) + cursor;
+            if (charIdx === phrase.length) {
+              setTimeout(function () { deleting = true; tick(); }, pauseAfterType);
+              return;
+            }
+            setTimeout(tick, typeSpeed);
+          } else {
+            charIdx--;
+            el.innerHTML = phrase.substring(0, charIdx) + cursor;
+            if (charIdx === 0) {
+              deleting = false;
+              phraseIdx = (phraseIdx + 1) % phrases.length;
+              setTimeout(tick, pauseAfterDelete);
+              return;
+            }
+            setTimeout(tick, deleteSpeed);
+          }
+        }
+        tick();
+      })();
+
+      /* Header 6 — Notification card animation */
+      (function () {
+        var container = document.getElementById("h6-notifs");
+        var statsBar = document.getElementById("h6-stats");
+        if (!container) return;
+
+        var notifications = [
+          {
+            icon: "msg",
+            iconColor: "green",
+            html: '<p class="h6-notif-title">📱 Incoming SMS from Sarah Johnson</p><div class="h6-msg-green">"Hey, I saw your ad. Do you offer free consultations?"</div>'
+          },
+          {
+            icon: "reply",
+            iconColor: "blue",
+            html: '<p class="h6-notif-title">Sendblue Auto-Reply:</p><div class="h6-msg-blue">"Hi Sarah! Yes, we do. I just sent you a link to book a time 📅"</div>'
+          },
+          {
+            icon: "check",
+            iconColor: "purple",
+            html: '<p><span class="h6-notif-title">🟣 Action completed</span></p><p class="h6-notif-action">✅ Appointment booked for tomorrow 2pm</p><p class="h6-notif-sub">📧 Confirmation sent via iMessage</p>'
+          }
+        ];
+
+        var iconSvgs = {
+          msg: '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>',
+          reply: '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h10a5 5 0 015 5v6M3 10l6 6M3 10l6-6"/></svg>',
+          check: '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>'
+        };
+
+        function runCards() {
+          container.innerHTML = "";
+          if (statsBar) statsBar.classList.remove("visible");
+
+          var delay = 600;
+          notifications.forEach(function (notif, i) {
+            setTimeout(function () {
+              var card = document.createElement("div");
+              card.className = "h6-notif";
+              card.innerHTML =
+                '<div class="h6-notif-icon ' + notif.iconColor + '">' + iconSvgs[notif.icon] + '</div>' +
+                '<div class="h6-notif-body">' + notif.html + '</div>';
+              container.appendChild(card);
+              requestAnimationFrame(function () { card.classList.add("visible"); });
+            }, delay);
+            delay += 1400;
+          });
+
+          // Show stats bar after all notifications
+          setTimeout(function () {
+            if (statsBar) statsBar.classList.add("visible");
+          }, delay + 400);
+
+          // Restart loop
+          setTimeout(function () { runCards(); }, delay + 5000);
+        }
+
+        runCards();
+      })();
     </script>
   <script defer src="/_vercel/speed-insights/script.js"></script></body>
 </html>

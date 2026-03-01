@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <title>Sendblue - Send Real iMessages from Your CRM | iMessage API Platform</title>
     <meta name="description" content="Stop losing leads to SMS spam filters. Sendblue lets you send real iMessages from any CRM with read receipts, typing indicators, and 92% delivery rates.">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -1545,6 +1545,37 @@
             animation: fadeInUp 0.6s ease forwards;
         }
 
+        /* Sticky CTA Button */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .sticky-cta a {
+            display: inline-block;
+            width: 100%;
+            max-width: 400px;
+            padding: 14px 32px;
+            background: #2563eb;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 10px;
+            letter-spacing: 0.02em;
+        }
+        .sticky-cta a:hover {
+            background: #1d4ed8;
+        }
+
     </style>
 </head>
 <body>
@@ -2109,43 +2140,14 @@
     <section class="cta-section" id="cta">
         <div class="container">
             <div class="cta-card">
-                <h2 class="cta-heading">Start Sending Real iMessages</h2>
-                <p class="cta-subheading">Join 35,000+ businesses that stopped guessing<br>and started landing in the inbox.</p>
+                <h2 class="cta-heading">Book a Demo</h2>
+                <p class="cta-subheading">See how Sendblue can transform your sales outreach with iMessage.</p>
 
-                <div class="cta-price">
-                    <span class="cta-price-amount">Free</span>
-                    <span class="cta-price-period"> to start</span>
-                    <div class="cta-price-note">No credit card required. Setup in under 2 minutes.</div>
-                </div>
-
-                <a href="#" class="btn-primary" style="font-size: 18px; padding: 18px 44px;">Request a Demo &rarr;</a>
-
-                <ul class="cta-features">
-                    <li>
-                        <span class="feature-check">&#10003;</span>
-                        Free trial included
-                    </li>
-                    <li>
-                        <span class="feature-check">&#10003;</span>
-                        No A2P registration needed
-                    </li>
-                    <li>
-                        <span class="feature-check">&#10003;</span>
-                        Works with any CRM
-                    </li>
-                    <li>
-                        <span class="feature-check">&#10003;</span>
-                        2-minute setup, no code required
-                    </li>
-                    <li>
-                        <span class="feature-check">&#10003;</span>
-                        Dedicated support team
-                    </li>
-                </ul>
-
-                <div class="cta-rating">
-                    <div class="cta-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <div class="cta-rating-text">Rated 4.9/5 by 2,400+ customers</div>
+                <div style="width:100%;max-width:600px;margin:0 auto;">
+                    <!-- iClosed inline widget begin -->
+                    <div class="iclosed-widget" data-url="https://app.iclosed.io/e/sendblue/sendblue-demo-7" title="Sendblue Demo" style="width: 100%; height: 620px"></div>
+                    <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+                    <!-- iClosed inline widget end -->
                 </div>
             </div>
         </div>
@@ -2223,17 +2225,6 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <h4>Is there a free trial?</h4>
-                        <span class="faq-chevron">&#9660;</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Yes. You can start with a free trial that includes access to the full API, read receipts, typing indicators, and all integrations. No credit card is required to get started. You'll be able to send real iMessages and see the difference in response rates before committing to a paid plan.
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -2330,5 +2321,6 @@
         calculateROI();
     </script>
 
+<div class="sticky-cta"><a href="#cta">Book A Demo</a></div>
 <script defer src="/_vercel/speed-insights/script.js"></script></body>
 </html>

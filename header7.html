@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Sendblue — 2x Your Conversions with iMessage</title>
     <meta
@@ -2287,7 +2287,7 @@
       /* Stats Bar */
       .hero-h7-stats {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: 16px;
         max-width: 800px;
         margin: 0 auto;
@@ -2589,10 +2589,6 @@
           <div class="hero-h7-stat">
             <div class="hero-h7-stat-value">88%</div>
             <div class="hero-h7-stat-label">Response Rate</div>
-          </div>
-          <div class="hero-h7-stat">
-            <div class="hero-h7-stat-value">$0</div>
-            <div class="hero-h7-stat-label">Per Message</div>
           </div>
         </div>
       </div>
@@ -3882,12 +3878,7 @@
             t.querySelectorAll(".chat-option").forEach((e) => {
               e.addEventListener("click", () => n(!1));
             }),
-            setTimeout(() => {
-              t.classList.contains("open") || n(!0);
-            }, 2e4),
-            setTimeout(() => {
-              t.classList.contains("open") && n(!1);
-            }, 3e4));
+            void 0);
         })(),
         (function () {
           var e = document.querySelectorAll(".story-row .story-item");

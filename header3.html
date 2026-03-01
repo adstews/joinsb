@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Sendblue — 2x Your Conversions with iMessage</title>
     <meta
@@ -2382,7 +2382,7 @@
         <div class="hero-dark-content">
           <div class="hero-dark-pill">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            <span>No A2P &bull; 2-minute setup &bull; Free trial</span>
+            <span>No A2P &bull; 2-minute setup &bull; 80%+ response rate</span>
           </div>
 
           <h1 class="hero-dark-heading">
@@ -4046,12 +4046,7 @@
             t.querySelectorAll(".chat-option").forEach((e) => {
               e.addEventListener("click", () => n(!1));
             }),
-            setTimeout(() => {
-              t.classList.contains("open") || n(!0);
-            }, 2e4),
-            setTimeout(() => {
-              t.classList.contains("open") && n(!1);
-            }, 3e4));
+            void 0);
         })(),
         (function () {
           var e = document.querySelectorAll(".story-row .story-item");

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Sendblue — 2x Your Conversions with iMessage</title>
     <meta
@@ -2523,12 +2523,8 @@
             </p>
             <div class="hero-h4-cta-row">
               <a href="#cta" class="hero-h4-btn-primary">Request a Demo &rarr;</a>
-              <a href="#features" class="hero-h4-btn-outline">
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"/></svg>
-                Watch 90-sec demo
-              </a>
             </div>
-            <div class="hero-h4-note">Send 20 messages free&mdash;no credit card.</div>
+            <div class="hero-h4-note">2-minute setup &mdash; works with your CRM.</div>
             <div class="hero-h4-pills">
               <span class="hero-h4-pill">
                 <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -4565,12 +4561,7 @@
             t.querySelectorAll(".chat-option").forEach((e) => {
               e.addEventListener("click", () => n(!1));
             }),
-            setTimeout(() => {
-              t.classList.contains("open") || n(!0);
-            }, 2e4),
-            setTimeout(() => {
-              t.classList.contains("open") && n(!1);
-            }, 3e4));
+            void 0);
         })(),
         (function () {
           var e = document.querySelectorAll(".story-row .story-item");

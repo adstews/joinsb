@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
     />
     <title>Sendblue — 2x Your Conversions with iMessage</title>
     <meta
@@ -4219,12 +4219,7 @@
             t.querySelectorAll(".chat-option").forEach((e) => {
               e.addEventListener("click", () => n(!1));
             }),
-            setTimeout(() => {
-              t.classList.contains("open") || n(!0);
-            }, 2e4),
-            setTimeout(() => {
-              t.classList.contains("open") && n(!1);
-            }, 3e4));
+            void 0);
         })(),
         (function () {
           var e = document.querySelectorAll(".story-row .story-item");

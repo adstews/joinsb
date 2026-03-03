@@ -9,7 +9,7 @@
     <title>Sendblue for Salesforce — Send iMessages Directly from Salesforce</title>
     <meta
       name="description"
-      content="Send real iMessages directly from Salesforce with Sendblue. Native integration, 80%+ response rates, automated workflows, and zero spam filters. The #1 iMessage app for Salesforce."
+      content="Send real iMessages directly from Salesforce with Sendblue. Native integration, 80%+ response rates, automated workflows, and no A2P registration. The #1 iMessage app for Salesforce."
     />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="apple-touch-icon" href="favicon.png" />
@@ -631,90 +631,8 @@
           transform: translateY(0);
         }
       }
-      .stories-section {
-        display: none;
-        padding: 32px 0 0;
-      }
-      .stories-title {
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--heading);
-        padding: 0 16px;
-        margin-bottom: 14px;
-      }
-      .stories-row {
-        display: flex;
-        gap: 12px;
-        overflow-x: auto;
-        padding: 0 16px 8px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      .stories-row::-webkit-scrollbar {
-        display: none;
-      }
-      .stories-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        flex-shrink: 0;
-        cursor: pointer;
-      }
-      .stories-ring {
-        width: 74px;
-        height: 74px;
-        border-radius: 50%;
-        background: conic-gradient(
-          from 180deg,
-          #f58529,
-          #dd2a7b,
-          #8134af,
-          #515bd4,
-          #8134af,
-          #dd2a7b,
-          #f58529
-        );
-        padding: 3px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .stories-thumb {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 3px solid var(--bg);
-        object-fit: cover;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .stories-thumb video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        inset: 0;
-      }
-      .stories-thumb svg {
-        position: relative;
-        z-index: 1;
-        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
-        flex-shrink: 0;
-      }
-      .stories-name {
-        font-size: 11px;
-        color: var(--text-muted);
-        max-width: 72px;
-        text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
       .glass-notif {
+        display: none !important;
         position: fixed;
         top: 12px;
         left: 50%;
@@ -1240,6 +1158,7 @@
         }
       }
       .social-proof {
+        display: none;
         padding: 80px 0;
         overflow: hidden;
       }
@@ -1893,9 +1812,6 @@
           flex-direction: column;
           gap: 16px;
           text-align: center;
-        }
-        .stories-section {
-          display: block;
         }
         .reels-section {
           display: block;
@@ -2623,7 +2539,7 @@
               <span class="hero-h6-typer" id="h6-typer"></span>
             </div>
             <p class="hero-h6-subtext">
-              The only native Salesforce integration that sends real iMessages with typing indicators and read receipts. 80%+ response rates, zero spam filters — all without leaving Salesforce.
+              The only native Salesforce integration that sends real iMessages with typing indicators and read receipts. 80%+ response rates, no A2P registration — all without leaving Salesforce.
             </p>
             <div class="hero-h6-cta-row">
               <a href="#cta" class="hero-h6-btn">
@@ -2798,9 +2714,6 @@
         </p>
         <div class="hero-ctas">
           <a href="#cta" class="btn btn-primary btn-lg">Request a Demo</a>
-          <a href="#features" class="btn btn-outline btn-lg"
-            >See How It Works</a
-          >
         </div>
         <div class="hero-badge" style="margin-top: 24px">
           <span class="pulse"></span> Y Combinator Backed
@@ -2936,234 +2849,13 @@
             <div class="stat-label">Salesforce Setup</div>
           </div>
           <div>
-            <div class="stat-num">0<span>%</span></div>
-            <div class="stat-label">Spam Filtered</div>
+            <div class="stat-num">0<span></span></div>
+            <div class="stat-label">A2P Registration Required</div>
           </div>
           <div>
             <div class="stat-num">10M<span>+</span></div>
             <div class="stat-label">iMessages from CRMs</div>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="stories-section">
-      <div class="stories-title">Watch Our Ads</div>
-      <div class="stories-row">
-        <div class="stories-item" data-video="Agencies.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Agencies.jpg" data-src="Agencies.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Agencies</div>
-        </div>
-        <div class="stories-item" data-video="Blender.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Blender.jpg" data-src="Blender.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Blender</div>
-        </div>
-        <div class="stories-item" data-video="Dating.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Dating.jpg" data-src="Dating.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Dating</div>
-        </div>
-        <div class="stories-item" data-video="Facetime.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Facetime.jpg" data-src="Facetime.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Facetime</div>
-        </div>
-        <div class="stories-item" data-video="Green.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Green.jpg" data-src="Green.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Green</div>
-        </div>
-        <div class="stories-item" data-video="Hubspot.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Hubspot.jpg" data-src="Hubspot.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Hubspot</div>
-        </div>
-        <div class="stories-item" data-video="Lending.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Lending.jpg" data-src="Lending.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Lending</div>
-        </div>
-        <div class="stories-item" data-video="Pills.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Pills.jpg" data-src="Pills.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Pills</div>
-        </div>
-        <div class="stories-item" data-video="Pointing.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Pointing.jpg" data-src="Pointing.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Pointing</div>
-        </div>
-        <div class="stories-item" data-video="Protest.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Protest.jpg" data-src="Protest.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Protest</div>
-        </div>
-        <div class="stories-item" data-video="Screening.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Screening.jpg" data-src="Screening.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Screening</div>
-        </div>
-        <div class="stories-item" data-video="Telemed.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Telemed.jpg" data-src="Telemed.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Telemed</div>
         </div>
       </div>
     </section>
@@ -3254,7 +2946,7 @@
           <div class="info-list-content">
             <h4>80%+ response rates</h4>
             <p>
-              iMessages bypass spam filters entirely. Your Salesforce outreach actually gets read — not filtered into a junk folder.
+              iMessages don't require A2P carrier registration. Your Salesforce outreach actually gets delivered — no 10DLC delays or rejected campaigns.
             </p>
           </div>
         </div>
@@ -3606,9 +3298,9 @@
                 />
               </svg>
             </div>
-            <h3>Zero Spam Filters</h3>
+            <h3>No A2P Registration</h3>
             <p>
-              Unlike SMS tools in Salesforce, iMessages bypass carrier spam filters completely. Your messages always reach the inbox.
+              Unlike SMS tools in Salesforce, iMessages don't require A2P carrier registration. Your messages always reach the inbox.
             </p>
           </div>
           <div class="feature-card">
@@ -3681,7 +3373,7 @@
             </div>
             <h3>Account Executives</h3>
             <p>
-              Nurture deals and follow up on proposals with personal iMessages that bypass spam filters.
+              Nurture deals and follow up on proposals with personal iMessages — no A2P registration required.
             </p>
           </div>
           <div class="industry-card">
@@ -3802,7 +3494,7 @@
             </div>
             <h3>Account Executives</h3>
             <p>
-              Nurture deals and follow up on proposals with personal iMessages that bypass spam filters.
+              Nurture deals and follow up on proposals with personal iMessages — no A2P registration required.
             </p>
           </div>
           <div class="industry-card">
@@ -3923,7 +3615,7 @@
             </div>
             <h3>Account Executives</h3>
             <p>
-              Nurture deals and follow up on proposals with personal iMessages that bypass spam filters.
+              Nurture deals and follow up on proposals with personal iMessages — no A2P registration required.
             </p>
           </div>
           <div class="industry-card">
@@ -4028,9 +3720,9 @@
             <div>15-25%</div>
           </div>
           <div class="comparison-row">
-            <div>Spam Filtering</div>
-            <div><span class="check">Bypassed entirely</span></div>
-            <div><span class="cross">Frequently blocked</span></div>
+            <div>A2P Registration</div>
+            <div><span class="check">Not required</span></div>
+            <div><span class="cross">Required</span></div>
           </div>
           <div class="comparison-row">
             <div>A2P Registration</div>
@@ -4227,13 +3919,15 @@
               &#9733;&#9733;&#9733;&#9733;&#9733;
             </div>
             <blockquote>
-              We plugged Sendblue into Salesforce and our response rates tripled overnight. The fact that every message auto-logs as an Activity is a game changer for our team.
+              Sendblue completely changed our outreach. We saw 3x higher
+              response rates with Sendblue. The iMessage integration is
+              seamless.
             </blockquote>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">JM</div>
+              <div class="testimonial-avatar">JH</div>
               <div>
-                <div class="testimonial-name">Jake M.</div>
-                <div class="testimonial-role">Sales Director, SaaS Company</div>
+                <div class="testimonial-name">Josh H.</div>
+                <div class="testimonial-role">CSO &amp; Co-Founder</div>
               </div>
             </div>
           </div>
@@ -4242,13 +3936,14 @@
               &#9733;&#9733;&#9733;&#9733;&#9733;
             </div>
             <blockquote>
-              Our SDRs send iMessages right from the Salesforce Lead page. No more switching between tools. Response rates went from 20% to consistently over 75%.
+              Our show rates jumped over 33% after switching to Sendblue. The
+              fact there is no A2P is a game changer for our team.
             </blockquote>
             <div class="testimonial-author">
               <div class="testimonial-avatar">SR</div>
               <div>
                 <div class="testimonial-name">Sarah R.</div>
-                <div class="testimonial-role">VP of Sales, FinTech Startup</div>
+                <div class="testimonial-role">Founder &amp; CEO</div>
               </div>
             </div>
           </div>
@@ -4257,13 +3952,15 @@
               &#9733;&#9733;&#9733;&#9733;&#9733;
             </div>
             <blockquote>
-              We automated iMessage sequences with Salesforce Flows. When an Opportunity hits a certain stage, Sendblue fires off a personalized message. It just works.
+              The CRM integration took minutes to set up. Almost immediately
+              we saw 40% more consultations taking place each week. It just
+              works.
             </blockquote>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">DP</div>
+              <div class="testimonial-avatar">BP</div>
               <div>
-                <div class="testimonial-name">David P.</div>
-                <div class="testimonial-role">RevOps Lead, Growth Agency</div>
+                <div class="testimonial-name">Brandon P.</div>
+                <div class="testimonial-role">Managing Partner</div>
               </div>
             </div>
           </div>
@@ -4292,7 +3989,7 @@
             Existing Lead Follow Up
           </button>
           <button class="poll-option" data-answer="answer-spam">
-            Spam Blockers
+            No A2P Registration
           </button>
         </div>
         <div class="poll-answer" id="answer-calls">
@@ -4307,8 +4004,8 @@
         <div class="poll-answer" id="answer-msgs">
           <h4>💬 iMessage at Scale</h4>
           <p>
-            iMessages land directly in your prospect's inbox with zero spam
-            filters. Blue bubbles get 98% open rates vs 20% for SMS. Connect
+            iMessages land directly in your prospect's inbox with no carrier
+            registration required. Blue bubbles get 98% response rates vs 20% for SMS. Connect
             your CRM and message new leads at scale — no A2P registration
             required.
           </p>
@@ -4322,11 +4019,11 @@
           </p>
         </div>
         <div class="poll-answer" id="answer-spam">
-          <h4>🛡️ Bypass Spam Filters Entirely</h4>
+          <h4>🛡️ Skip A2P Registration Entirely</h4>
           <p>
-            iMessages bypass carrier spam filters completely. Your messages
-            always land — no blocked numbers, no "message not delivered," no A2P
-            headaches. SOC 2 Type 2 and HIPAA compliant.
+            iMessages don't require A2P carrier registration. Your messages
+            always land — no 10DLC delays, no rejected campaigns, no carrier
+            compliance headaches. SOC 2 Type 2 and HIPAA compliant.
           </p>
         </div>
       </div>
@@ -4751,17 +4448,7 @@
               var t = s - e.changedTouches[0].clientX;
               Math.abs(t) > 50 && l(t > 0 ? a + 1 : a - 1);
             }));
-          var m = document.querySelectorAll(".stories-item");
-          m.forEach(function (e, t) {
-            e.addEventListener("click", function () {
-              var e = [];
-              (m.forEach(function (t) {
-                e.push(t.getAttribute("data-video"));
-              }),
-                d(e, t));
-            });
-          });
-          var v = document.querySelectorAll(".reels-card");
+var v = document.querySelectorAll(".reels-card");
           (v.forEach(function (e, t) {
             e.addEventListener("click", function () {
               var e = [];
@@ -4790,25 +4477,7 @@
       document.querySelectorAll(".reels-card").forEach(function (e) {
         reelsObs.observe(e);
       });
-      var storiesLazy = new IntersectionObserver(
-        function (e, t) {
-          e.forEach(function (e) {
-            if (e.isIntersecting) {
-              var n = e.target.querySelector("video");
-              (n &&
-                n.dataset.src &&
-                !n.src &&
-                ((n.src = n.dataset.src), n.load()),
-                t.unobserve(e.target));
-            }
-          });
-        },
-        { rootMargin: "200px" },
-      );
-      (document.querySelectorAll(".stories-item").forEach(function (e) {
-        storiesLazy.observe(e);
-      }),
-        document.querySelectorAll(".poll-option").forEach((e) => {
+      (document.querySelectorAll(".poll-option").forEach((e) => {
           e.addEventListener("click", () => {
             (document
               .querySelectorAll(".poll-option")

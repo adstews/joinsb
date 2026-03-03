@@ -631,90 +631,8 @@
           transform: translateY(0);
         }
       }
-      .stories-section {
-        display: none;
-        padding: 32px 0 0;
-      }
-      .stories-title {
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--heading);
-        padding: 0 16px;
-        margin-bottom: 14px;
-      }
-      .stories-row {
-        display: flex;
-        gap: 12px;
-        overflow-x: auto;
-        padding: 0 16px 8px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      .stories-row::-webkit-scrollbar {
-        display: none;
-      }
-      .stories-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        flex-shrink: 0;
-        cursor: pointer;
-      }
-      .stories-ring {
-        width: 74px;
-        height: 74px;
-        border-radius: 50%;
-        background: conic-gradient(
-          from 180deg,
-          #f58529,
-          #dd2a7b,
-          #8134af,
-          #515bd4,
-          #8134af,
-          #dd2a7b,
-          #f58529
-        );
-        padding: 3px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .stories-thumb {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 3px solid var(--bg);
-        object-fit: cover;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .stories-thumb video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        inset: 0;
-      }
-      .stories-thumb svg {
-        position: relative;
-        z-index: 1;
-        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
-        flex-shrink: 0;
-      }
-      .stories-name {
-        font-size: 11px;
-        color: var(--text-muted);
-        max-width: 72px;
-        text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
       .glass-notif {
+        display: none !important;
         position: fixed;
         top: 12px;
         left: 50%;
@@ -1240,6 +1158,7 @@
         }
       }
       .social-proof {
+        display: none;
         padding: 80px 0;
         overflow: hidden;
       }
@@ -1894,9 +1813,6 @@
           gap: 16px;
           text-align: center;
         }
-        .stories-section {
-          display: block;
-        }
         .reels-section {
           display: block;
         }
@@ -1957,7 +1873,7 @@
         margin: 0 auto;
         padding: 0 24px;
         display: grid;
-        grid-template-columns: 1.1fr minmax(0, 420px);
+        grid-template-columns: 1fr 1.2fr;
         gap: 48px;
         align-items: start;
       }
@@ -2043,7 +1959,7 @@
       .hero-dark-phone-wrap {
         position: relative;
         width: 100%;
-        max-width: 380px;
+        max-width: 600px;
         margin: 0 auto;
       }
       .hero-dark-phone-glow {
@@ -2068,6 +1984,35 @@
       }
 
       /* iMessage mockup */
+      /* Dual phone mockups */
+      .phone-compare {
+        display: flex;
+        gap: 16px;
+        width: 100%;
+      }
+      .phone-compare-label {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        display: inline-block;
+      }
+      .phone-compare-label--sms {
+        color: #4ade80;
+        background: rgba(74, 222, 128, 0.1);
+      }
+      .phone-compare-label--imsg {
+        color: #818cf8;
+        background: rgba(129, 140, 248, 0.1);
+      }
+      .phone-compare-col {
+        flex: 1;
+        text-align: center;
+      }
       .imsg-mockup {
         position: relative;
         width: 100%;
@@ -2077,6 +2022,12 @@
         padding: 16px;
         box-shadow: 0 24px 48px rgba(0,0,0,0.5);
       }
+      .imsg-mockup--sms {
+        border-color: rgba(74, 222, 128, 0.15);
+      }
+      .imsg-mockup--imsg {
+        border-color: rgba(99, 102, 241, 0.15);
+      }
       .imsg-header {
         text-align: center;
         margin-bottom: 16px;
@@ -2084,12 +2035,12 @@
         border-bottom: 1px solid #1a1a1a;
       }
       .imsg-header-title {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 600;
         color: #e5e5e5;
       }
       .imsg-header-time {
-        font-size: 12px;
+        font-size: 11px;
         color: #737373;
         margin-top: 2px;
       }
@@ -2097,13 +2048,13 @@
         display: flex;
         flex-direction: column;
         gap: 8px;
-        min-height: 260px;
+        min-height: 240px;
       }
       .imsg-bubble {
-        max-width: 80%;
+        max-width: 85%;
         padding: 10px 14px;
         border-radius: 18px;
-        font-size: 14px;
+        font-size: 13px;
         line-height: 1.45;
         opacity: 0;
         transform: translateY(8px);
@@ -2115,11 +2066,24 @@
         align-self: flex-end;
         border-bottom-right-radius: 6px;
       }
+      .imsg-bubble--sent-sms {
+        background: #22c55e;
+        color: #fff;
+        align-self: flex-end;
+        border-bottom-right-radius: 6px;
+      }
       .imsg-bubble--received {
         background: #262626;
         color: #e5e5e5;
         align-self: flex-start;
         border-bottom-left-radius: 6px;
+      }
+      .imsg-bubble--received-stop {
+        background: #262626;
+        color: #ef4444;
+        align-self: flex-start;
+        border-bottom-left-radius: 6px;
+        font-weight: 600;
       }
       .imsg-reaction {
         align-self: flex-start;
@@ -2137,6 +2101,9 @@
         color: #737373;
         opacity: 0;
         animation: imsg-appear 0.3s ease forwards;
+      }
+      .imsg-delivered--read {
+        color: var(--blue);
       }
       .imsg-typing {
         align-self: flex-start;
@@ -2179,7 +2146,9 @@
         .hero-dark-content { text-align: center; align-items: center; }
         .hero-dark-cta-row { justify-content: center; }
         .hero-dark-pills { justify-content: center; }
-        .hero-dark-phone-wrap { max-width: 320px; }
+        .hero-dark-phone-wrap { max-width: 100%; }
+        .phone-compare { flex-direction: column; gap: 24px; max-width: 300px; margin: 0 auto; }
+        .imsg-bubble { font-size: 13px; }
       }
     </style>
     <script>
@@ -2405,7 +2374,7 @@
             </span>
             <span class="hero-dark-feature-pill">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-              100% delivery &mdash; no spam filters
+              100% delivery &mdash; no A2P registration
             </span>
             <span class="hero-dark-feature-pill">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -2414,17 +2383,30 @@
           </div>
         </div>
 
-        <!-- Right column: iMessage mockup -->
+        <!-- Right column: SMS vs iMessage comparison -->
         <div class="hero-dark-phone-wrap">
           <div class="hero-dark-phone-glow hero-dark-phone-glow--blue"></div>
           <div class="hero-dark-phone-glow hero-dark-phone-glow--green"></div>
-          <div class="imsg-mockup" id="imsg-mockup">
-            <div class="imsg-header">
-              <div class="imsg-header-title">iMessage</div>
-              <div class="imsg-header-time">Today 3:56 PM</div>
+          <div class="phone-compare">
+            <div class="phone-compare-col">
+              <div class="phone-compare-label phone-compare-label--sms">SMS / A2P</div>
+              <div class="imsg-mockup imsg-mockup--sms" id="sms-mockup">
+                <div class="imsg-header">
+                  <div class="imsg-header-title">Text Message</div>
+                  <div class="imsg-header-time">Today 3:56 PM</div>
+                </div>
+                <div class="imsg-body"></div>
+              </div>
             </div>
-            <div class="imsg-body">
-              <!-- Messages will animate in via JS -->
+            <div class="phone-compare-col">
+              <div class="phone-compare-label phone-compare-label--imsg">iMessage</div>
+              <div class="imsg-mockup imsg-mockup--imsg" id="imsg-mockup">
+                <div class="imsg-header">
+                  <div class="imsg-header-title">iMessage with Sendblue</div>
+                  <div class="imsg-header-time">Today 3:56 PM</div>
+                </div>
+                <div class="imsg-body"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -2449,227 +2431,6 @@
             <div class="stat-num">80<span>%+</span></div>
             <div class="stat-label">Response Rate</div>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="stories-section">
-      <div class="stories-title">Watch Our Ads</div>
-      <div class="stories-row">
-        <div class="stories-item" data-video="Agencies.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Agencies.jpg" data-src="Agencies.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Agencies</div>
-        </div>
-        <div class="stories-item" data-video="Blender.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Blender.jpg" data-src="Blender.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Blender</div>
-        </div>
-        <div class="stories-item" data-video="Dating.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Dating.jpg" data-src="Dating.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Dating</div>
-        </div>
-        <div class="stories-item" data-video="Facetime.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Facetime.jpg" data-src="Facetime.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Facetime</div>
-        </div>
-        <div class="stories-item" data-video="Green.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Green.jpg" data-src="Green.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Green</div>
-        </div>
-        <div class="stories-item" data-video="Hubspot.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Hubspot.jpg" data-src="Hubspot.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Hubspot</div>
-        </div>
-        <div class="stories-item" data-video="Lending.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Lending.jpg" data-src="Lending.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Lending</div>
-        </div>
-        <div class="stories-item" data-video="Pills.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Pills.jpg" data-src="Pills.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Pills</div>
-        </div>
-        <div class="stories-item" data-video="Pointing.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Pointing.jpg" data-src="Pointing.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Pointing</div>
-        </div>
-        <div class="stories-item" data-video="Protest.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Protest.jpg" data-src="Protest.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Protest</div>
-        </div>
-        <div class="stories-item" data-video="Screening.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Screening.jpg" data-src="Screening.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Screening</div>
-        </div>
-        <div class="stories-item" data-video="Telemed.mp4">
-          <div class="stories-ring">
-            <div class="stories-thumb">
-              <video
-                poster="thumb-Telemed.jpg" data-src="Telemed.mp4#t=0.5"
-                muted
-                playsinline
-                preload="none"
-              ></video
-              ><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24">
-                <path
-                  d="M8 5.14v13.72a1 1 0 001.5.86l11.04-6.86a1 1 0 000-1.72L9.5 4.28a1 1 0 00-1.5.86z"
-                />
-              </svg>
-            </div>
-          </div>
-          <div class="stories-name">Telemed</div>
         </div>
       </div>
     </section>
@@ -2700,7 +2461,7 @@
           <div class="info-list-content">
             <h4>No carrier filtering</h4>
             <p>
-              SMS messages get silently dropped by carrier spam filters&mdash;even legitimate ones. iMessages go through Apple's servers, not carrier networks. Every message lands.
+              SMS messages require A2P carrier registration that causes delays and rejected campaigns. iMessages go through Apple's servers, not carrier networks. No registration required &mdash; every message lands.
             </p>
           </div>
         </div>
@@ -3073,9 +2834,9 @@
                 />
               </svg>
             </div>
-            <h3>Zero Spam</h3>
+            <h3>No A2P Registration</h3>
             <p>
-              iMessages bypass carrier spam filters entirely. SOC 2 Type 2 and
+              iMessages don't require A2P carrier registration. SOC 2 Type 2 and
               HIPAA compliant. Your messages always land.
             </p>
           </div>
@@ -3108,7 +2869,7 @@
         <div class="section-label"><span class="bar"></span> A2P vs iMessage</div>
         <div class="section-title">The A2P problem&mdash;and the iMessage solution</div>
         <p class="section-desc">
-          A2P registration was supposed to reduce spam. Instead it created months of delays, rejected campaigns, and silently filtered messages. Here's how Sendblue compares.
+          A2P registration was supposed to improve messaging. Instead it created months of delays, rejected campaigns, and silently filtered messages. Here's how Sendblue compares.
         </p>
         <div class="comparison">
           <div class="comparison-header">
@@ -3324,15 +3085,15 @@
               &#9733;&#9733;&#9733;&#9733;&#9733;
             </div>
             <blockquote>
-              Sendblue completely transformed our outreach. We went from 20%
-              response rates with SMS to consistently hitting 80%. The iMessage
-              integration is seamless.
+              Sendblue completely changed our outreach. We saw 3x higher
+              response rates with Sendblue. The iMessage integration is
+              seamless.
             </blockquote>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">JM</div>
+              <div class="testimonial-avatar">JH</div>
               <div>
-                <div class="testimonial-name">Jake M.</div>
-                <div class="testimonial-role">Sales Director, DopeFire</div>
+                <div class="testimonial-name">Josh H.</div>
+                <div class="testimonial-role">CSO &amp; Co-Founder</div>
               </div>
             </div>
           </div>
@@ -3341,15 +3102,14 @@
               &#9733;&#9733;&#9733;&#9733;&#9733;
             </div>
             <blockquote>
-              Our show rates jumped from 25% to over 50% after switching to
-              Sendblue. The fact that messages bypass spam filters is a game
-              changer for our team.
+              Our show rates jumped over 33% after switching to Sendblue. The
+              fact there is no A2P is a game changer for our team.
             </blockquote>
             <div class="testimonial-author">
               <div class="testimonial-avatar">SR</div>
               <div>
                 <div class="testimonial-name">Sarah R.</div>
-                <div class="testimonial-role">VP of Sales, LifeRx</div>
+                <div class="testimonial-role">Founder &amp; CEO</div>
               </div>
             </div>
           </div>
@@ -3358,14 +3118,15 @@
               &#9733;&#9733;&#9733;&#9733;&#9733;
             </div>
             <blockquote>
-              The CRM integration took minutes to set up. Now our entire team
-              messages from HubSpot without switching tools. It just works.
+              The CRM integration took minutes to set up. Almost immediately
+              we saw 40% more consultations taking place each week. It just
+              works.
             </blockquote>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">DP</div>
+              <div class="testimonial-avatar">BP</div>
               <div>
-                <div class="testimonial-name">David P.</div>
-                <div class="testimonial-role">Founder, Credit Captain</div>
+                <div class="testimonial-name">Brandon P.</div>
+                <div class="testimonial-role">Managing Partner</div>
               </div>
             </div>
           </div>
@@ -3394,7 +3155,7 @@
             Existing Lead Follow Up
           </button>
           <button class="poll-option" data-answer="answer-spam">
-            Spam Blockers
+            No A2P Registration
           </button>
         </div>
         <div class="poll-answer" id="answer-calls">
@@ -3409,8 +3170,8 @@
         <div class="poll-answer" id="answer-msgs">
           <h4>💬 iMessage at Scale</h4>
           <p>
-            iMessages land directly in your prospect's inbox with zero spam
-            filters. Blue bubbles get 98% open rates vs 20% for SMS. Connect
+            iMessages land directly in your prospect's inbox with no carrier
+            registration required. Blue bubbles get 98% response rates vs 20% for SMS. Connect
             your CRM and message new leads at scale — no A2P registration
             required.
           </p>
@@ -3424,11 +3185,11 @@
           </p>
         </div>
         <div class="poll-answer" id="answer-spam">
-          <h4>🛡️ Bypass Spam Filters Entirely</h4>
+          <h4>🛡️ Skip A2P Registration Entirely</h4>
           <p>
-            iMessages bypass carrier spam filters completely. Your messages
-            always land — no blocked numbers, no "message not delivered," no A2P
-            headaches. SOC 2 Type 2 and HIPAA compliant.
+            iMessages don't require A2P carrier registration. Your messages
+            always land — no 10DLC delays, no rejected campaigns, no carrier
+            compliance headaches. SOC 2 Type 2 and HIPAA compliant.
           </p>
         </div>
       </div>
@@ -3550,7 +3311,7 @@
             </button>
             <div class="faq-a">
               <p>
-                No. Carrier spam filters only apply to SMS/MMS messages that travel through telecom networks. iMessages are encrypted end-to-end and delivered through Apple's infrastructure. There are no carrier filters, no trust scores, and no silent message drops.
+                No. A2P carrier registration only applies to SMS/MMS messages that travel through telecom networks. iMessages are encrypted end-to-end and delivered through Apple's infrastructure. There's no registration required, no campaign approval process, and no silent message drops.
               </p>
             </div>
           </div>
@@ -3799,17 +3560,7 @@
               var t = s - e.changedTouches[0].clientX;
               Math.abs(t) > 50 && l(t > 0 ? a + 1 : a - 1);
             }));
-          var m = document.querySelectorAll(".stories-item");
-          m.forEach(function (e, t) {
-            e.addEventListener("click", function () {
-              var e = [];
-              (m.forEach(function (t) {
-                e.push(t.getAttribute("data-video"));
-              }),
-                d(e, t));
-            });
-          });
-          var v = document.querySelectorAll(".reels-card");
+var v = document.querySelectorAll(".reels-card");
           (v.forEach(function (e, t) {
             e.addEventListener("click", function () {
               var e = [];
@@ -3838,25 +3589,7 @@
       document.querySelectorAll(".reels-card").forEach(function (e) {
         reelsObs.observe(e);
       });
-      var storiesLazy = new IntersectionObserver(
-        function (e, t) {
-          e.forEach(function (e) {
-            if (e.isIntersecting) {
-              var n = e.target.querySelector("video");
-              (n &&
-                n.dataset.src &&
-                !n.src &&
-                ((n.src = n.dataset.src), n.load()),
-                t.unobserve(e.target));
-            }
-          });
-        },
-        { rootMargin: "200px" },
-      );
-      (document.querySelectorAll(".stories-item").forEach(function (e) {
-        storiesLazy.observe(e);
-      }),
-        document.querySelectorAll(".poll-option").forEach((e) => {
+      (document.querySelectorAll(".poll-option").forEach((e) => {
           e.addEventListener("click", () => {
             (document
               .querySelectorAll(".poll-option")
@@ -3954,62 +3687,79 @@
         })());
     </script>
     <script>
-      // iMessage animation
+      // SMS vs iMessage animation
       (function () {
-        var body = document.querySelector('#imsg-mockup .imsg-body');
-        if (!body) return;
+        var smsBody = document.querySelector('#sms-mockup .imsg-body');
+        var imsgBody = document.querySelector('#imsg-mockup .imsg-body');
+        if (!smsBody || !imsgBody) return;
 
-        var messages = [
-          { type: 'sent', text: 'Hi Andrew! Just confirming your Tuesday 2pm appointment' },
-          { type: 'received', text: 'Perfect! See you then' },
-          { type: 'sent', text: 'Also, can you text me the estimate when you get a chance?' },
-          { type: 'reaction', emoji: '👍' },
-          { type: 'sent', text: 'Sending it over now 👍' },
-          { type: 'delivered' }
+        var smsMessages = [
+          { type: 'sent-sms', text: 'Thanks for signing up! We\u2019ll text you the details here. Reply STOP to unsubscribe.' },
+          { type: 'received-stop', text: 'STOP' },
+          { type: 'sent-sms', text: 'You\u2019ve been unsubscribed. Reply START to resubscribe.' }
         ];
 
-        var delays = [0, 1200, 2400, 3800, 4400, 5600, 6200];
-        var totalCycle = 9000;
+        var imsgMessages = [
+          { type: 'sent', text: 'Hey! Thanks for signing up \u2014 this is Sam from Sendblue. Let\u2019s continue the conversation here.' },
+          { type: 'received', text: 'Thanks Sam! Excited to move forward.' },
+          { type: 'sent', text: 'Awesome \u2014 I\u2019ll send over a quick demo link now \ud83d\ude80' },
+          { type: 'delivered-read' }
+        ];
+
+        var smsDelays = [0, 2000, 3500];
+        var imsgDelays = [800, 3000, 5000, 6200];
+        var totalCycle = 10000;
+
+        function addBubble(body, className, text) {
+          var el = document.createElement('div');
+          el.className = 'imsg-bubble ' + className;
+          el.textContent = text;
+          body.appendChild(el);
+          body.scrollTop = body.scrollHeight;
+        }
+
+        function addTypingThenBubble(body, className, text, delay) {
+          var typing = document.createElement('div');
+          typing.className = 'imsg-typing';
+          typing.innerHTML = '<div class="imsg-typing-dot"></div><div class="imsg-typing-dot"></div><div class="imsg-typing-dot"></div>';
+          body.appendChild(typing);
+          body.scrollTop = body.scrollHeight;
+          setTimeout(function () {
+            typing.remove();
+            addBubble(body, className, text);
+          }, delay || 800);
+        }
 
         function runAnimation() {
-          body.innerHTML = '';
-          messages.forEach(function (msg, i) {
+          smsBody.innerHTML = '';
+          imsgBody.innerHTML = '';
+
+          // SMS side
+          smsMessages.forEach(function (msg, i) {
             setTimeout(function () {
-              var el;
+              if (msg.type === 'sent-sms') {
+                addBubble(smsBody, 'imsg-bubble--sent-sms', msg.text);
+              } else if (msg.type === 'received-stop') {
+                addTypingThenBubble(smsBody, 'imsg-bubble--received-stop', msg.text, 600);
+              }
+            }, smsDelays[i]);
+          });
+
+          // iMessage side
+          imsgMessages.forEach(function (msg, i) {
+            setTimeout(function () {
               if (msg.type === 'sent') {
-                el = document.createElement('div');
-                el.className = 'imsg-bubble imsg-bubble--sent';
-                el.textContent = msg.text;
+                addBubble(imsgBody, 'imsg-bubble--sent', msg.text);
               } else if (msg.type === 'received') {
-                // Show typing first
-                var typing = document.createElement('div');
-                typing.className = 'imsg-typing';
-                typing.innerHTML = '<div class="imsg-typing-dot"></div><div class="imsg-typing-dot"></div><div class="imsg-typing-dot"></div>';
-                body.appendChild(typing);
-                body.scrollTop = body.scrollHeight;
-                setTimeout(function () {
-                  typing.remove();
-                  var bubble = document.createElement('div');
-                  bubble.className = 'imsg-bubble imsg-bubble--received';
-                  bubble.textContent = msg.text;
-                  body.appendChild(bubble);
-                  body.scrollTop = body.scrollHeight;
-                }, 800);
-                return;
-              } else if (msg.type === 'reaction') {
-                el = document.createElement('div');
-                el.className = 'imsg-reaction';
-                el.textContent = msg.emoji;
-              } else if (msg.type === 'delivered') {
-                el = document.createElement('div');
-                el.className = 'imsg-delivered';
-                el.textContent = 'Delivered';
+                addTypingThenBubble(imsgBody, 'imsg-bubble--received', msg.text, 800);
+              } else if (msg.type === 'delivered-read') {
+                var el = document.createElement('div');
+                el.className = 'imsg-delivered imsg-delivered--read';
+                el.textContent = 'Read 3:57 PM';
+                imsgBody.appendChild(el);
+                imsgBody.scrollTop = imsgBody.scrollHeight;
               }
-              if (el) {
-                body.appendChild(el);
-                body.scrollTop = body.scrollHeight;
-              }
-            }, delays[i]);
+            }, imsgDelays[i]);
           });
         }
 

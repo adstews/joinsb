@@ -631,90 +631,8 @@
           transform: translateY(0);
         }
       }
-      .stories-section {
-        display: none;
-        padding: 32px 0 0;
-      }
-      .stories-title {
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--heading);
-        padding: 0 16px;
-        margin-bottom: 14px;
-      }
-      .stories-row {
-        display: flex;
-        gap: 12px;
-        overflow-x: auto;
-        padding: 0 16px 8px;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      .stories-row::-webkit-scrollbar {
-        display: none;
-      }
-      .stories-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        flex-shrink: 0;
-        cursor: pointer;
-      }
-      .stories-ring {
-        width: 74px;
-        height: 74px;
-        border-radius: 50%;
-        background: conic-gradient(
-          from 180deg,
-          #f58529,
-          #dd2a7b,
-          #8134af,
-          #515bd4,
-          #8134af,
-          #dd2a7b,
-          #f58529
-        );
-        padding: 3px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .stories-thumb {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 3px solid var(--bg);
-        object-fit: cover;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .stories-thumb video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        position: absolute;
-        inset: 0;
-      }
-      .stories-thumb svg {
-        position: relative;
-        z-index: 1;
-        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
-        flex-shrink: 0;
-      }
-      .stories-name {
-        font-size: 11px;
-        color: var(--text-muted);
-        max-width: 72px;
-        text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
       .glass-notif {
+        display: none !important;
         position: fixed;
         top: 12px;
         left: 50%;
@@ -1240,6 +1158,7 @@
         }
       }
       .social-proof {
+        display: none;
         padding: 80px 0;
         overflow: hidden;
       }
@@ -1893,9 +1812,6 @@
           flex-direction: column;
           gap: 16px;
           text-align: center;
-        }
-        .stories-section {
-          display: block;
         }
         .reels-section {
           display: block;
@@ -2704,8 +2620,8 @@
             </div>
             <h3>Legal Services</h3>
             <p>
-              Direct client communication without carrier filtering or spam
-              flags.
+              Direct client communication without A2P registration or carrier
+              restrictions.
             </p>
           </div>
           <div class="industry-card">
@@ -2830,8 +2746,8 @@
             </div>
             <h3>Legal Services</h3>
             <p>
-              Direct client communication without carrier filtering or spam
-              flags.
+              Direct client communication without A2P registration or carrier
+              restrictions.
             </p>
           </div>
           <div class="industry-card">
@@ -2956,8 +2872,8 @@
             </div>
             <h3>Legal Services</h3>
             <p>
-              Direct client communication without carrier filtering or spam
-              flags.
+              Direct client communication without A2P registration or carrier
+              restrictions.
             </p>
           </div>
           <div class="industry-card">
@@ -3008,9 +2924,9 @@
             <div>2-3 weeks</div>
           </div>
           <div class="comparison-row">
-            <div>Spam Filtering</div>
-            <div><span class="check">Bypassed entirely</span></div>
-            <div><span class="cross">Frequently blocked</span></div>
+            <div>A2P Registration</div>
+            <div><span class="check">Not required</span></div>
+            <div><span class="cross">Required &amp; restrictive</span></div>
           </div>
           <div class="comparison-row">
             <div>Rich Media</div>
@@ -3200,15 +3116,15 @@
               &#9733;&#9733;&#9733;&#9733;&#9733;
             </div>
             <blockquote>
-              Sendblue completely transformed our outreach. We went from 20%
-              response rates with SMS to consistently hitting 80%. The iMessage
-              integration is seamless.
+              Sendblue completely changed our outreach. We saw 3x higher
+              response rates with Sendblue. The iMessage integration is
+              seamless.
             </blockquote>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">JM</div>
+              <div class="testimonial-avatar">JH</div>
               <div>
-                <div class="testimonial-name">Jake M.</div>
-                <div class="testimonial-role">Sales Director, DopeFire</div>
+                <div class="testimonial-name">Josh H.</div>
+                <div class="testimonial-role">CSO &amp; Co-Founder</div>
               </div>
             </div>
           </div>
@@ -3217,15 +3133,14 @@
               &#9733;&#9733;&#9733;&#9733;&#9733;
             </div>
             <blockquote>
-              Our show rates jumped from 25% to over 50% after switching to
-              Sendblue. The fact that messages bypass spam filters is a game
-              changer for our team.
+              Our show rates jumped over 33% after switching to Sendblue. The
+              fact there is no A2P is a game changer for our team.
             </blockquote>
             <div class="testimonial-author">
               <div class="testimonial-avatar">SR</div>
               <div>
                 <div class="testimonial-name">Sarah R.</div>
-                <div class="testimonial-role">VP of Sales, LifeRx</div>
+                <div class="testimonial-role">Founder &amp; CEO</div>
               </div>
             </div>
           </div>
@@ -3234,14 +3149,15 @@
               &#9733;&#9733;&#9733;&#9733;&#9733;
             </div>
             <blockquote>
-              The CRM integration took minutes to set up. Now our entire team
-              messages from HubSpot without switching tools. It just works.
+              The CRM integration took minutes to set up. Almost immediately
+              we saw 40% more consultations taking place each week. It just
+              works.
             </blockquote>
             <div class="testimonial-author">
-              <div class="testimonial-avatar">DP</div>
+              <div class="testimonial-avatar">BP</div>
               <div>
-                <div class="testimonial-name">David P.</div>
-                <div class="testimonial-role">Founder, Credit Captain</div>
+                <div class="testimonial-name">Brandon P.</div>
+                <div class="testimonial-role">Managing Partner</div>
               </div>
             </div>
           </div>
@@ -3269,8 +3185,8 @@
           <button class="poll-option" data-answer="answer-followup">
             Existing Lead Follow Up
           </button>
-          <button class="poll-option" data-answer="answer-spam">
-            Spam Blockers
+          <button class="poll-option" data-answer="answer-a2p">
+            No A2P Registration
           </button>
         </div>
         <div class="poll-answer" id="answer-calls">
@@ -3285,10 +3201,8 @@
         <div class="poll-answer" id="answer-msgs">
           <h4>💬 iMessage at Scale</h4>
           <p>
-            iMessages land directly in your prospect's inbox with zero spam
-            filters. Blue bubbles get 98% open rates vs 20% for SMS. Connect
-            your CRM and message new leads at scale — no A2P registration
-            required.
+            iMessages land directly in your prospect's inbox with no A2P registration required. Blue bubbles get 98% response rates vs 20% for SMS. Connect
+            your CRM and message new leads at scale — just connect and send.
           </p>
         </div>
         <div class="poll-answer" id="answer-followup">
@@ -3299,12 +3213,12 @@
             cracks — all running hands-free from your CRM.
           </p>
         </div>
-        <div class="poll-answer" id="answer-spam">
-          <h4>🛡️ Bypass Spam Filters Entirely</h4>
+        <div class="poll-answer" id="answer-a2p">
+          <h4>🛡️ Skip A2P Registration Entirely</h4>
           <p>
-            iMessages bypass carrier spam filters completely. Your messages
-            always land — no blocked numbers, no "message not delivered," no A2P
-            headaches. SOC 2 Type 2 and HIPAA compliant.
+            iMessages don't require A2P carrier registration. Your messages
+            always land — no carrier restrictions, no "message not delivered," no
+            registration headaches. SOC 2 Type 2 and HIPAA compliant.
           </p>
         </div>
       </div>
@@ -3740,17 +3654,7 @@
               var t = s - e.changedTouches[0].clientX;
               Math.abs(t) > 50 && l(t > 0 ? a + 1 : a - 1);
             }));
-          var m = document.querySelectorAll(".stories-item");
-          m.forEach(function (e, t) {
-            e.addEventListener("click", function () {
-              var e = [];
-              (m.forEach(function (t) {
-                e.push(t.getAttribute("data-video"));
-              }),
-                d(e, t));
-            });
-          });
-          var v = document.querySelectorAll(".reels-card");
+var v = document.querySelectorAll(".reels-card");
           (v.forEach(function (e, t) {
             e.addEventListener("click", function () {
               var e = [];
@@ -3779,25 +3683,7 @@
       document.querySelectorAll(".reels-card").forEach(function (e) {
         reelsObs.observe(e);
       });
-      var storiesLazy = new IntersectionObserver(
-        function (e, t) {
-          e.forEach(function (e) {
-            if (e.isIntersecting) {
-              var n = e.target.querySelector("video");
-              (n &&
-                n.dataset.src &&
-                !n.src &&
-                ((n.src = n.dataset.src), n.load()),
-                t.unobserve(e.target));
-            }
-          });
-        },
-        { rootMargin: "200px" },
-      );
-      (document.querySelectorAll(".stories-item").forEach(function (e) {
-        storiesLazy.observe(e);
-      }),
-        document.querySelectorAll(".poll-option").forEach((e) => {
+      (document.querySelectorAll(".poll-option").forEach((e) => {
           e.addEventListener("click", () => {
             (document
               .querySelectorAll(".poll-option")

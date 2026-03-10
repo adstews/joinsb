@@ -3335,6 +3335,7 @@
         }),
         (function () {
           const e = document.querySelectorAll(".platform-tag-slide");
+          if (!e.length) return;
           let t = 0;
           setInterval(() => {
             (e[t].classList.remove("active"),

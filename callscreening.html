@@ -22,6 +22,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <style>.ph-hide-element{opacity:0 !important;transition:opacity 0.2s}</style>
     <style>
       *,
       ::after,
@@ -2307,9 +2308,11 @@
         <h1 class="hero-h7-heading">Stop showing up as <span class="accent">&ldquo;Spam Risk.&rdquo;</span></h1>
         <p class="hero-h7-sub">iOS call screening silently kills your outbound calls. FaceTime Audio bypasses it entirely.</p>
 
-        <div id="hero-iframe-variant" class="iclosed-widget iclosed-widget-hero" data-url="https://app.iclosed.io/e/sendblue/sendblue-demo-7" title="Sendblue Demo" style="display:none;width:100%;max-width:700px;height:620px;margin:32px auto 0"></div>
-        <div id="hero-button-variant" style="display:none;text-align:center;margin:32px auto 40px">
-          <a href="#cta" class="hero-demo-btn" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:12px;background:var(--blue);color:#fff;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;font-weight:600;text-decoration:none;transition:background 0.2s;box-shadow:0 4px 14px rgba(37,99,235,0.3)">Request a demo ↘</a>
+        <div class="ph-hide-element" id="callscreening-cta">
+          <div id="hero-iframe-variant" class="iclosed-widget iclosed-widget-hero" data-url="https://app.iclosed.io/e/sendblue/sendblue-demo-7" title="Sendblue Demo" style="display:none;width:100%;max-width:700px;height:620px;margin:32px auto 0"></div>
+          <div id="hero-button-variant" style="display:none;text-align:center;margin:32px auto 40px">
+            <a href="#cta" class="hero-demo-btn" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:12px;background:var(--blue);color:#fff;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;font-weight:600;text-decoration:none;transition:background 0.2s;box-shadow:0 4px 14px rgba(37,99,235,0.3)">Request a demo ↘</a>
+          </div>
         </div>
 
         <div class="hero-h7-grid">
@@ -3528,6 +3531,7 @@ var v = document.querySelectorAll(".reels-card");
         loaded: function(posthog) {
           posthog.onFeatureFlags(function() {
             var variant = posthog.getFeatureFlag('callscreening-button-vs-iframe');
+            var ctaWrap = document.getElementById('callscreening-cta');
             var iframeEl = document.getElementById('hero-iframe-variant');
             var buttonEl = document.getElementById('hero-button-variant');
             if (variant === 'test') {
@@ -3537,6 +3541,8 @@ var v = document.querySelectorAll(".reels-card");
               iframeEl.style.display = 'none';
               buttonEl.style.display = '';
             }
+            ctaWrap.style.opacity = '1';
+            ctaWrap.classList.remove('ph-hide-element');
           });
         }
       });

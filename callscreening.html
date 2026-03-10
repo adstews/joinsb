@@ -871,8 +871,14 @@
         text-decoration: none;
         white-space: nowrap;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        transition: all 0.15s;
+        transition: all 0.3s;
         z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .sticky-demo-btn.visible {
+        opacity: 1;
+        pointer-events: auto;
       }
       .sticky-demo-btn:hover {
         border-color: var(--blue);
@@ -1824,9 +1830,9 @@
       }
 
       /* ── Header 7: Dark Comparison Hero ── */
-      .hero-h7 {
+      .hero.hero-h7 {
         background: #080c16;
-        padding: 120px 24px 60px;
+        padding: 60px 24px 60px;
         text-align: center;
         overflow: hidden;
       }
@@ -2301,7 +2307,10 @@
         <h1 class="hero-h7-heading">Stop showing up as <span class="accent">&ldquo;Spam Risk.&rdquo;</span></h1>
         <p class="hero-h7-sub">iOS call screening silently kills your outbound calls. FaceTime Audio bypasses it entirely.</p>
 
-        <div class="iclosed-widget iclosed-widget-hero" data-url="https://app.iclosed.io/e/sendblue/sendblue-demo-7" title="Sendblue Demo" style="width:100%;max-width:700px;height:620px;margin:32px auto 0"></div>
+        <div id="hero-iframe-variant" class="iclosed-widget iclosed-widget-hero" data-url="https://app.iclosed.io/e/sendblue/sendblue-demo-7" title="Sendblue Demo" style="display:none;width:100%;max-width:700px;height:620px;margin:32px auto 0"></div>
+        <div id="hero-button-variant" style="display:none;text-align:center;margin:32px auto 40px">
+          <a href="#cta" class="hero-demo-btn" style="display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:12px;background:var(--blue);color:#fff;font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:16px;font-weight:600;text-decoration:none;transition:background 0.2s;box-shadow:0 4px 14px rgba(37,99,235,0.3)">Request a demo ↘</a>
+        </div>
 
         <div class="hero-h7-grid">
           <!-- Regular Call Card -->
@@ -3508,6 +3517,28 @@ var v = document.querySelectorAll(".reels-card");
             });
           });
         })());
+      (function(){var btn=document.querySelector('.sticky-demo-btn');if(!btn)return;window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>400)},{passive:true})})();
+    </script>
+    <script>
+      !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+      posthog.init('phc_PDFgWnjGUErEQ1Kreeh8l8yXfUMwKpgUPZCf9y5oxH2', {
+        api_host: 'https://us.i.posthog.com',
+        person_profiles: 'identified_only',
+        loaded: function(posthog) {
+          posthog.onFeatureFlags(function() {
+            var variant = posthog.getFeatureFlag('callscreening-button-vs-iframe');
+            var iframeEl = document.getElementById('hero-iframe-variant');
+            var buttonEl = document.getElementById('hero-button-variant');
+            if (variant === 'test') {
+              iframeEl.style.display = '';
+              buttonEl.style.display = 'none';
+            } else {
+              iframeEl.style.display = 'none';
+              buttonEl.style.display = '';
+            }
+          });
+        }
+      });
     </script>
   <script defer src="/_vercel/speed-insights/script.js"></script></body>
 </html>

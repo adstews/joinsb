@@ -3536,6 +3536,13 @@ var v = document.querySelectorAll(".reels-card");
             var ctaWrap = document.getElementById('callscreening-cta');
             var iframeEl = document.getElementById('hero-iframe-variant');
             var buttonEl = document.getElementById('hero-button-variant');
+            var utmTag = variant === 'test' ? 'hero-iframe' : 'hero-button';
+            document.querySelectorAll('.iclosed-widget').forEach(function(w) {
+              var url = w.getAttribute('data-url');
+              if (url && url.indexOf('utm_content') === -1) {
+                w.setAttribute('data-url', url + (url.indexOf('?') === -1 ? '?' : '&') + 'utm_content=' + utmTag);
+              }
+            });
             if (variant === 'test') {
               iframeEl.style.display = '';
               buttonEl.style.display = 'none';

@@ -3697,7 +3697,7 @@ var v = document.querySelectorAll(".reels-card");
               "Enter" === e.key && c.click();
             }));
         })(),
-        (function(){var btn=document.querySelector('.sticky-demo-btn');if(!btn)return;window.addEventListener('scroll',function(){btn.classList.toggle('visible',window.scrollY>400)},{passive:true})})(),
+        (function(){var btn=document.querySelector('.sticky-demo-btn');if(!btn)return;var cta=document.getElementById('cta');window.addEventListener('scroll',function(){var scrolled=window.scrollY>400;var atCta=cta&&cta.getBoundingClientRect().top<window.innerHeight;btn.classList.toggle('visible',scrolled&&!atCta)},{passive:true})})(),
         (function () {
           var e = document.querySelectorAll(".story-row .story-item");
           e.forEach(function (t) {

@@ -756,6 +756,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 // Platform tag rotation
 (function(){
   const slides = document.querySelectorAll('.platform-tag-slide');
+  if (!slides.length) return;
   let current = 0;
   setInterval(() => {
     slides[current].classList.remove('active');

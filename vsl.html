@@ -84,14 +84,16 @@
 
       /* === VIDEO === */
       .vsl-video-wrap {
-        max-width: 900px;
+        max-width: 450px;
         margin: 0 auto 40px;
         padding: 0 24px;
       }
       .vsl-video {
+        position: relative;
         border-radius: 12px;
         box-shadow: 0 8px 30px rgba(0,0,0,0.12);
         overflow: hidden;
+        cursor: pointer;
       }
       .vsl-video video {
         display: block;
@@ -360,6 +362,21 @@
         <a href="https://www.sendblue.com/privacy-policy">Privacy Policy</a>
       </div>
     </footer>
+
+    <!-- Click anywhere on video to play/pause -->
+    <script>
+      (function(){
+        var wrap = document.querySelector('.vsl-video');
+        if (!wrap) return;
+        var vid = wrap.querySelector('video');
+        if (!vid) return;
+        wrap.addEventListener('click', function(e) {
+          if (e.target.closest('.vsl-video') && e.target.tagName !== 'A') {
+            if (vid.paused) { vid.play(); } else { vid.pause(); }
+          }
+        });
+      })();
+    </script>
 
     <!-- iClosed Widget Script -->
     <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>

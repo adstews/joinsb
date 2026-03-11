@@ -17,7 +17,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://app.iclosed.io" crossorigin />
     <link rel="preload" href="https://app.iclosed.io/assets/widget.js" as="script" />
-    <link rel="preconnect" href="https://fast.wistia.net" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -90,20 +89,15 @@
         padding: 0 24px;
       }
       .vsl-video {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
         border-radius: 12px;
         box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        overflow: hidden;
       }
-      .vsl-video iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
+      .vsl-video video {
+        display: block;
         width: 100%;
-        height: 100%;
-        border: 0;
+        height: auto;
+        border-radius: 12px;
       }
 
       /* === CTA BUTTON === */
@@ -259,13 +253,15 @@
     <!-- VIDEO -->
     <div class="vsl-video-wrap" id="case-study">
       <div class="vsl-video">
-        <iframe
-          src="https://fast.wistia.net/embed/iframe/pg17ne3uqc?autoplay=0&wmode=transparent"
-          allowtransparency="true"
-          scrolling="no"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster="vsl-poster.jpg"
+        >
+          <source src="vsl-case-study.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
 

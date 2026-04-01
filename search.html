@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>iMessage API for CRM — Send iMessages from HubSpot, Salesforce, GoHighLevel | Sendblue</title>
+    <meta
+      name="description"
+      content="Integrate iMessage with your CRM. Send and receive iMessages directly from HubSpot, Salesforce, and GoHighLevel. Blue bubble messaging for sales teams."
+    />
+    <meta property="og:title" content="iMessage API for CRM — Send iMessages from HubSpot, Salesforce, GoHighLevel | Sendblue" />
+    <meta property="og:description" content="Integrate iMessage with your CRM. Send and receive iMessages directly from HubSpot, Salesforce, and GoHighLevel. Blue bubble messaging for sales teams." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://app.iclosed.io" crossorigin />
+    <link rel="preload" href="https://app.iclosed.io/assets/widget.js" as="script" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TL27X92C');</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5G77TBSB');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Hyros -->
+    <script>var head=document.head,script=document.createElement("script");((script.type="text/javascript"),(script.async=!0),(script.src="https://210016.t.hyros.com/v1/lst/universal-script?ph=8eab8ba789927c4c9ec63d8158dc7765f6f5b59f6b4e1359df1f901b321ddad7&tag=!clicked&ref_url="+encodeURI(document.URL)),head.appendChild(script));</script>
+    <!-- Meta Pixel -->
+    <script>(!(function(e,t,n,c,o,a,f){e.fbq||((o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)}),e._fbq||(e._fbq=o),(o.push=o),(o.loaded=!0),(o.version="2.0"),(o.queue=[]),((a=t.createElement(n)).async=!0),(a.src="https://connect.facebook.net/en_US/fbevents.js"),(f=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,f))})(window,document,"script"),fbq("init","1328875655536718"),fbq("track","PageView"));</script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1328875655536718&ev=PageView&noscript=1"/></noscript>
+    <style>
+      /* === FONTS === */
+      @font-face {
+        font-family: 'Aeonik';
+        src: url('https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/66edf6078b47584cfeee4b86_AeonikProTRIAL-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Aeonik';
+        src: url('https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/66edf6078b47584cfeee4b9d_Aeonik%20Pro%20Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Aeonik';
+        src: url('https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/66edf6078b47584cfeee4b8a_AeonikProTRIAL-Light.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Aeonik';
+        src: url('https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/66edf6078b47584cfeee4b87_AeonikProTRIAL-Bold.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Albra';
+        src: url('https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/66edf6078b47584cfeee4b8f_AlbraText-MediumItalic.otf') format('opentype');
+        font-weight: 500;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      /* === RESET === */
+      *, ::after, ::before { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+      body {
+        font-family: 'Aeonik', sans-serif;
+        background: #fff;
+        color: #282943;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        overflow-x: hidden;
+      }
+      a { color: inherit; text-decoration: none; }
+      img { max-width: 100%; height: auto; display: block; }
+
+      /* === HERO === */
+      .hero {
+        padding: 80px 24px 32px;
+        text-align: center;
+      }
+      .hero-content {
+        max-width: 752px;
+        margin: 0 auto;
+      }
+      .hero h1 {
+        font-family: 'Aeonik', sans-serif;
+        font-size: 64px;
+        font-weight: 400;
+        line-height: 1.1;
+        color: #282943;
+        margin: 0 0 16px;
+      }
+      .hero h1 em {
+        font-family: 'Albra', serif;
+        font-style: italic;
+        font-weight: 500;
+        color: #008bff;
+      }
+      .hero-sub {
+        font-size: 20px;
+        font-weight: 400;
+        color: #9c9dad;
+        margin: 0 0 24px;
+        line-height: 1.5;
+      }
+      .hero-sub strong { color: #282943; }
+      .hero-sub .blue { color: #008bff; }
+
+      /* === BUTTON === */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px 8px;
+        background: #008bff;
+        color: #fff;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        text-decoration: none;
+      }
+      .btn:hover { background: #0070d6; transform: translateY(-1px); }
+      .btn.is-dark {
+        background: #282943;
+      }
+      .btn.is-dark:hover { background: #3a3b5c; }
+      .btn .icon { display: flex; }
+
+      /* === PHONE + FORM === */
+      .phone-form-wrap {
+        position: relative;
+        width: 456px;
+        margin: 32px auto 0;
+        overflow: visible;
+      }
+      .phone-frame {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+      }
+      .phone-frame img {
+        width: 100%;
+        display: block;
+      }
+      .phone-form {
+        position: relative;
+        z-index: 2;
+        width: 400px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: -686px;
+        margin-bottom: 186px;
+        overflow: hidden;
+      }
+      .phone-form .iclosed-widget,
+      .phone-form iframe {
+        overflow: hidden;
+      }
+      /* Hide any cookie consent banners injected by third-party widgets */
+      [data-cky-tag], .cky-consent-container, .cky-btn-revisit-wrapper,
+      .cky-overlay, .cky-modal { display: none !important; }
+
+      /* === DASHBOARD VISUALS === */
+      .dashboard-section {
+        padding: 32px 24px 48px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 24px;
+        align-items: start;
+      }
+      .dashboard-grid img {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      }
+
+      /* === LOGOS === */
+      .logos-section {
+        padding: 48px 24px;
+        text-align: center;
+      }
+      .logos-rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #9c9dad;
+      }
+      .logos-rating .stars { display: flex; gap: 2px; }
+      .logos-rating .stars svg { width: 20px; height: 20px; }
+      .logos-rating .divider {
+        width: 1px;
+        height: 20px;
+        background: #e2e8f0;
+      }
+      .logos-rating img.avatars { width: 60px; height: auto; }
+      .logos-marquee {
+        overflow: hidden;
+        position: relative;
+        padding: 8px 0;
+      }
+      .logos-marquee::before,
+      .logos-marquee::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 80px;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .logos-marquee::before { left: 0; background: linear-gradient(90deg, #fff, transparent); }
+      .logos-marquee::after { right: 0; background: linear-gradient(270deg, #fff, transparent); }
+      .logos-track {
+        display: flex;
+        gap: 48px;
+        align-items: center;
+        animation: marquee 30s linear infinite;
+        width: max-content;
+      }
+      .logos-track img {
+        height: 32px;
+        width: auto;
+        opacity: 0.7;
+        filter: grayscale(100%);
+        transition: opacity 0.2s, filter 0.2s;
+      }
+      .logos-track img:hover { opacity: 1; filter: none; }
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* === FAQ === */
+      .faq-section {
+        padding: 80px 24px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .faq-section h2 {
+        text-align: center;
+        font-family: 'Aeonik', sans-serif;
+        font-size: 80px;
+        font-weight: 400;
+        color: #282943;
+        margin-bottom: 48px;
+        line-height: 1.1;
+      }
+      .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .faq-col {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .faq-item {
+        background: #f9fafb;
+        border: 1px solid #f3f3f6;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .faq-q {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px;
+        cursor: pointer;
+        gap: 12px;
+      }
+      .faq-q span {
+        font-size: 16px;
+        font-weight: 400;
+        color: #282943;
+      }
+      .faq-plus {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        position: relative;
+      }
+      .faq-plus::before,
+      .faq-plus::after {
+        content: '';
+        position: absolute;
+        background: #282943;
+        border-radius: 1px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s;
+      }
+      .faq-plus::before {
+        width: 16px;
+        height: 2px;
+      }
+      .faq-plus::after {
+        width: 2px;
+        height: 16px;
+      }
+      .faq-item.open .faq-plus::after {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        font-size: 16px;
+        font-weight: 400;
+        color: #9c9dad;
+        line-height: 1.6;
+        padding: 0 16px;
+      }
+      .faq-item.open .faq-a {
+        max-height: 200px;
+        padding: 0 16px 16px;
+      }
+
+      /* === SECONDARY CTA === */
+      .secondary-cta {
+        text-align: center;
+        padding: 48px 24px;
+      }
+
+      /* === FOOTER === */
+      .footer {
+        padding: 80px 24px 48px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .footer-top {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 48px;
+        margin-bottom: 48px;
+      }
+      .footer-cta h3 {
+        font-family: 'Aeonik', sans-serif;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 1.1;
+        color: #282943;
+        margin-bottom: 12px;
+      }
+      .footer-cta h3 em {
+        font-family: 'Albra', serif;
+        font-style: italic;
+        font-weight: 500;
+        color: #008bff;
+      }
+      .footer-cta p {
+        font-size: 16px;
+        color: #9c9dad;
+        margin-bottom: 20px;
+      }
+      .footer-links-wrap {
+        display: flex;
+        gap: 48px;
+        flex-wrap: wrap;
+      }
+      .footer-links-group h4 {
+        font-size: 14px;
+        font-weight: 400;
+        color: #9c9dad;
+        margin-bottom: 12px;
+      }
+      .footer-links-group a {
+        display: block;
+        font-size: 14px;
+        color: #282943;
+        margin-bottom: 8px;
+        transition: color 0.2s;
+      }
+      .footer-links-group a:hover { color: #008bff; }
+      .footer-bottom {
+        border-top: 1px solid #f3f3f6;
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .footer-copy {
+        font-size: 14px;
+        color: #9c9dad;
+      }
+      .footer-copy a { color: #9c9dad; }
+      .footer-copy a:hover { color: #282943; }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 991px) {
+        .hero h1 { font-size: 48px; }
+        .faq-section h2 { font-size: 56px; }
+        .footer-cta h3 { font-size: 36px; }
+      }
+      @media (max-width: 767px) {
+        .hero { padding: 48px 16px 24px; }
+        .hero h1 { font-size: 40px; line-height: 48px; }
+        .hero-sub { font-size: 16px; }
+        .phone-form-wrap { width: 257px; }
+        .phone-form {
+          width: 322px;
+          margin-top: -459px;
+        }
+        .dashboard-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .faq-section h2 { font-size: 40px; }
+        .faq-grid { grid-template-columns: 1fr; }
+        .faq-section { padding: 48px 16px; }
+        .footer-top { flex-direction: column; gap: 32px; }
+        .footer-cta h3 { font-size: 32px; }
+        .footer { padding: 48px 16px 32px; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL27X92C" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5G77TBSB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Start Sending <em>iMessage </em>From Your CRM</h1>
+        <p class="hero-sub">
+          And boost your response Rate <strong>by 2X</strong>...<br>
+          <span class="blue">...which means <strong>2X</strong> more sales calls</span>
+        </p>
+        <a href="#form" class="btn">
+          <span>Request a demo</span>
+          <span class="icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M11.334 4.668V11.335H4.667" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.667 4.668L11.334 11.335" stroke="currentColor" stroke-width="1.333" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+
+      <!-- PHONE WITH FORM INSIDE -->
+      <div class="phone-form-wrap">
+        <div class="phone-frame">
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/680f17f4cbc45eaee20e65f3_phone.png"
+            alt="iPhone showing iMessage conversation via Sendblue"
+            width="636"
+          />
+        </div>
+        <div class="phone-form" id="form">
+          <div
+            class="iclosed-widget"
+            data-url="https://app.iclosed.io/e/sendblue/get-sendblue-demo"
+            title="Get Sendblue iMessage"
+            style="width: 100%; height: 501px"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DASHBOARD VISUALS -->
+    <section class="dashboard-section">
+      <div class="dashboard-grid">
+        <img
+          src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f622fedc18e2366277f418_Frame%20282-p-800.avif"
+          alt="Sendblue dashboard"
+          width="636"
+        />
+        <img
+          src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f622fe8bf41a1054f6fbad_Frame%20280.avif"
+          alt="48% increase in call show up rate"
+          width="306"
+        />
+        <img
+          src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f622fe7a3b1576e5553e66_Frame%20281.avif"
+          alt="3X response rate"
+          width="306"
+        />
+      </div>
+    </section>
+
+    <!-- LOGOS -->
+    <section class="logos-section">
+      <div class="logos-rating">
+        <div class="stars">
+          <svg viewBox="0 0 21 20" fill="none"><path d="M9.547 2.605c.469-.889 1.742-.889 2.211 0l1.664 3.154a1.5 1.5 0 0 0 .892.649l3.514.608c.99.171 1.384 1.382.684 2.103l-2.486 2.557a1.5 1.5 0 0 0-.34 1.05l.508 3.529c.143.995-.887 1.743-1.789 1.3l-3.2-1.574a1.5 1.5 0 0 0-1.103 0l-3.2 1.574c-.902.443-1.932-.305-1.789-1.3l.508-3.53a1.5 1.5 0 0 0-.34-1.049L2.793 9.119c-.7-.72-.307-1.931.684-2.103l3.514-.608a1.5 1.5 0 0 0 .892-.649l1.664-3.154Z" fill="url(#sg)"/><defs><linearGradient id="sg" x1="10.65" y1="20.5" x2="10.65" y2=".5" gradientUnits="userSpaceOnUse"><stop stop-color="#008BFF"/><stop offset="1" stop-color="#55AFFB"/></linearGradient></defs></svg>
+          <svg viewBox="0 0 21 20" fill="none"><path d="M9.547 2.605c.469-.889 1.742-.889 2.211 0l1.664 3.154a1.5 1.5 0 0 0 .892.649l3.514.608c.99.171 1.384 1.382.684 2.103l-2.486 2.557a1.5 1.5 0 0 0-.34 1.05l.508 3.529c.143.995-.887 1.743-1.789 1.3l-3.2-1.574a1.5 1.5 0 0 0-1.103 0l-3.2 1.574c-.902.443-1.932-.305-1.789-1.3l.508-3.53a1.5 1.5 0 0 0-.34-1.049L2.793 9.119c-.7-.72-.307-1.931.684-2.103l3.514-.608a1.5 1.5 0 0 0 .892-.649l1.664-3.154Z" fill="url(#sg)"/></svg>
+          <svg viewBox="0 0 21 20" fill="none"><path d="M9.547 2.605c.469-.889 1.742-.889 2.211 0l1.664 3.154a1.5 1.5 0 0 0 .892.649l3.514.608c.99.171 1.384 1.382.684 2.103l-2.486 2.557a1.5 1.5 0 0 0-.34 1.05l.508 3.529c.143.995-.887 1.743-1.789 1.3l-3.2-1.574a1.5 1.5 0 0 0-1.103 0l-3.2 1.574c-.902.443-1.932-.305-1.789-1.3l.508-3.53a1.5 1.5 0 0 0-.34-1.049L2.793 9.119c-.7-.72-.307-1.931.684-2.103l3.514-.608a1.5 1.5 0 0 0 .892-.649l1.664-3.154Z" fill="url(#sg)"/></svg>
+          <svg viewBox="0 0 21 20" fill="none"><path d="M9.547 2.605c.469-.889 1.742-.889 2.211 0l1.664 3.154a1.5 1.5 0 0 0 .892.649l3.514.608c.99.171 1.384 1.382.684 2.103l-2.486 2.557a1.5 1.5 0 0 0-.34 1.05l.508 3.529c.143.995-.887 1.743-1.789 1.3l-3.2-1.574a1.5 1.5 0 0 0-1.103 0l-3.2 1.574c-.902.443-1.932-.305-1.789-1.3l.508-3.53a1.5 1.5 0 0 0-.34-1.049L2.793 9.119c-.7-.72-.307-1.931.684-2.103l3.514-.608a1.5 1.5 0 0 0 .892-.649l1.664-3.154Z" fill="url(#sg)"/></svg>
+          <svg viewBox="0 0 21 20" fill="none"><path d="M9.547 2.605c.469-.889 1.742-.889 2.211 0l1.664 3.154a1.5 1.5 0 0 0 .892.649l3.514.608c.99.171 1.384 1.382.684 2.103l-2.486 2.557a1.5 1.5 0 0 0-.34 1.05l.508 3.529c.143.995-.887 1.743-1.789 1.3l-3.2-1.574a1.5 1.5 0 0 0-1.103 0l-3.2 1.574c-.902.443-1.932-.305-1.789-1.3l.508-3.53a1.5 1.5 0 0 0-.34-1.049L2.793 9.119c-.7-.72-.307-1.931.684-2.103l3.514-.608a1.5 1.5 0 0 0 .892-.649l1.664-3.154Z" fill="url(#sg)"/></svg>
+        </div>
+        <span>5.0 rating</span>
+        <div class="divider"></div>
+        <img class="avatars" src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f62641ee6bdb1adc23d466_avatars.avif" alt="" width="60" />
+        <span>Installed 20,288+ times to generate over $1B+ revenue</span>
+      </div>
+      <div class="logos-marquee">
+        <div class="logos-track">
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628728bf41a1054fbbf2b_Placeholder%20-%207.avif" alt="DOPE" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8017_Placeholder%20-%208.avif" alt="Life RX" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fb5feef1108f4df33_Placeholder%20-%209.avif" alt="Credit Captain" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fd12c2d66db97546d_Placeholder%20-%201.avif" alt="iClosed" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f62850b20d3c571a3f304d_Placeholder%20-%202.avif" alt="Compass" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f84c49bd40a5f1f82_Placeholder%20-%204.avif" alt="Whop" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628508324ac3e3b8284c4_Placeholder%20-%205.avif" alt="FanBasis" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fa9ff03ce2854f6d6_Placeholder%20-%206.avif" alt="Elliott" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f2b55b32977257124_Placeholder%20-%2010.avif" alt="America First Healthcare" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f5916fbc4b9a12fd2_Placeholder%20-%2011.avif" alt="Done For Your Tax" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8023_Placeholder%20-%2012.avif" alt="TextLA" height="32" />
+          <!-- duplicate for seamless loop -->
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628728bf41a1054fbbf2b_Placeholder%20-%207.avif" alt="DOPE" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8017_Placeholder%20-%208.avif" alt="Life RX" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fb5feef1108f4df33_Placeholder%20-%209.avif" alt="Credit Captain" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fd12c2d66db97546d_Placeholder%20-%201.avif" alt="iClosed" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f62850b20d3c571a3f304d_Placeholder%20-%202.avif" alt="Compass" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f84c49bd40a5f1f82_Placeholder%20-%204.avif" alt="Whop" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628508324ac3e3b8284c4_Placeholder%20-%205.avif" alt="FanBasis" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fa9ff03ce2854f6d6_Placeholder%20-%206.avif" alt="Elliott" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f2b55b32977257124_Placeholder%20-%2010.avif" alt="America First Healthcare" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f5916fbc4b9a12fd2_Placeholder%20-%2011.avif" alt="Done For Your Tax" height="32" />
+          <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8023_Placeholder%20-%2012.avif" alt="TextLA" height="32" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <h2>FAQ</h2>
+      <div class="faq-grid">
+        <div class="faq-col">
+          <div class="faq-item">
+            <div class="faq-q">
+              <span>What if the person I'm messaging doesn't have iMessage?</span>
+              <div class="faq-plus"></div>
+            </div>
+            <div class="faq-a">We will fall back and fulfill the message with SMS from the same phone number at no additional charge.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              <span>Can I call from these numbers?</span>
+              <div class="faq-plus"></div>
+            </div>
+            <div class="faq-a">Yes! You can call your contacts from the same iMessage phone number that you're texting them from.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              <span>Can I do message blasts?</span>
+              <div class="faq-plus"></div>
+            </div>
+            <div class="faq-a">No. We do not support message blasts as they are commonly used for spam and damage the reputation of iMessage.</div>
+          </div>
+        </div>
+        <div class="faq-col">
+          <div class="faq-item">
+            <div class="faq-q">
+              <span>Do you support voice memos?</span>
+              <div class="faq-plus"></div>
+            </div>
+            <div class="faq-a">Yes we support voice memos and any other file type you can send via iPhone (mp3, mp4, etc.)</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              <span>Can I port over my own phone number?</span>
+              <div class="faq-plus"></div>
+            </div>
+            <div class="faq-a">Yes. We can port over any number and enable it with iMessage. Please note it requires an additional 3-5 days for set up.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">
+              <span>Is it really unlimited texting?</span>
+              <div class="faq-plus"></div>
+            </div>
+            <div class="faq-a">We allow our users to send unlimited texts to their contacts. However, we do have limits on contacts messaged per day per phone line to prevent spam. Additional phone lines can be purchased to raise the limit.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECONDARY CTA -->
+    <section class="secondary-cta">
+      <a href="#form" class="btn is-dark"><span>Request a Demo</span></a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-cta">
+          <h3><em>Get started</em><br>today</h3>
+          <p>Convert leads into sales with the most engaging channel.</p>
+          <a href="#form" class="btn"><span>Request a demo</span></a>
+        </div>
+        <div class="footer-links-wrap">
+          <div class="footer-links-group">
+            <h4>Legal</h4>
+            <a href="https://www.sendblue.com/terms-of-service">Terms of Use</a>
+            <a href="https://www.sendblue.com/privacy-policy">Privacy Policy</a>
+          </div>
+          <div class="footer-links-group">
+            <h4>Follow us</h4>
+            <a href="https://www.linkedin.com/company/sendblue" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://x.com/sendaboreal" target="_blank" rel="noopener">X</a>
+          </div>
+          <div class="footer-links-group">
+            <h4>Company</h4>
+            <a href="https://www.sendblue.com/integrations">Integrations</a>
+            <a href="https://www.sendblue.com/api">API</a>
+            <a href="https://www.sendblue.com/blog">Blog</a>
+            <a href="https://www.sendblue.com/compare">Compare</a>
+            <a href="https://www.workatastartup.com/companies/sendblue" target="_blank" rel="noopener">Careers</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          Round One Inc.<br>
+          344 West End Avenue, New York NY 10024<br>
+          <a href="#top">Back to the top</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- FAQ Toggle -->
+    <script>
+      document.querySelectorAll('.faq-item').forEach(function(item) {
+        item.querySelector('.faq-q').addEventListener('click', function() {
+          item.classList.toggle('open');
+        });
+      });
+    </script>
+
+    <!-- iClosed Widget Script -->
+    <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+  </body>
+</html>

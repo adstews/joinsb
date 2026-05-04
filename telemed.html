@@ -2019,6 +2019,7 @@
         background: #ffffff !important;
         color: var(--text);
         border-bottom: 1px solid var(--border);
+        padding: 28px 0 48px !important;
       }
       .hero-dark-bg,
       .hero-dark-glow,
@@ -2036,11 +2037,16 @@
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
       }
       .hero-dark-pill svg { color: var(--blue); }
-      .hero-dark-heading { color: var(--heading) !important; }
+      .hero.hero-dark .hero-dark-heading,
+      .hero-dark-heading {
+        color: #0f172a !important;
+        -webkit-text-fill-color: #0f172a !important;
+      }
+      .hero.hero-dark .hero-dark-accent,
       .hero-dark-accent {
-        color: var(--blue) !important;
+        color: #2563eb !important;
         background: none !important;
-        -webkit-text-fill-color: var(--blue) !important;
+        -webkit-text-fill-color: #2563eb !important;
       }
       .hero-dark-subtext { color: var(--text-muted) !important; }
       .hero-dark-subtext strong { color: var(--heading); }
@@ -2061,19 +2067,19 @@
       }
       .hero-dark-feature-pill svg { color: var(--blue); }
 
-      /* iClosed widget in hero (replaces SMS vs iMessage phone compare) */
+      /* iClosed widget in hero — boxless, just the form */
       .hero-iclosed-wrap {
         width: 100%;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        padding: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
       }
       .hero-iclosed-wrap .iclosed-widget {
-        border-radius: 10px;
-        overflow: hidden;
-        background: #fff;
+        border-radius: 0;
+        overflow: visible;
+        background: transparent;
       }
 
       /* ~20% text-size reduction across the page */

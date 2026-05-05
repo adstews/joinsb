@@ -505,25 +505,8 @@
     </div>
 
     <main class="quiz">
-      <!-- Intro -->
-      <section class="step active" id="intro">
-        <div class="pill-row">
-          <span class="pill">⚡ 60-second quiz</span>
-        </div>
-        <h1>How does your team's texting <em>stack up?</em></h1>
-        <p class="lede">
-          Answer 4 quick questions and we'll show you exactly where Sendblue can move the needle on your reply rates, pipeline, and team workflow.
-        </p>
-        <div class="cta-row">
-          <button class="btn-primary" data-action="start" type="button">
-            Start the Quiz →
-          </button>
-        </div>
-        <p class="cta-note">No setup fees · Trusted by 20,000+ business teams</p>
-      </section>
-
-      <!-- Q1 -->
-      <section class="step" id="q1">
+      <!-- Q1 (first page) -->
+      <section class="step active" id="q1">
         <h2 class="step-question">Are you currently texting your leads?</h2>
         <div class="step-options tall-cards">
           <button class="option-btn tall-card" type="button" data-action="next" data-q="1" data-a="yes-sms">
@@ -645,7 +628,7 @@
 
     <script>
       (function () {
-        var stepIds = ["intro", "q1", "q2", "q3", "q4", "loading", "result"];
+        var stepIds = ["q1", "q2", "q3", "q4", "loading", "result"];
         var currentStep = 0;
         var answers = {};
         var iclosedLoaded = false;
@@ -668,7 +651,7 @@
 
         function updateProgress() {
           var progress = document.getElementById("progress");
-          var isQuestion = currentStep >= 1 && currentStep <= 4;
+          var isQuestion = currentStep >= 0 && currentStep <= 3;
           if (isQuestion) {
             progress.classList.remove("hidden");
             var segments = progress.querySelectorAll(".progress-segment");
@@ -696,12 +679,6 @@
           if (!btn) return;
           var action = btn.dataset.action;
 
-          if (action === "start") {
-            showStep(1);
-            if (window.dataLayer) window.dataLayer.push({ event: "quiz_start" });
-            return;
-          }
-
           if (action === "next" || action === "finish") {
             var q = btn.dataset.q;
             var a = btn.dataset.a;
@@ -721,7 +698,7 @@
           }
 
           if (action === "finish") {
-            showStep(5); // loading
+            showStep(4); // loading
             if (window.fbq) fbq("track", "Lead");
             if (window.dataLayer) {
               window.dataLayer.push({
@@ -731,7 +708,7 @@
             }
             // Show result after analyzing animation
             setTimeout(function () {
-              showStep(6);
+              showStep(5);
               loadIClosed();
             }, 2200);
           }

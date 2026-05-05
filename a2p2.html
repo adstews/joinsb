@@ -1,0 +1,3668 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Sendblue — Skip A2P Registration. Send iMessages Instead.</title>
+    <meta
+      name="description"
+      content="Tired of A2P registration headaches? Sendblue bypasses SMS entirely. Send real iMessages from your CRM with zero carrier filtering, no 10DLC, and no compliance delays."
+    />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.prod.website-files.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://connect.facebook.net" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://app.iclosed.io" crossorigin />
+    <link rel="preload" href="https://app.iclosed.io/assets/widget.js" as="script" />
+    <style>
+      *,
+      ::after,
+      ::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --blue: #2563eb;
+        --blue-light: #3b82f6;
+        --blue-glow: rgba(37, 99, 235, 0.08);
+        --bg: #ffffff;
+        --bg-card: #f8f9fb;
+        --border: #e5e7eb;
+        --text: #1a1a2e;
+        --text-muted: #64748b;
+        --heading: #0f172a;
+        --white: #0f172a;
+        --radius: 12px;
+        --max-w: 1120px;
+        --section-py: 100px;
+      }
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+        overflow-x: hidden;
+      }
+      body {
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      .container {
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .nav {
+        padding: 16px 0;
+      }
+      .nav .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav-logo-icon {
+        flex-shrink: 0;
+      }
+      .nav-logo-wordmark {
+        height: 22px;
+        width: auto;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+      .nav-links a {
+        font-size: 14px;
+        color: var(--text-muted);
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--heading);
+      }
+      .nav-links a.btn-primary {
+        color: #fff;
+      }
+      .nav-links a.btn-primary:hover {
+        color: #fff;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-decoration: none;
+      }
+      .btn-primary {
+        background: var(--blue);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        background: var(--blue-light);
+        box-shadow: 0 0 24px rgba(37, 99, 235, 0.25);
+      }
+      .btn-outline {
+        border: 1px solid var(--border);
+        background: 0 0;
+        color: var(--text);
+      }
+      .btn-outline:hover {
+        border-color: var(--blue);
+        color: var(--heading);
+      }
+      .btn-lg {
+        padding: 14px 32px;
+        font-size: 16px;
+        border-radius: 10px;
+      }
+      .mobile-toggle {
+        display: none;
+        background: 0 0;
+        border: none;
+        color: var(--text);
+        cursor: pointer;
+        padding: 4px;
+      }
+      .platform-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        margin-bottom: 16px;
+        overflow: hidden;
+        height: 32px;
+        position: relative;
+        width: 200px;
+        justify-content: center;
+      }
+      .platform-tag-inner {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        position: absolute;
+        animation: tagRotate 8s infinite;
+      }
+      .platform-tag-inner span {
+        white-space: nowrap;
+      }
+      @keyframes tagRotate {
+        0%,
+        20% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        22%,
+        24% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        25% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        27%,
+        45% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        47%,
+        49% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        50% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        52%,
+        70% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        72%,
+        74% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        75% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        77%,
+        95% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        100%,
+        97% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+      }
+      .proof-wrapper {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .proof-wrapper img {
+        height: 24px;
+        width: auto;
+        opacity: 0.45;
+      }
+      .proof-wrapper p {
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.5);
+        margin: 0;
+      }
+      .platform-tags-wrapper {
+        display: none;
+      }
+      .platform-tag-slide {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: var(--bg);
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        position: absolute;
+        white-space: nowrap;
+        opacity: 0;
+        transform: translateY(10px);
+        transition:
+          opacity 0.4s,
+          transform 0.4s;
+      }
+      .platform-tag-slide.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hero {
+        padding: 80px 0 var(--section-py);
+        text-align: center;
+        position: relative;
+      }
+      .hero-orbit-bg {
+        display: none;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(37, 99, 235, 0.06) 0,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-badge {
+        display: none;
+      }
+      .hero-badge .pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+      .hero h1 {
+        font-size: clamp(36px, 5.5vw, 64px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 20px;
+        background: linear-gradient(
+          180deg,
+          var(--heading) 40%,
+          var(--text-muted) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .script-text {
+        font-family: Albra, sans-serif;
+        font-weight: 700;
+        -webkit-text-fill-color: var(--blue);
+        font-size: 1.15em;
+        font-style: italic;
+      }
+      .hero p {
+        font-size: clamp(16px, 1.8vw, 19px);
+        color: var(--text-muted);
+        max-width: 560px;
+        margin: 0 auto 36px;
+        line-height: 1.7;
+      }
+      .hero-ctas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .story-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 20px;
+        margin: 24px auto 0;
+      }
+      .story-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+      }
+      .story-btn {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 180deg,
+          #f58529,
+          #dd2a7b,
+          #8134af,
+          #515bd4,
+          #8134af,
+          #dd2a7b,
+          #f58529
+        );
+        padding: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .story-item:hover .story-btn {
+        transform: scale(1.08);
+        box-shadow: 0 0 20px rgba(221, 42, 123, 0.3);
+      }
+      .story-btn-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid var(--bg);
+        position: relative;
+      }
+      .story-btn-inner video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+      }
+      .story-btn-inner svg {
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+        flex-shrink: 0;
+      }
+      .story-label {
+        font-size: 11px;
+        color: var(--text-muted);
+        font-weight: 500;
+        max-width: 72px;
+        text-align: center;
+        line-height: 1.3;
+      }
+      .info-list-section {
+        display: none;
+        padding: 32px 16px;
+      }
+      .info-list-title {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--heading);
+        line-height: 1.3;
+        margin-bottom: 24px;
+      }
+      .info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .info-list-item {
+        display: flex;
+        gap: 14px;
+        padding: 18px 0;
+        border-top: 1px solid var(--border);
+      }
+      .info-list-item:last-child {
+        border-bottom: 1px solid var(--border);
+      }
+      .info-list-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        border: 1.5px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 18px;
+        color: var(--heading);
+      }
+      .info-list-content {
+        flex: 1;
+      }
+      .info-list-content h4 {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--heading);
+        margin-bottom: 4px;
+      }
+      .info-list-content p {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.55;
+      }
+      .reels-section {
+        display: none;
+        padding: 32px 0;
+      }
+      .reels-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--heading);
+        padding: 0 16px;
+        margin-bottom: 14px;
+      }
+      .reels-row {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        scroll-padding: 0 16px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
+      .reels-row .reels-card:first-child {
+        margin-left: 16px;
+      }
+      .reels-row .reels-card:last-child {
+        margin-right: 16px;
+      }
+      .reels-row::-webkit-scrollbar {
+        display: none;
+      }
+      .reels-card {
+        flex: 0 0 42%;
+        scroll-snap-align: start;
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+        aspect-ratio: 9/16;
+        background: #000;
+        cursor: pointer;
+      }
+      .reels-card video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .reels-card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 14px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        pointer-events: none;
+        display: flex;
+        align-items: flex-end;
+      }
+      .reels-card-name {
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        line-height: 1.3;
+      }
+      .reels-card-role {
+        font-size: 10px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 1px;
+      }
+      .poll-section {
+        display: none;
+        padding: 32px 0;
+      }
+      .poll-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--heading);
+        text-align: center;
+        margin-bottom: 20px;
+        line-height: 1.35;
+      }
+      .poll-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .poll-option {
+        width: 100%;
+        padding: 14px 20px;
+        border-radius: 12px;
+        border: 1.5px solid var(--border);
+        background: #fff;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--heading);
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: center;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .poll-option:active {
+        transform: scale(0.98);
+      }
+      .poll-option.active {
+        background: var(--blue);
+        color: #fff;
+        border-color: var(--blue);
+      }
+      .poll-answer {
+        display: none;
+        margin-top: 16px;
+        padding: 20px;
+        border-radius: 14px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        animation: pollFadeIn 0.3s ease;
+      }
+      .poll-answer.visible {
+        display: block;
+      }
+      .poll-answer h4 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--heading);
+        margin-bottom: 8px;
+      }
+      .poll-answer p {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+      @keyframes pollFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .glass-notif {
+        display: none !important;
+        position: fixed;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-120%);
+        z-index: 9998;
+        width: calc(100% - 32px);
+        max-width: 340px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        background: rgba(220, 252, 231, 0.55);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(187, 247, 208, 0.6);
+        box-shadow:
+          0 6px 24px rgba(0, 0, 0, 0.08),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        transition:
+          transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.4s;
+        opacity: 0;
+        pointer-events: none;
+      }
+      @media (max-width: 640px) {
+        .glass-notif {
+          width: 100%;
+          max-width: none;
+          top: 0;
+          border-radius: 0 0 14px 14px;
+        }
+      }
+      .glass-notif.visible {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .glass-notif-close {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        color: rgba(0, 0, 0, 0.5);
+      }
+      .glass-notif-close:hover {
+        background: rgba(0, 0, 0, 0.14);
+      }
+      .glass-notif h4 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--heading);
+        margin-bottom: 4px;
+      }
+      .glass-notif p {
+        font-size: 12px;
+        color: var(--text-muted);
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
+      .glass-notif-form {
+        display: flex;
+        gap: 6px;
+      }
+      .glass-notif-input {
+        flex: 1;
+        padding: 8px 12px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.5);
+        font-size: 13px;
+        color: var(--heading);
+        outline: 0;
+        transition: border-color 0.2s;
+      }
+      .glass-notif-input::placeholder {
+        color: rgba(0, 0, 0, 0.35);
+      }
+      .glass-notif-input:focus {
+        border-color: var(--blue);
+      }
+      .glass-notif-btn {
+        padding: 8px 14px;
+        border-radius: 10px;
+        border: none;
+        background: var(--blue);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 0.2s;
+      }
+      .glass-notif-btn:hover {
+        background: #1d6fdf;
+      }
+      .video-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        backdrop-filter: blur(4px);
+        overflow: hidden;
+      }
+      .video-overlay.active {
+        display: flex;
+      }
+      .video-overlay-close {
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        z-index: 10000;
+      }
+      .video-overlay-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .video-overlay-close svg {
+        color: #fff;
+      }
+      .video-overlay video {
+        width: 90vw;
+        max-width: 900px;
+        max-height: 55vh;
+        border-radius: 12px;
+        outline: 0;
+      }
+      .video-overlay-nav {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 40%;
+        z-index: 9999;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .video-overlay-nav.prev {
+        left: 0;
+      }
+      .video-overlay-nav.next {
+        right: 0;
+      }
+      .video-overlay-bottom {
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-top: 16px;
+        flex-shrink: 0;
+      }
+      .video-overlay-cta {
+        padding: 14px 36px;
+        border-radius: 12px;
+        background: var(--blue);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: Inter, system-ui, sans-serif;
+        white-space: nowrap;
+        animation: ctaPulse 2s 0.7s infinite;
+      }
+      .video-overlay-cta:hover {
+        background: #1d6fdf;
+      }
+      @keyframes ctaPulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 16px rgba(37, 99, 235, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+        }
+      }
+      .video-overlay-proof {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.7);
+        font-family: Inter, system-ui, sans-serif;
+      }
+      .video-overlay-proof .stars {
+        color: #f5a623;
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+      .video-overlay-counter {
+        position: absolute;
+        top: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 500;
+        z-index: 10000;
+      }
+      .sticky-demo-btn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        border: 1px solid var(--border);
+        background: #fff;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--heading);
+        cursor: pointer;
+        text-decoration: none;
+        white-space: nowrap;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+      }
+      .sticky-demo-btn.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .sticky-demo-btn:hover {
+        border-color: var(--blue);
+        background: #f0f7ff;
+        color: var(--blue);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+      }
+      .crm-scroll {
+        margin-top: 32px;
+        overflow: hidden;
+        position: relative;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .crm-scroll::after,
+      .crm-scroll::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 60px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .crm-scroll::before {
+        left: 0;
+        background: linear-gradient(90deg, var(--bg), transparent);
+      }
+      .crm-scroll::after {
+        right: 0;
+        background: linear-gradient(270deg, var(--bg), transparent);
+      }
+      .crm-track {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        animation: crmScroll 20s linear infinite;
+        width: max-content;
+      }
+      .crm-track img {
+        height: 28px;
+        width: auto;
+        opacity: 0.45;
+        flex-shrink: 0;
+      }
+      @keyframes crmScroll {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .stats {
+        padding: 60px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        text-align: center;
+      }
+      .stat-num {
+        font-size: clamp(28px, 3vw, 40px);
+        font-weight: 700;
+        color: var(--heading);
+        letter-spacing: -0.02em;
+      }
+      .stat-num span {
+        color: var(--blue);
+      }
+      .stat-label {
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-top: 4px;
+      }
+      .logos {
+        padding: 60px 0;
+        overflow: hidden;
+      }
+      .logos p {
+        text-align: center;
+        font-size: 13px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 32px;
+      }
+      .logo-scroll {
+        position: relative;
+      }
+      .logo-scroll::after,
+      .logo-scroll::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 120px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .logo-scroll::before {
+        left: 0;
+        background: linear-gradient(90deg, var(--bg), transparent);
+      }
+      .logo-scroll::after {
+        right: 0;
+        background: linear-gradient(270deg, var(--bg), transparent);
+      }
+      .logo-track {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+        animation: logoScroll 30s linear infinite;
+        width: max-content;
+      }
+      .logo-track:hover {
+        animation-play-state: paused;
+      }
+      .logo-track img {
+        height: 32px;
+        width: auto;
+        opacity: 0.6;
+        filter: grayscale(100%);
+        transition:
+          opacity 0.3s,
+          filter 0.3s;
+        flex-shrink: 0;
+      }
+      .logo-track img:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+      }
+      @keyframes logoScroll {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .social-proof {
+        display: none;
+        padding: 80px 0;
+        overflow: hidden;
+      }
+      .social-proof-inner {
+        text-align: center;
+      }
+      .orbit-wrap {
+        position: relative;
+        width: 280px;
+        height: 280px;
+        margin: 0 auto 48px;
+      }
+      .orbit-center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 72px;
+        height: 72px;
+        border-radius: 16px;
+        background: var(--blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 24px rgba(37, 99, 235, 0.25);
+        z-index: 2;
+      }
+      .orbit-center svg {
+        color: #fff;
+      }
+      .orbit-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px dashed var(--border);
+        animation: orbitSpin 30s linear infinite;
+      }
+      .orbit-icon {
+        position: absolute;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        animation: orbitCounterSpin 30s linear infinite;
+        color: var(--text-muted);
+      }
+      .orbit-icon:first-child {
+        top: -21px;
+        left: 50%;
+        margin-left: -21px;
+      }
+      .orbit-icon:nth-child(2) {
+        top: 14%;
+        right: -10px;
+      }
+      .orbit-icon:nth-child(3) {
+        bottom: 14%;
+        right: -10px;
+      }
+      .orbit-icon:nth-child(4) {
+        bottom: -21px;
+        left: 50%;
+        margin-left: -21px;
+      }
+      .orbit-icon:nth-child(5) {
+        bottom: 14%;
+        left: -10px;
+      }
+      .orbit-icon:nth-child(6) {
+        top: 14%;
+        left: -10px;
+      }
+      @keyframes orbitSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes orbitCounterSpin {
+        to {
+          transform: rotate(-360deg);
+        }
+      }
+      @media (max-width: 640px) {
+        .orbit-wrap {
+          width: 220px;
+          height: 220px;
+        }
+        .orbit-icon {
+          width: 36px;
+          height: 36px;
+        }
+        .orbit-icon:first-child {
+          top: -18px;
+          margin-left: -18px;
+        }
+        .orbit-icon:nth-child(4) {
+          bottom: -18px;
+          margin-left: -18px;
+        }
+        .orbit-center {
+          width: 56px;
+          height: 56px;
+          border-radius: 12px;
+        }
+      }
+      .section {
+        padding: var(--section-py) 0;
+      }
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--blue-light);
+        margin-bottom: 16px;
+      }
+      .section-label .bar {
+        width: 20px;
+        height: 2px;
+        background: var(--blue);
+        border-radius: 1px;
+      }
+      .section-title {
+        font-size: clamp(28px, 3.5vw, 42px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        color: var(--heading);
+        margin-bottom: 16px;
+      }
+      .section-desc {
+        font-size: 17px;
+        color: var(--text-muted);
+        max-width: 520px;
+        line-height: 1.7;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 56px;
+      }
+      .feature-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px;
+        transition:
+          border-color 0.3s,
+          box-shadow 0.3s;
+      }
+      .feature-card:hover {
+        border-color: rgba(37, 99, 235, 0.4);
+        box-shadow: 0 4px 24px rgba(37, 99, 235, 0.08);
+      }
+      .feature-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: var(--blue-glow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: var(--blue-light);
+        font-size: 20px;
+      }
+      .feature-card h3 {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--heading);
+        margin-bottom: 8px;
+      }
+      .feature-card p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+      .comparison {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        margin-top: 56px;
+      }
+      .comparison-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        border-bottom: 1px solid var(--border);
+      }
+      .comparison-header div {
+        padding: 20px 24px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .comparison-header div:first-child {
+        color: var(--text-muted);
+      }
+      .comparison-header div:nth-child(2) {
+        color: var(--blue-light);
+        background: rgba(37, 99, 235, 0.06);
+      }
+      .comparison-header div:last-child {
+        color: var(--text-muted);
+      }
+      .comparison-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        border-bottom: 1px solid var(--border);
+      }
+      .comparison-row:last-child {
+        border-bottom: none;
+      }
+      .comparison-row div {
+        padding: 16px 24px;
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+      .comparison-row div:nth-child(2) {
+        background: rgba(37, 99, 235, 0.04);
+      }
+      .check {
+        color: #22c55e;
+      }
+      .cross {
+        color: #ef4444;
+        opacity: 0.6;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 56px;
+      }
+      .step {
+        position: relative;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 32px;
+      }
+      .step-num {
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--blue);
+        opacity: 0.2;
+        margin-bottom: 12px;
+        line-height: 1;
+      }
+      .step h3 {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--heading);
+        margin-bottom: 8px;
+      }
+      .step p {
+        font-size: 14px;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+      .integrations-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 40px;
+      }
+      .integration-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        border-radius: 12px;
+        background: #fff;
+        border: 1px solid #f0f0f0;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--heading);
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        white-space: nowrap;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+      }
+      .integration-chip:hover {
+        border-color: var(--blue);
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+      }
+      .integration-chip img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        flex-shrink: 0;
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 56px;
+      }
+      .testimonial-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+      }
+      .testimonial-stars {
+        color: #facc15;
+        font-size: 14px;
+        margin-bottom: 16px;
+        letter-spacing: 2px;
+      }
+      .testimonial-card blockquote {
+        font-size: 15px;
+        color: var(--text);
+        line-height: 1.7;
+        margin-bottom: 20px;
+        font-style: normal;
+      }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .testimonial-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--blue), #7c3aed);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+      }
+      .testimonial-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--heading);
+      }
+      .testimonial-role {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+      .faq-list {
+        max-width: 720px;
+        margin: 56px auto 0;
+      }
+      .faq-item {
+        border-bottom: 1px solid var(--border);
+      }
+      .faq-q {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+        background: 0 0;
+        border: none;
+        color: var(--heading);
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        text-align: left;
+        font-family: inherit;
+        gap: 16px;
+      }
+      .faq-q svg {
+        flex-shrink: 0;
+        transition: transform 0.3s;
+        color: var(--text-muted);
+      }
+      .faq-item.open .faq-q svg {
+        transform: rotate(45deg);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .faq-a p {
+        padding: 0 0 20px;
+        font-size: 15px;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+      .cta-section {
+        text-align: center;
+        padding: var(--section-py) 0;
+        position: relative;
+      }
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 700px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(37, 99, 235, 0.05) 0,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .cta-section .section-title {
+        max-width: 600px;
+        margin: 0 auto 16px;
+      }
+      .cta-section .section-desc {
+        margin: 0 auto 36px;
+      }
+      .footer {
+        border-top: 1px solid var(--border);
+        padding: 40px 0;
+      }
+      .footer .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .footer-text {
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+      .footer-links {
+        display: flex;
+        gap: 24px;
+      }
+      .footer-links a {
+        font-size: 13px;
+        color: var(--text-muted);
+        transition: color 0.2s;
+      }
+      .footer-links a:hover {
+        color: var(--heading);
+      }
+      @media (max-width: 900px) {
+        .features-grid,
+        .steps,
+        .testimonials-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 32px;
+        }
+      }
+      @media (max-width: 640px) {
+        :root {
+          --section-py: 72px;
+        }
+        .nav-logo-icon {
+          width: 28px;
+          height: 28px;
+        }
+        .nav-logo-wordmark {
+          height: 18px;
+        }
+        .nav-links {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(255, 255, 255, 0.98);
+          flex-direction: column;
+          justify-content: center;
+          gap: 24px;
+          z-index: 99;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-links a {
+          font-size: 18px;
+        }
+        .mobile-toggle {
+          display: block;
+          z-index: 101;
+        }
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          margin-top: 32px;
+        }
+        .features-grid .feature-card {
+          padding: 16px;
+        }
+        .features-grid .feature-icon {
+          width: 34px;
+          height: 34px;
+          border-radius: 8px;
+          margin-bottom: 12px;
+        }
+        .features-grid .feature-icon svg {
+          width: 16px;
+          height: 16px;
+        }
+        .features-grid .feature-card h3 {
+          font-size: 14px;
+          margin-bottom: 4px;
+        }
+        .features-grid .feature-card p {
+          font-size: 10px;
+          line-height: 1.4;
+        }
+        .steps {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          gap: 12px;
+          margin-top: 32px;
+          padding: 0 16px 8px;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .steps::-webkit-scrollbar {
+          display: none;
+        }
+        .steps .step {
+          flex: 0 0 75%;
+          scroll-snap-align: start;
+          padding: 24px;
+        }
+        .testimonials-grid {
+          display: flex;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          gap: 12px;
+          margin-top: 32px;
+          padding: 0 16px 8px;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .testimonials-grid::-webkit-scrollbar {
+          display: none;
+        }
+        .testimonials-grid .testimonial-card {
+          flex: 0 0 85%;
+          scroll-snap-align: start;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .comparison-header div,
+        .comparison-row div {
+          padding: 12px 14px;
+          font-size: 12px;
+        }
+        .proof-wrapper {
+          display: inline-flex;
+          flex-direction: row;
+          gap: 8px;
+          background: #f8f8f8;
+          padding: 8px 14px;
+          border-radius: 10px;
+        }
+        .proof-wrapper img {
+          height: 20px;
+        }
+        .proof-wrapper p {
+          font-size: 11px;
+          max-width: 110px;
+          line-height: 1.3;
+          text-align: left;
+        }
+        .hero {
+          padding: 36px 0 75px;
+          position: relative;
+        }
+        .hero-orbit-bg {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, calc(-50% - 140px));
+          z-index: 0;
+          pointer-events: none;
+        }
+        .hero-orbit-bg .orbit-wrap {
+          width: 300px;
+          height: 300px;
+        }
+        .hero-orbit-bg .orbit-center {
+          opacity: 0.1;
+          filter: grayscale(1);
+        }
+        .hero-orbit-bg .orbit-icon {
+          opacity: 0.23;
+          border-color: rgba(0, 0, 0, 0.04);
+          box-shadow: none;
+        }
+        .hero-orbit-bg .orbit-ring {
+          border-color: rgba(0, 0, 0, 0.05);
+        }
+        .hero .container {
+          position: relative;
+          z-index: 2;
+        }
+        .social-proof {
+          display: none;
+        }
+        .integrations-grid {
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          grid-auto-flow: column;
+          grid-auto-columns: auto;
+          gap: 8px;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x proximity;
+          padding: 0 0 8px;
+          margin-top: 24px;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+          mask-image: linear-gradient(to right, #000 80%, transparent 100%);
+          -webkit-mask-image: linear-gradient(
+            to right,
+            #000 80%,
+            transparent 100%
+          );
+        }
+        .integrations-grid::-webkit-scrollbar {
+          display: none;
+        }
+        .integration-chip {
+          scroll-snap-align: start;
+          padding: 8px 12px;
+          font-size: 13px;
+          flex-shrink: 0;
+        }
+        .logo-row {
+          gap: 28px;
+        }
+        .footer .container {
+          flex-direction: column;
+          gap: 16px;
+          text-align: center;
+        }
+        .reels-section {
+          display: block;
+        }
+        .poll-section {
+          display: block;
+        }
+        .info-list-section {
+          display: block;
+        }
+      }
+
+      /* ===== Hero Dark (Blooio-style) ===== */
+      .hero-dark {
+        background: #000;
+        padding: 80px 0 60px;
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+      }
+      .hero-dark::before { display: none; }
+      .hero-dark h1 {
+        background: none;
+        -webkit-text-fill-color: #fff;
+        -webkit-background-clip: unset;
+        background-clip: unset;
+      }
+      .hero-dark-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+      .hero-dark-glow {
+        position: absolute;
+        border-radius: 50%;
+      }
+      .hero-dark-glow--blue {
+        top: -128px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 384px;
+        height: 384px;
+        background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+        filter: blur(48px);
+      }
+      .hero-dark-glow--bottom {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 256px;
+        border-radius: 0;
+        background: linear-gradient(to top, #000, transparent);
+      }
+      .hero-dark-grid {
+        position: relative;
+        z-index: 1;
+        max-width: var(--max-w);
+        margin: 0 auto;
+        padding: 0 24px;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 48px;
+        align-items: start;
+      }
+      .hero-dark-content { display: flex; flex-direction: column; gap: 24px; }
+      .hero-dark-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(37,99,235,0.25);
+        background: rgba(37,99,235,0.1);
+        color: #93c5fd;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 6px 14px;
+        border-radius: 999px;
+        width: fit-content;
+      }
+      .hero-dark-pill svg { color: #60a5fa; flex-shrink: 0; }
+      .hero-dark-heading {
+        font-size: clamp(32px, 5vw, 56px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        color: #fff;
+        margin: 0;
+      }
+      .hero-dark-accent { color: var(--blue-light); }
+      .hero-dark-subtext {
+        font-size: clamp(16px, 1.6vw, 18px);
+        color: #a3a3a3;
+        max-width: 540px;
+        line-height: 1.6;
+        margin: 0;
+      }
+      .hero-dark-subtext strong { color: #60a5fa; font-weight: 500; }
+      .hero-dark-cta-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .hero-dark-btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 14px 28px;
+        background: #fff;
+        color: #000;
+        font-weight: 600;
+        font-size: 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: background 0.2s, transform 0.15s;
+        cursor: pointer;
+      }
+      .hero-dark-btn:hover {
+        background: var(--blue);
+        color: #fff;
+        transform: scale(1.03);
+      }
+      .hero-dark-cta-note {
+        font-size: 14px;
+        color: #737373;
+      }
+      .hero-dark-pills {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .hero-dark-feature-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid rgba(37,99,235,0.2);
+        background: rgba(37,99,235,0.08);
+        color: #93c5fd;
+        font-size: 13px;
+        padding: 6px 12px;
+        border-radius: 999px;
+      }
+      .hero-dark-feature-pill svg { color: #60a5fa; flex-shrink: 0; }
+
+      /* Phone mockup area */
+      .hero-dark-phone-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .hero-dark-phone-glow {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        filter: blur(48px);
+      }
+      .hero-dark-phone-glow--blue {
+        top: -80px;
+        right: -96px;
+        width: 288px;
+        height: 288px;
+        background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
+      }
+      .hero-dark-phone-glow--green {
+        bottom: -64px;
+        left: -48px;
+        width: 208px;
+        height: 208px;
+        background: radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 70%);
+      }
+
+      /* iMessage mockup */
+      /* Dual phone mockups */
+      .phone-compare {
+        display: flex;
+        gap: 16px;
+        width: 100%;
+      }
+      .phone-compare-label {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+        padding: 4px 12px;
+        border-radius: 20px;
+        display: inline-block;
+      }
+      .phone-compare-label--sms {
+        color: #4ade80;
+        background: rgba(74, 222, 128, 0.1);
+      }
+      .phone-compare-label--imsg {
+        color: #818cf8;
+        background: rgba(129, 140, 248, 0.1);
+      }
+      .phone-compare-col {
+        flex: 1;
+        text-align: center;
+      }
+      .imsg-mockup {
+        position: relative;
+        width: 100%;
+        border-radius: 16px;
+        border: 1px solid #262626;
+        background: #0a0a0a;
+        padding: 16px;
+        box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+      }
+      .imsg-mockup--sms {
+        border-color: rgba(74, 222, 128, 0.15);
+      }
+      .imsg-mockup--imsg {
+        border-color: rgba(99, 102, 241, 0.15);
+      }
+      .imsg-header {
+        text-align: center;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #1a1a1a;
+      }
+      .imsg-header-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #e5e5e5;
+      }
+      .imsg-header-time {
+        font-size: 11px;
+        color: #737373;
+        margin-top: 2px;
+      }
+      .imsg-body {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-height: 240px;
+      }
+      .imsg-bubble {
+        max-width: 85%;
+        padding: 10px 14px;
+        border-radius: 18px;
+        font-size: 13px;
+        line-height: 1.45;
+        opacity: 0;
+        transform: translateY(8px);
+        animation: imsg-appear 0.4s ease forwards;
+      }
+      .imsg-bubble--sent {
+        background: var(--blue);
+        color: #fff;
+        align-self: flex-end;
+        border-bottom-right-radius: 6px;
+      }
+      .imsg-bubble--sent-sms {
+        background: #22c55e;
+        color: #fff;
+        align-self: flex-end;
+        border-bottom-right-radius: 6px;
+      }
+      .imsg-bubble--received {
+        background: #262626;
+        color: #e5e5e5;
+        align-self: flex-start;
+        border-bottom-left-radius: 6px;
+      }
+      .imsg-bubble--received-stop {
+        background: #262626;
+        color: #ef4444;
+        align-self: flex-start;
+        border-bottom-left-radius: 6px;
+        font-weight: 600;
+      }
+      .imsg-reaction {
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 20px;
+        opacity: 0;
+        transform: scale(0.5);
+        animation: imsg-pop 0.3s ease forwards;
+      }
+      .imsg-delivered {
+        align-self: flex-end;
+        font-size: 11px;
+        color: #737373;
+        opacity: 0;
+        animation: imsg-appear 0.3s ease forwards;
+      }
+      .imsg-delivered--read {
+        color: var(--blue);
+      }
+      .imsg-typing {
+        align-self: flex-start;
+        display: flex;
+        gap: 4px;
+        padding: 12px 16px;
+        background: #262626;
+        border-radius: 18px;
+        border-bottom-left-radius: 6px;
+        opacity: 0;
+        animation: imsg-appear 0.3s ease forwards;
+      }
+      .imsg-typing-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #525252;
+        animation: imsg-dot 1.4s infinite;
+      }
+      .imsg-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+      .imsg-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+      @keyframes imsg-appear {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes imsg-pop {
+        to { opacity: 1; transform: scale(1); }
+      }
+      @keyframes imsg-dot {
+        0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+        30% { opacity: 1; transform: translateY(-3px); }
+      }
+
+      @media (max-width: 768px) {
+        .hero-dark { padding: 60px 0 40px; }
+        .hero-dark-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .hero-dark-content { text-align: center; align-items: center; }
+        .hero-dark-cta-row { justify-content: center; }
+        .hero-dark-pills { justify-content: center; }
+        .hero-dark-phone-wrap { max-width: 100%; }
+        .phone-compare { flex-direction: column; gap: 24px; max-width: 300px; margin: 0 auto; }
+        .imsg-bubble { font-size: 13px; }
+      }
+
+      /* === a2p2 variant: light hero + mobile iClosed embed === */
+      .hero.hero-dark {
+        background: #ffffff !important;
+        color: var(--text);
+        border-bottom: 1px solid var(--border);
+      }
+      .hero-dark-bg,
+      .hero-dark-glow,
+      .hero-dark-glow--blue,
+      .hero-dark-glow--bottom,
+      .hero-dark-phone-glow,
+      .hero-dark-phone-glow--blue,
+      .hero-dark-phone-glow--green {
+        display: none !important;
+      }
+      .hero-dark-pill {
+        background: var(--bg-card) !important;
+        color: var(--text) !important;
+        border: 1px solid var(--border) !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+      .hero-dark-pill svg { color: var(--blue); }
+      .hero.hero-dark .hero-dark-heading,
+      .hero-dark-heading {
+        color: #0f172a !important;
+        -webkit-text-fill-color: #0f172a !important;
+      }
+      .hero.hero-dark .hero-dark-accent,
+      .hero-dark-accent {
+        color: #2563eb !important;
+        background: none !important;
+        -webkit-text-fill-color: #2563eb !important;
+      }
+      .hero-dark-subtext { color: var(--text-muted) !important; }
+      .hero-dark-subtext strong { color: var(--heading); }
+      .hero-dark-btn {
+        background: var(--blue) !important;
+        color: #fff !important;
+        border: none !important;
+      }
+      .hero-dark-btn:hover {
+        background: var(--blue-light) !important;
+        box-shadow: 0 0 24px rgba(37, 99, 235, 0.25);
+      }
+      .hero-dark-cta-note { color: var(--text-muted) !important; }
+      .hero-dark-feature-pill {
+        background: var(--bg-card) !important;
+        color: var(--text) !important;
+        border: 1px solid var(--border) !important;
+      }
+      .hero-dark-feature-pill svg { color: var(--blue); }
+
+      /* Phone-compare label colors for light bg */
+      .phone-compare-label--sms { color: var(--text-muted); }
+      .phone-compare-label--imsg { color: var(--blue); }
+
+      /* Mobile-only iClosed embed in hero (replaces CTA button on mobile) */
+      .hero-mobile-iclosed {
+        display: none;
+        width: 100%;
+        margin: 20px 0 8px;
+      }
+      .hero-mobile-iclosed .iclosed-widget {
+        width: 100%;
+      }
+      @media (max-width: 768px) {
+        .hero-dark-cta-row { display: none !important; }
+        .hero-mobile-iclosed { display: block; }
+        /* Hide the desktop right-column phone compare on mobile so iClosed is the focal point */
+        .hero-dark-phone-wrap { display: none !important; }
+      }
+    </style>
+    <script>
+      var head = document.head,
+        script = document.createElement("script");
+      ((script.type = "text/javascript"),
+        (script.async = !0),
+        (script.src =
+          "https://210016.t.hyros.com/v1/lst/universal-script?ph=8eab8ba789927c4c9ec63d8158dc7765f6f5b59f6b4e1359df1f901b321ddad7&tag=!clicked&ref_url=" +
+          encodeURI(document.URL)),
+        head.appendChild(script));
+    </script>
+    <script>
+      (!(function (e, t, n, c, o, a, f) {
+        e.fbq ||
+          ((o = e.fbq =
+            function () {
+              o.callMethod
+                ? o.callMethod.apply(o, arguments)
+                : o.queue.push(arguments);
+            }),
+          e._fbq || (e._fbq = o),
+          (o.push = o),
+          (o.loaded = !0),
+          (o.version = "2.0"),
+          (o.queue = []),
+          ((a = t.createElement(n)).async = !0),
+          (a.src = "https://connect.facebook.net/en_US/fbevents.js"),
+          (f = t.getElementsByTagName(n)[0]).parentNode.insertBefore(a, f));
+      })(window, document, "script"),
+        fbq("init", "1328875655536718"),
+        fbq("track", "PageView"));
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1328875655536718&ev=PageView&noscript=1"
+    /></noscript>
+    <script>
+      !(function (e, t, a, n) {
+        ((e[n] = e[n] || []),
+          e[n].push({ "gtm.start": new Date().getTime(), event: "gtm.js" }));
+        var g = t.getElementsByTagName(a)[0],
+          m = t.createElement(a);
+        ((m.async = !0),
+          (m.src = "https://www.googletagmanager.com/gtm.js?id=GTM-TL27X92C"),
+          g.parentNode.insertBefore(m, g));
+      })(window, document, "script", "dataLayer");
+    </script>
+    <script>
+      !(function (e, t, a, n) {
+        ((e[n] = e[n] || []),
+          e[n].push({ "gtm.start": new Date().getTime(), event: "gtm.js" }));
+        var g = t.getElementsByTagName(a)[0],
+          m = t.createElement(a);
+        ((m.async = !0),
+          (m.src = "https://www.googletagmanager.com/gtm.js?id=GTM-5G77TBSB"),
+          g.parentNode.insertBefore(m, g));
+      })(window, document, "script", "dataLayer");
+    </script>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TL27X92C"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe></noscript
+    ><noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5G77TBSB"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <div class="glass-notif" id="glass-notif">
+      <button
+        class="glass-notif-close"
+        id="glass-notif-close"
+        aria-label="Close"
+      >
+        <svg
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <h4>Ready to book a demo?</h4>
+      <p>Enter your number and we'll text you to get started.</p>
+      <div class="glass-notif-form">
+        <input
+          class="glass-notif-input"
+          type="tel"
+          placeholder="(555) 123-4567"
+        />
+        <button class="glass-notif-btn">Text Me</button>
+      </div>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="container">
+        <a href="#" class="nav-logo"
+          ><svg
+            class="nav-logo-icon"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.5141 1.73315C17.9956 1.73315 16.7647 2.96429 16.7647 4.48299C16.7647 6.00168 17.9956 7.23282 19.5141 7.23282C21.0325 7.23282 22.2634 6.00168 22.2634 4.48299C22.2634 2.96429 21.0325 1.73315 19.5141 1.73315Z"
+              fill="#008BFF"
+            />
+            <path
+              d="M0.00400648 12C0.00400632 13.8933 1.45673 15.4423 3.30966 15.6024C2.11306 17.0233 2.18109 19.1488 3.51776 20.4857C4.85443 21.8225 6.97949 21.8906 8.4002 20.6938C8.55628 22.547 10.1091 24 12.002 24C13.8949 24 15.4437 22.547 15.6038 20.6938C17.0245 21.8906 19.1496 21.8225 20.4862 20.4857C21.8229 19.1488 21.8909 17.0233 20.6943 15.6024C22.5473 15.4463 24 13.8933 24 12C24 10.0027 22.3792 8.38159 20.3822 8.38159C20.2421 8.38159 20.1061 8.3936 19.97 8.40961C19.8219 8.42562 19.6698 8.42962 19.5138 8.42962C18.9975 8.42962 18.5053 8.32955 18.057 8.14943C17.0485 7.74917 16.2481 6.94463 15.8479 5.93996C15.6678 5.48766 15.5678 4.99533 15.5678 4.48299C15.5678 4.32689 15.5718 4.17879 15.5878 4.02669C15.6038 3.8906 15.6158 3.75451 15.6158 3.61842C15.6158 1.62108 13.995 0 11.998 0C10.1051 0 8.55628 1.45297 8.3962 3.3062C6.97549 2.10941 4.85043 2.17745 3.51376 3.51434C2.17709 4.85123 2.10906 6.97665 3.30566 8.3976C1.45273 8.5537 0 10.1067 0 12L0.00400648 12Z"
+              fill="#008BFF"
+            />
+          </svg>
+          <svg
+            class="nav-logo-wordmark"
+            viewBox="0 0 563 95"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 63.2012L15.402 63.4668C16.1986 74.3544 24.6963 81.6571 37.7083 81.6571C48.7287 81.6571 56.6952 76.7443 56.6952 67.8484C56.6952 58.023 47.0026 55.8986 32.2645 53.243C16.8625 50.5875 2.25719 45.6748 2.25719 27.219C2.25719 11.0204 15.5348 0 35.3183 0C56.5624 0 69.84 11.5515 70.5039 28.6795H55.2347C54.0397 19.2525 46.6043 12.8792 35.3183 12.8792C24.8291 12.8792 17.5264 17.3936 17.5264 26.1568C17.5264 35.7167 27.0862 37.7083 41.6916 40.231C57.0935 43.0193 72.0972 47.932 71.9644 66.2551C71.9644 82.9848 58.023 94.5363 37.5755 94.5363C14.4725 94.5363 0.531103 81.7898 0 63.2012Z"
+              fill="#0f172a"
+            />
+            <path
+              d="M116.21 94.5363C94.8329 94.5363 81.4226 80.7276 81.4226 59.8818C81.4226 38.9033 94.833 24.9618 114.882 24.9618C134.533 24.9618 147.678 37.4427 148.076 57.3591C148.076 59.0852 147.943 60.944 147.678 62.8029H96.4263V63.7323C96.8246 75.2838 104.127 82.852 115.413 82.852C124.176 82.852 130.55 78.4704 132.541 70.9022H146.881C144.491 84.3126 133.072 94.5363 116.21 94.5363ZM96.9574 52.3136H133.205C132.01 42.2227 124.973 36.5133 115.015 36.5133C105.853 36.5133 98.0196 42.621 96.9574 52.3136Z"
+              fill="#0f172a"
+            />
+            <path
+              d="M195.518 24.9618C210.522 24.9618 222.87 33.1939 222.87 55.8986V93.7396H208.398V57.0935C208.398 44.2143 202.954 37.31 192.199 37.31C180.78 37.31 174.009 45.6748 174.009 59.4835V93.7396H159.669V25.7585H172.15L173.743 34.6545C177.992 29.3434 184.498 24.9618 195.518 24.9618Z"
+              fill="#0f172a"
+            />
+            <path
+              d="M287.042 35.1856V0.796652H301.382V93.7396H288.901L287.175 83.5159C282.794 89.4908 275.756 94.5363 265.002 94.5363C246.546 94.5363 232.87 81.5243 232.87 59.7491C232.87 38.7705 246.546 24.9618 265.002 24.9618C275.358 24.9618 282.661 29.2107 287.042 35.1856ZM267.392 82.4537C279.341 82.4537 287.175 73.1594 287.175 60.0146C287.175 46.4715 279.341 37.1772 267.392 37.1772C255.442 37.1772 247.608 46.4715 247.608 59.7491C247.608 73.1594 255.442 82.4537 267.392 82.4537Z"
+              fill="#0f172a"
+            />
+            <path
+              d="M351.776 24.9618C370.364 24.9618 383.907 37.8411 383.907 59.7491C383.907 80.5948 370.364 94.5363 351.776 94.5363C341.154 94.5363 333.851 90.0219 329.602 83.9142L327.876 93.7396H315.395V0.796652H329.735V35.8494C334.249 29.7418 341.286 24.9618 351.776 24.9618ZM349.386 82.4537C361.336 82.4537 369.302 73.1594 369.302 59.7491C369.302 46.4715 361.336 37.1772 349.386 37.1772C337.436 37.1772 329.602 46.4715 329.602 59.6163C329.602 73.0266 337.436 82.4537 349.386 82.4537Z"
+              fill="#0f172a"
+            />
+            <path
+              d="M395.398 93.7396V0.796652H409.737V93.7396H395.398Z"
+              fill="#0f172a"
+            />
+            <path
+              d="M470.398 59.7491V25.7585H484.738V93.7396H472.124L470.531 85.1092C466.282 90.2875 460.042 94.5363 449.553 94.5363C435.08 94.5363 422.732 86.8353 422.732 63.5996V25.7585H437.072V62.0062C437.072 75.2838 442.383 82.0554 452.872 82.0554C463.76 82.0554 470.398 73.8233 470.398 59.7491Z"
+              fill="#0f172a"
+            />
+            <path
+              d="M531.134 94.5363C509.757 94.5363 496.347 80.7276 496.347 59.8818C496.347 38.9033 509.757 24.9618 529.806 24.9618C549.457 24.9618 562.602 37.4427 563 57.3591C563 59.0852 562.867 60.944 562.602 62.8029H511.35V63.7323C511.749 75.2838 519.051 82.852 530.337 82.852C539.1 82.852 545.474 78.4704 547.465 70.9022H561.805C559.415 84.3126 547.996 94.5363 531.134 94.5363ZM511.881 52.3136H548.129C546.934 42.2227 539.897 36.5133 529.939 36.5133C520.777 36.5133 512.944 42.621 511.881 52.3136Z"
+              fill="#0f172a"
+            /></svg
+        ></a>
+        <div class="nav-links" id="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#integrations">Integrations</a>
+          <a href="#testimonials">Testimonials</a> <a href="#faq">FAQ</a>
+          <a href="#cta" class="btn btn-primary">Request a Demo</a>
+        </div>
+        <button
+          class="mobile-toggle"
+          id="mobile-toggle"
+          aria-label="Toggle menu"
+        >
+          <svg
+            width="24"
+            height="24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <section class="hero hero-dark">
+      <!-- Background glows -->
+      <div class="hero-dark-bg" aria-hidden="true">
+        <div class="hero-dark-glow hero-dark-glow--blue"></div>
+        <div class="hero-dark-glow hero-dark-glow--bottom"></div>
+      </div>
+
+      <div class="hero-dark-grid">
+        <!-- Left column: text content -->
+        <div class="hero-dark-content">
+          <div class="hero-dark-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <span>No A2P &bull; No 10DLC &bull; No carrier filtering</span>
+          </div>
+
+          <h1 class="hero-dark-heading">
+            Skip A2P registration. <span class="hero-dark-accent">Send iMessages</span> instead.
+          </h1>
+
+          <p class="hero-dark-subtext">
+            A2P compliance is broken&mdash;months of paperwork, rejected campaigns, and filtered messages. Sendblue bypasses all of it by sending <strong>real iMessages</strong> from real Apple devices.
+          </p>
+
+          <div class="hero-dark-cta-row">
+            <a href="#cta" class="hero-dark-btn">Request a Demo</a>
+            <span class="hero-dark-cta-note">Zero registration &mdash; start sending today</span>
+          </div>
+
+          <div class="hero-mobile-iclosed">
+            <div
+              class="iclosed-widget"
+              data-url="https://app.iclosed.io/e/sendblue/sendblue-demo-7"
+              title="Sendblue Demo"
+              style="width: 100%; height: 560px"
+            ></div>
+          </div>
+
+          <div class="hero-dark-pills">
+            <span class="hero-dark-feature-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+              No A2P or 10DLC required
+            </span>
+            <span class="hero-dark-feature-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              100% delivery &mdash; no A2P registration
+            </span>
+            <span class="hero-dark-feature-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              SOC 2 &amp; HIPAA compliant
+            </span>
+          </div>
+        </div>
+
+        <!-- Right column: SMS vs iMessage comparison -->
+        <div class="hero-dark-phone-wrap">
+          <div class="hero-dark-phone-glow hero-dark-phone-glow--blue"></div>
+          <div class="hero-dark-phone-glow hero-dark-phone-glow--green"></div>
+          <div class="phone-compare">
+            <div class="phone-compare-col">
+              <div class="phone-compare-label phone-compare-label--sms">SMS / A2P</div>
+              <div class="imsg-mockup imsg-mockup--sms" id="sms-mockup">
+                <div class="imsg-header">
+                  <div class="imsg-header-title">Text Message</div>
+                  <div class="imsg-header-time">Today 3:56 PM</div>
+                </div>
+                <div class="imsg-body"></div>
+              </div>
+            </div>
+            <div class="phone-compare-col">
+              <div class="phone-compare-label phone-compare-label--imsg">iMessage</div>
+              <div class="imsg-mockup imsg-mockup--imsg" id="imsg-mockup">
+                <div class="imsg-header">
+                  <div class="imsg-header-title">iMessage with Sendblue</div>
+                  <div class="imsg-header-time">Today 3:56 PM</div>
+                </div>
+                <div class="imsg-body"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div>
+            <div class="stat-num">0<span></span></div>
+            <div class="stat-label">A2P Forms Required</div>
+          </div>
+          <div>
+            <div class="stat-num">2<span>min</span></div>
+            <div class="stat-label">Setup Time</div>
+          </div>
+          <div>
+            <div class="stat-num">100<span>%</span></div>
+            <div class="stat-label">Delivery Rate</div>
+          </div>
+          <div>
+            <div class="stat-num">80<span>%+</span></div>
+            <div class="stat-label">Response Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="info-list-section">
+      <div class="info-list-title">
+        Why businesses are ditching A2P for iMessage
+      </div>
+      <div class="info-list">
+        <div class="info-list-item">
+          <div class="info-list-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+            </svg>
+          </div>
+          <div class="info-list-content">
+            <h4>Zero A2P registration</h4>
+            <p>
+              No 10DLC forms, no campaign approvals, no waiting weeks for carrier verification. Sendblue uses real Apple devices&mdash;A2P doesn't apply.
+            </p>
+          </div>
+        </div>
+        <div class="info-list-item">
+          <div class="info-list-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+          </div>
+          <div class="info-list-content">
+            <h4>No carrier filtering</h4>
+            <p>
+              SMS messages require A2P carrier registration that causes delays and rejected campaigns. iMessages go through Apple's servers, not carrier networks. No registration required &mdash; every message lands.
+            </p>
+          </div>
+        </div>
+        <div class="info-list-item">
+          <div class="info-list-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div class="info-list-content">
+            <h4>Start sending in minutes</h4>
+            <p>
+              While A2P registration takes weeks (or months), Sendblue connects to your CRM and starts delivering iMessages in under 2 minutes.
+            </p>
+          </div>
+        </div>
+        <div class="info-list-item">
+          <div class="info-list-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+          </div>
+          <div class="info-list-content">
+            <h4>Blue bubbles = trust</h4>
+            <p>
+              Green bubble SMS screams "marketing blast." Blue bubble iMessages look like a text from a friend. That's why response rates hit 80%+.
+            </p>
+          </div>
+        </div>
+        <div class="info-list-item">
+          <div class="info-list-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div class="info-list-content">
+            <h4>Still fully compliant</h4>
+            <p>
+              SOC 2 Type 2 and HIPAA compliant. No A2P doesn't mean no security&mdash;your data is protected at enterprise grade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="logos">
+      <div class="container"><p>Trusted by leading sales teams</p></div>
+      <div class="logo-scroll">
+        <div class="logo-track">
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628728bf41a1054fbbf2b_Placeholder%20-%207.avif"
+            alt="Dope"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8017_Placeholder%20-%208.avif"
+            alt="Life Rx"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fb5feef1108f4df33_Placeholder%20-%209.avif"
+            alt="Credit Captain"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fd12c2d66db97546d_Placeholder%20-%201.avif"
+            alt="iClosed"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f62850b20d3c571a3f304d_Placeholder%20-%202.avif"
+            alt="Compass"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f84c49bd40a5f1f82_Placeholder%20-%204.avif"
+            alt="Whop"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628508324ac3e3b8284c4_Placeholder%20-%205.avif"
+            alt="Fanbasis"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f2b55b32977257124_Placeholder%20-%2010.avif"
+            alt="America First Healthcare"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f5916fbc4b9a12fd2_Placeholder%20-%2011.avif"
+            alt="Done For Your Tax"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8023_Placeholder%20-%2012.avif"
+            alt="Textla"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fa9ff03ce2854f6d6_Placeholder%20-%206.avif"
+            alt="Elliott"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628728bf41a1054fbbf2b_Placeholder%20-%207.avif"
+            alt="Dope"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8017_Placeholder%20-%208.avif"
+            alt="Life Rx"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fb5feef1108f4df33_Placeholder%20-%209.avif"
+            alt="Credit Captain"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fd12c2d66db97546d_Placeholder%20-%201.avif"
+            alt="iClosed"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f62850b20d3c571a3f304d_Placeholder%20-%202.avif"
+            alt="Compass"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f84c49bd40a5f1f82_Placeholder%20-%204.avif"
+            alt="Whop"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628508324ac3e3b8284c4_Placeholder%20-%205.avif"
+            alt="Fanbasis"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f2b55b32977257124_Placeholder%20-%2010.avif"
+            alt="America First Healthcare"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f5916fbc4b9a12fd2_Placeholder%20-%2011.avif"
+            alt="Done For Your Tax"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8023_Placeholder%20-%2012.avif"
+            alt="Textla"
+            loading="lazy"
+          />
+          <img
+            src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fa9ff03ce2854f6d6_Placeholder%20-%206.avif"
+            alt="Elliott"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="social-proof">
+      <div class="social-proof-inner">
+        <div class="orbit-wrap">
+          <div class="orbit-center">
+            <svg
+              width="32"
+              height="32"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+              />
+            </svg>
+          </div>
+          <div class="orbit-ring">
+            <div class="orbit-icon">
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"
+                />
+                <path d="M12 8v4l3 1.5" />
+              </svg>
+            </div>
+            <div class="orbit-icon">
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="3" />
+                <path d="M12 8v8M8 12h8" />
+              </svg>
+            </div>
+            <div class="orbit-icon">
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+            </div>
+            <div class="orbit-icon">
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <div class="orbit-icon">
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z"
+                />
+              </svg>
+            </div>
+            <div class="orbit-icon">
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-label"><span class="bar"></span> Features</div>
+        <div class="section-title">
+          Everything A2P promised&mdash;<br />without the headaches
+        </div>
+        <p class="section-desc">
+          Send real iMessages, make calls, and automate follow-ups&mdash;no registration, no filtering, no delays.
+        </p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                />
+              </svg>
+            </div>
+            <h3>iMessage & SMS</h3>
+            <p>
+              Send blue-bubble iMessages with automatic SMS fallback for
+              non-Apple users. No A2P registration required.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+            </div>
+            <h3>FaceTime Audio</h3>
+            <p>
+              Make calls from the same numbers you message from. Build trust
+              with a consistent presence across channels.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                />
+              </svg>
+            </div>
+            <h3>Workflow Builder</h3>
+            <p>
+              Automate sequences with personal touches. Combine triggers,
+              delays, and smart branching for hands-off follow-up.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <h3>Rich Media</h3>
+            <p>
+              Send voice memos, HD videos, high-res photos, and more. Stand out
+              in conversations with content that pops.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+            </div>
+            <h3>No A2P Registration</h3>
+            <p>
+              iMessages don't require A2P carrier registration. SOC 2 Type 2 and
+              HIPAA compliant. Your messages always land.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                />
+              </svg>
+            </div>
+            <h3>Power Dialer & Buckets</h3>
+            <p>
+              Organize contacts into smart buckets and power through call lists
+              efficiently. Maximize your daily outreach.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-label"><span class="bar"></span> A2P vs iMessage</div>
+        <div class="section-title">The A2P problem&mdash;and the iMessage solution</div>
+        <p class="section-desc">
+          A2P registration was supposed to improve messaging. Instead it created months of delays, rejected campaigns, and silently filtered messages. Here's how Sendblue compares.
+        </p>
+        <div class="comparison">
+          <div class="comparison-header">
+            <div></div>
+            <div>Sendblue (iMessage)</div>
+            <div>A2P SMS</div>
+          </div>
+          <div class="comparison-row">
+            <div>Registration</div>
+            <div><span class="check">None required</span></div>
+            <div><span class="cross">10DLC + campaign approval</span></div>
+          </div>
+          <div class="comparison-row">
+            <div>Time to send</div>
+            <div><span class="check">Minutes</span></div>
+            <div><span class="cross">2-8 weeks</span></div>
+          </div>
+          <div class="comparison-row">
+            <div>Carrier filtering</div>
+            <div><span class="check">Bypassed entirely</span></div>
+            <div><span class="cross">Messages silently dropped</span></div>
+          </div>
+          <div class="comparison-row">
+            <div>Throughput limits</div>
+            <div><span class="check">No throttling</span></div>
+            <div><span class="cross">Rate limited by trust score</span></div>
+          </div>
+          <div class="comparison-row">
+            <div>Response rate</div>
+            <div><span class="check">80%+</span></div>
+            <div>15-25%</div>
+          </div>
+          <div class="comparison-row">
+            <div>Campaign rejections</div>
+            <div><span class="check">N/A</span></div>
+            <div><span class="cross">Common &mdash; vague reasons</span></div>
+          </div>
+          <div class="comparison-row">
+            <div>Read receipts</div>
+            <div><span class="check">Available</span></div>
+            <div><span class="cross">Not available</span></div>
+          </div>
+          <div class="comparison-row">
+            <div>Compliance overhead</div>
+            <div><span class="check">SOC 2 &amp; HIPAA built-in</span></div>
+            <div><span class="cross">Ongoing carrier audits</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-label"><span class="bar"></span> How It Works</div>
+        <div class="section-title">From A2P frustration to iMessage in minutes</div>
+        <p class="section-desc">
+          No forms. No carrier approvals. No waiting.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <h3>Book a Demo</h3>
+            <p>
+              Schedule a 30-minute walkthrough. We'll show you exactly how
+              Sendblue fits your workflow.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <h3>Connect Your CRM</h3>
+            <p>
+              Plug into Salesforce, HubSpot, HighLevel, Close, or any tool via
+              Zapier and Make.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <h3>Start Messaging</h3>
+            <p>
+              Send your first iMessage within minutes. Automate sequences or
+              message one-on-one.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="integrations">
+      <div class="container">
+        <div class="section-label"><span class="bar"></span> Integrations</div>
+        <div class="section-title">Works with your stack</div>
+        <p class="section-desc">
+          Native integrations with the tools you already use. No code required.
+        </p>
+        <div class="integrations-grid">
+          <div class="integration-chip">
+            <img
+              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/6916fdb2e4c7038e45899dfd_salesforce_logo.svg.svg"
+              alt="Salesforce"
+            />
+            Salesforce
+          </div>
+          <div class="integration-chip">
+            <img
+              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/6916fdb2e4c7038e45899e00_hubspot_symbol.svg.svg"
+              alt="HubSpot"
+            />
+            HubSpot
+          </div>
+          <div class="integration-chip">
+            <img
+              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/6916fdb2e4c7038e45899dff_highlevel_icon.jpeg.svg"
+              alt="GoHighLevel"
+            />
+            HighLevel
+          </div>
+          <div class="integration-chip">
+            <img
+              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373b4486ba83ec3e3a7829_mark.svg"
+              alt="Close"
+            />
+            Close
+          </div>
+          <div class="integration-chip">
+            <img
+              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373ca77dd09295fec491aa_Zapier-Symbol-p-500.png"
+              alt="Zapier"
+            />
+            Zapier
+          </div>
+          <div class="integration-chip">
+            <img
+              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373cdf6f136f04b8433193_make-color-p-500.png"
+              alt="Make"
+            />
+            Make
+          </div>
+          <div class="integration-chip">
+            <img
+              src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/69373bd213f202d7e07079d0_follow-up-boss-squareLogo-1712167366475.webp"
+              alt="Follow Up Boss"
+            />
+            Follow Up Boss
+          </div>
+          <div class="integration-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="#FF3D57"
+                stroke-width="2"
+              />
+              <circle cx="12" cy="12" r="4" fill="#FF3D57" />
+            </svg>
+            Monday.com
+          </div>
+          <div class="integration-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                fill="#1D1D1D"
+              />
+              <path
+                d="M8 12.5l2.5 2.5 5-5"
+                stroke="#3DDC84"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+            Pipedrive
+          </div>
+          <div class="integration-chip">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" fill="#4285F4" />
+              <circle cx="12" cy="12" r="4" fill="#fff" />
+              <path
+                d="M12 2a10 10 0 015 1.34L12 12H2.06A10 10 0 0112 2z"
+                fill="#EA4335"
+              />
+              <path d="M12 12l5-8.66A10 10 0 0122 12H12z" fill="#FBBC05" />
+              <path d="M12 12v10a10 10 0 01-9.94-8.66L12 12z" fill="#34A853" />
+            </svg>
+            Chrome Extension
+          </div>
+          <div class="integration-chip">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#2563eb"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            REST API
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-label"><span class="bar"></span> Testimonials</div>
+        <div class="section-title">Loved by sales teams</div>
+        <p class="section-desc">
+          See why thousands of businesses trust Sendblue to drive conversations.
+        </p>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              &#9733;&#9733;&#9733;&#9733;&#9733;
+            </div>
+            <blockquote>
+              Sendblue completely changed our outreach. We saw 3x higher
+              response rates with Sendblue. The iMessage integration is
+              seamless.
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">JH</div>
+              <div>
+                <div class="testimonial-name">Josh H.</div>
+                <div class="testimonial-role">CSO &amp; Co-Founder</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              &#9733;&#9733;&#9733;&#9733;&#9733;
+            </div>
+            <blockquote>
+              Our show rates jumped over 33% after switching to Sendblue. The
+              fact there is no A2P is a game changer for our team.
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SR</div>
+              <div>
+                <div class="testimonial-name">Sarah R.</div>
+                <div class="testimonial-role">Founder &amp; CEO</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">
+              &#9733;&#9733;&#9733;&#9733;&#9733;
+            </div>
+            <blockquote>
+              The CRM integration took minutes to set up. Almost immediately
+              we saw 40% more consultations taking place each week. It just
+              works.
+            </blockquote>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">BP</div>
+              <div>
+                <div class="testimonial-name">Brandon P.</div>
+                <div class="testimonial-role">Managing Partner</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="poll-section">
+      <div style="padding: 0 16px">
+        <div class="section-label">
+          <span class="bar"></span> Help Us Help You
+        </div>
+        <div class="section-title" style="font-size: 24px; margin-bottom: 8px">
+          What's your biggest problem right now?
+        </div>
+        <p class="section-desc" style="margin-bottom: 20px">
+          Select one and we'll show you how Sendblue can fix it.
+        </p>
+        <div class="poll-options">
+          <button class="poll-option" data-answer="answer-calls">
+            Calling New Leads
+          </button>
+          <button class="poll-option" data-answer="answer-msgs">
+            Messaging New Leads
+          </button>
+          <button class="poll-option" data-answer="answer-followup">
+            Existing Lead Follow Up
+          </button>
+          <button class="poll-option" data-answer="answer-spam">
+            No A2P Registration
+          </button>
+        </div>
+        <div class="poll-answer" id="answer-calls">
+          <h4>📞 FaceTime Audio + Power Dialer</h4>
+          <p>
+            Sendblue lets you call from the same number you message from —
+            building instant trust and boosting pickup rates. Pair it with the
+            Power Dialer to blitz through your call lists and maximize daily
+            outreach.
+          </p>
+        </div>
+        <div class="poll-answer" id="answer-msgs">
+          <h4>💬 iMessage at Scale</h4>
+          <p>
+            iMessages land directly in your prospect's inbox with no carrier
+            registration required. Blue bubbles get 98% response rates vs 20% for SMS. Connect
+            your CRM and message new leads at scale — no A2P registration
+            required.
+          </p>
+        </div>
+        <div class="poll-answer" id="answer-followup">
+          <h4>🔁 Automated Follow-Up Sequences</h4>
+          <p>
+            Automate follow-up sequences with Sendblue's Workflow Builder. Set
+            triggers, delays, and smart branching so no lead falls through the
+            cracks — all running hands-free from your CRM.
+          </p>
+        </div>
+        <div class="poll-answer" id="answer-spam">
+          <h4>🛡️ Skip A2P Registration Entirely</h4>
+          <p>
+            iMessages don't require A2P carrier registration. Your messages
+            always land — no 10DLC delays, no rejected campaigns, no carrier
+            compliance headaches. SOC 2 Type 2 and HIPAA compliant.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="reels-section" id="client-videos">
+      <div style="padding: 0 16px; margin-bottom: 14px">
+        <div class="section-label">
+          <span class="bar"></span> Don't Take Our Word
+        </div>
+        <div class="section-title" style="font-size: 24px; margin-bottom: 8px">
+          Customer Reviews
+        </div>
+        <p class="section-desc">
+          Hear what Sendblue did for some of our most recent customers.
+        </p>
+      </div>
+      <div class="reels-row">
+        <div class="reels-card" data-video="GoodReview1.mp4">
+          <video
+            poster="thumb-GoodReview1.jpg" data-src="GoodReview1.mp4"
+            muted
+            playsinline
+            loop
+            preload="none"
+          ></video>
+          <div class="reels-card-overlay">
+            <div>
+              <div class="reels-card-name">Jesse W</div>
+              <div class="reels-card-role">High Ticket Sales</div>
+            </div>
+          </div>
+        </div>
+        <div class="reels-card" data-video="GoodReview2.mp4">
+          <video
+            poster="thumb-GoodReview2.jpg" data-src="GoodReview2.mp4"
+            muted
+            playsinline
+            loop
+            preload="none"
+          ></video>
+          <div class="reels-card-overlay">
+            <div>
+              <div class="reels-card-name">Daniel T</div>
+              <div class="reels-card-role">Crypto/Finance</div>
+            </div>
+          </div>
+        </div>
+        <div class="reels-card" data-video="GoodReview3.mp4">
+          <video
+            poster="thumb-GoodReview3.jpg" data-src="GoodReview3.mp4"
+            muted
+            playsinline
+            loop
+            preload="none"
+          ></video>
+          <div class="reels-card-overlay">
+            <div>
+              <div class="reels-card-name">Tara G</div>
+              <div class="reels-card-role">Real Estate</div>
+            </div>
+          </div>
+        </div>
+        <div class="reels-card" data-video="GoodReview4.mp4">
+          <video
+            poster="thumb-GoodReview4.jpg" data-src="GoodReview4.mp4"
+            muted
+            playsinline
+            loop
+            preload="none"
+          ></video>
+          <div class="reels-card-overlay">
+            <div>
+              <div class="reels-card-name">JJ Hernandez</div>
+              <div class="reels-card-role">High Ticket Sales</div>
+            </div>
+          </div>
+        </div>
+        <div class="reels-card" data-video="GoodReview5.mp4">
+          <video
+            poster="thumb-GoodReview5.jpg" data-src="GoodReview5.mp4"
+            muted
+            playsinline
+            loop
+            preload="none"
+          ></video>
+          <div class="reels-card-overlay">
+            <div>
+              <div class="reels-card-name">Noah Katan</div>
+              <div class="reels-card-role">Webinars</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="faq">
+      <div class="container">
+        <div style="text-align: center">
+          <div class="section-label" style="justify-content: center">
+            <span class="bar"></span> FAQ
+          </div>
+          <div class="section-title">A2P &amp; iMessage FAQ</div>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Why doesn't Sendblue require A2P registration?
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a">
+              <p>
+                A2P (Application-to-Person) registration is a carrier requirement for SMS messages sent through telecom networks. Sendblue sends real iMessages through Apple's servers using real Apple devices&mdash;not carrier SMS infrastructure. Since iMessage is a completely separate protocol, A2P registration simply doesn't apply.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Will my messages get filtered or blocked like A2P SMS?
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a">
+              <p>
+                No. A2P carrier registration only applies to SMS/MMS messages that travel through telecom networks. iMessages are encrypted end-to-end and delivered through Apple's infrastructure. There's no registration required, no campaign approval process, and no silent message drops.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What about contacts who don't have iMessage?
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a">
+              <p>
+                Sendblue automatically detects whether a contact uses iMessage. If they don't, the message falls back to SMS or RCS so it still gets delivered. No action needed on your end&mdash;it's handled automatically.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              My A2P campaign was rejected. Can I switch to Sendblue?
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes. Many of our customers come to Sendblue after dealing with rejected A2P campaigns, vague denial reasons, and months of back-and-forth with carriers. With Sendblue, you can connect your CRM and start sending iMessages in minutes&mdash;no campaign approvals needed.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Is Sendblue compliant without A2P?
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a">
+              <p>
+                Absolutely. Sendblue is SOC 2 Type 2 certified, HIPAA compliant, and adheres to TCPA regulations. Skipping A2P doesn't mean skipping security&mdash;it means skipping unnecessary carrier bureaucracy while maintaining enterprise-grade data protection.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Are there throughput or rate limits?
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-a">
+              <p>
+                Unlike A2P SMS where your throughput is limited by your carrier trust score, Sendblue doesn't throttle your messages. You can scale your outreach without worrying about rate limits or reduced deliverability.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section cta-section" id="cta">
+      <div class="container">
+        <div class="section-label" style="justify-content: center">
+          <span class="bar"></span> Get Started
+        </div>
+        <div class="section-title">Ready to skip A2P and start sending?</div>
+        <div
+          class="iclosed-widget"
+          data-url="https://app.iclosed.io/e/sendblue/sendblue-demo-7"
+          title="Sendblue Demo"
+          style="width: 100%; height: 620px"
+        ></div>
+        <script
+          type="text/javascript"
+          src="https://app.iclosed.io/assets/widget.js"
+          async
+        ></script>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-text">
+          &copy; 2026 Sendblue, Inc. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <a href="/book-demo.html">Book A Demo</a> <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </footer>
+    <a href="#cta" class="sticky-demo-btn">Request a Demo 📞</a>
+    <div class="video-overlay" id="video-overlay">
+      <button
+        class="video-overlay-close"
+        id="video-overlay-close"
+        aria-label="Close video"
+      >
+        <svg
+          width="20"
+          height="20"
+          fill="none"
+          stroke="#fff"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="video-overlay-counter" id="video-overlay-counter"></div>
+      <div class="video-overlay-nav prev" id="video-nav-prev"></div>
+      <div class="video-overlay-nav next" id="video-nav-next"></div>
+      <div id="video-iframe-wrap"></div>
+      <div class="video-overlay-bottom">
+        <a class="video-overlay-cta" id="video-overlay-cta">Book a Demo</a>
+        <div class="video-overlay-proof">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.9/5
+          from 511+ businesses
+        </div>
+      </div>
+    </div>
+    <script>
+      ((document.getElementById("video-overlay-cta").href =
+        "/book-demo.html" + (window.location.search || "")),
+        document
+          .getElementById("mobile-toggle")
+          .addEventListener("click", () => {
+            document.getElementById("nav-links").classList.toggle("open");
+          }),
+        document.querySelectorAll(".nav-links a").forEach((e) => {
+          e.addEventListener("click", () => {
+            document.getElementById("nav-links").classList.remove("open");
+          });
+        }),
+        document.querySelectorAll(".faq-item").forEach((e) => {
+          const t = e.querySelector(".faq-q"),
+            n = e.querySelector(".faq-a");
+          t.addEventListener("click", () => {
+            const o = e.classList.contains("open");
+            (document.querySelectorAll(".faq-item").forEach((e) => {
+              (e.classList.remove("open"),
+                e
+                  .querySelector(".faq-q")
+                  .setAttribute("aria-expanded", "false"),
+                (e.querySelector(".faq-a").style.maxHeight = null));
+            }),
+              o ||
+                (e.classList.add("open"),
+                t.setAttribute("aria-expanded", "true"),
+                (n.style.maxHeight = n.scrollHeight + "px")));
+          });
+        }),
+        (function () {
+          const e = document.querySelectorAll(".platform-tag-slide");
+          if (!e.length) return;
+          let t = 0;
+          setInterval(() => {
+            (e[t].classList.remove("active"),
+              (t = (t + 1) % e.length),
+              e[t].classList.add("active"));
+          }, 2e3);
+        })(),
+        (function () {
+          var e = document.getElementById("video-overlay"),
+            t = document.getElementById("video-iframe-wrap"),
+            n = document.getElementById("video-overlay-counter"),
+            o = document.getElementById("video-nav-prev"),
+            c = document.getElementById("video-nav-next"),
+            r = document.getElementById("video-overlay-close"),
+            i = [],
+            a = 0,
+            s = 0;
+          function l(e) {
+            (e < 0 && (e = i.length - 1), e >= i.length && (e = 0), (a = e));
+            var o = t.querySelector("video");
+            (o && o.pause(),
+              (t.innerHTML =
+                '<video src="' +
+                i[e] +
+                '" controls autoplay playsinline style="max-height:55vh"></video>'),
+              (n.textContent = e + 1 + " / " + i.length));
+          }
+          function d(t, n) {
+            ((i = t),
+              e.classList.add("active"),
+              (document.body.style.overflow = "hidden"),
+              l(n || 0));
+          }
+          function u() {
+            e.classList.remove("active");
+            var o = t.querySelector("video");
+            (o && o.pause(),
+              (t.innerHTML = ""),
+              (n.textContent = ""),
+              (document.body.style.overflow = ""),
+              (i = []));
+          }
+          (c.addEventListener("click", function (e) {
+            (e.stopPropagation(), l(a + 1));
+          }),
+            o.addEventListener("click", function (e) {
+              (e.stopPropagation(), l(a - 1));
+            }),
+            r.addEventListener("click", u),
+            e.addEventListener("click", function (t) {
+              t.target === e && u();
+            }),
+            document.addEventListener("keydown", function (t) {
+              e.classList.contains("active") &&
+                ("Escape" === t.key && u(),
+                "ArrowRight" === t.key && l(a + 1),
+                "ArrowLeft" === t.key && l(a - 1));
+            }),
+            e.addEventListener(
+              "touchstart",
+              function (e) {
+                s = e.touches[0].clientX;
+              },
+              { passive: !0 },
+            ),
+            e.addEventListener("touchend", function (e) {
+              var t = s - e.changedTouches[0].clientX;
+              Math.abs(t) > 50 && l(t > 0 ? a + 1 : a - 1);
+            }));
+var v = document.querySelectorAll(".reels-card");
+          (v.forEach(function (e, t) {
+            e.addEventListener("click", function () {
+              var e = [];
+              (v.forEach(function (t) {
+                e.push(t.getAttribute("data-video"));
+              }),
+                d(e, t));
+            });
+          }),
+            (window._openCarousel = function (e, t) {
+              d(e, t);
+            }));
+        })());
+      var reelsObs = new IntersectionObserver(
+        function (e) {
+          e.forEach(function (e) {
+            var t = e.target.querySelector("video");
+            e.isIntersecting
+              ? (!t.src && t.dataset.src && ((t.src = t.dataset.src), t.load()),
+                t.play().catch(function () {}))
+              : t.pause();
+          });
+        },
+        { threshold: 0.3, rootMargin: "200px" },
+      );
+      document.querySelectorAll(".reels-card").forEach(function (e) {
+        reelsObs.observe(e);
+      });
+      (document.querySelectorAll(".poll-option").forEach((e) => {
+          e.addEventListener("click", () => {
+            (document
+              .querySelectorAll(".poll-option")
+              .forEach((e) => e.classList.remove("active")),
+              e.classList.add("active"),
+              document
+                .querySelectorAll(".poll-answer")
+                .forEach((e) => e.classList.remove("visible")));
+            const t = document.getElementById(e.dataset.answer);
+            t && t.classList.add("visible");
+          });
+        }),
+        document.querySelectorAll('a[href^="#"]').forEach((e) => {
+          e.addEventListener("click", (t) => {
+            const n = document.querySelector(e.getAttribute("href"));
+            n &&
+              (t.preventDefault(),
+              n.scrollIntoView({ behavior: "smooth", block: "start" }));
+          });
+        }),
+        (function () {
+          const e = document.getElementById("glass-notif"),
+            t = document.getElementById("glass-notif-close"),
+            n = e.querySelector(".glass-notif-form"),
+            o = e.querySelector(".glass-notif-input"),
+            c = e.querySelector(".glass-notif-btn");
+          (setTimeout(() => e.classList.add("visible"), 3e4),
+            t.addEventListener("click", () => e.classList.remove("visible")),
+            c.addEventListener("click", function () {
+              const e = o.value.trim();
+              if (e) {
+                ((c.textContent = "Sending..."), (c.disabled = !0));
+                var t = new URLSearchParams(window.location.search),
+                  r = new FormData();
+                (r.append("phone", e),
+                  r.append("source", "sendblue-notification"),
+                  r.append("page_url", window.location.href),
+                  r.append("referrer", document.referrer || ""),
+                  r.append("timestamp", new Date().toISOString()),
+                  [
+                    "utm_source",
+                    "utm_medium",
+                    "utm_campaign",
+                    "utm_term",
+                    "utm_content",
+                  ].forEach(function (e) {
+                    t.get(e) && r.append(e, t.get(e));
+                  }),
+                  fetch(
+                    "https://hooks.zapier.com/hooks/catch/26613723/u0m67gt/",
+                    { method: "POST", body: r },
+                  )
+                    .then(function () {
+                      ((n.innerHTML =
+                        '<p style="font-size:12px;color:var(--heading);font-weight:600;margin:0">Got it! Redirecting...</p>'),
+                        setTimeout(function () {
+                          window.location.href =
+                            "/book-demo.html" + (window.location.search || "");
+                        }, 1e3));
+                    })
+                    .catch(function () {
+                      ((c.textContent = "Text Me"), (c.disabled = !1));
+                    }));
+              } else o.focus();
+            }),
+            o.addEventListener("keydown", function (e) {
+              "Enter" === e.key && c.click();
+            }));
+        })(),
+        (function(){var btn=document.querySelector('.sticky-demo-btn');if(!btn)return;var cta=document.getElementById('cta');window.addEventListener('scroll',function(){var scrolled=window.scrollY>400;var atCta=cta&&cta.getBoundingClientRect().top<window.innerHeight;btn.classList.toggle('visible',scrolled&&!atCta)},{passive:true})})(),
+        (function () {
+          var e = document.querySelectorAll(".story-row .story-item");
+          e.forEach(function (t) {
+            t.addEventListener("click", function () {
+              var n = [];
+              e.forEach(function (e) {
+                n.push(e.getAttribute("data-video"));
+              });
+              var o = Array.prototype.indexOf.call(e, t);
+              window._openCarousel(n, o);
+            });
+          });
+        })());
+    </script>
+    <script>
+      // SMS vs iMessage animation
+      (function () {
+        var smsBody = document.querySelector('#sms-mockup .imsg-body');
+        var imsgBody = document.querySelector('#imsg-mockup .imsg-body');
+        if (!smsBody || !imsgBody) return;
+
+        var smsMessages = [
+          { type: 'sent-sms', text: 'Thanks for signing up! We\u2019ll text you the details here. Reply STOP to unsubscribe.' },
+          { type: 'received-stop', text: 'STOP' },
+          { type: 'sent-sms', text: 'You\u2019ve been unsubscribed. Reply START to resubscribe.' }
+        ];
+
+        var imsgMessages = [
+          { type: 'sent', text: 'Hey! Thanks for signing up \u2014 this is Sam from Sendblue. Let\u2019s continue the conversation here.' },
+          { type: 'received', text: 'Thanks Sam! Excited to move forward.' },
+          { type: 'sent', text: 'Awesome \u2014 I\u2019ll send over a quick demo link now \ud83d\ude80' },
+          { type: 'delivered-read' }
+        ];
+
+        var smsDelays = [0, 2000, 3500];
+        var imsgDelays = [800, 3000, 5000, 6200];
+        var totalCycle = 10000;
+
+        function addBubble(body, className, text) {
+          var el = document.createElement('div');
+          el.className = 'imsg-bubble ' + className;
+          el.textContent = text;
+          body.appendChild(el);
+          body.scrollTop = body.scrollHeight;
+        }
+
+        function addTypingThenBubble(body, className, text, delay) {
+          var typing = document.createElement('div');
+          typing.className = 'imsg-typing';
+          typing.innerHTML = '<div class="imsg-typing-dot"></div><div class="imsg-typing-dot"></div><div class="imsg-typing-dot"></div>';
+          body.appendChild(typing);
+          body.scrollTop = body.scrollHeight;
+          setTimeout(function () {
+            typing.remove();
+            addBubble(body, className, text);
+          }, delay || 800);
+        }
+
+        function runAnimation() {
+          smsBody.innerHTML = '';
+          imsgBody.innerHTML = '';
+
+          // SMS side
+          smsMessages.forEach(function (msg, i) {
+            setTimeout(function () {
+              if (msg.type === 'sent-sms') {
+                addBubble(smsBody, 'imsg-bubble--sent-sms', msg.text);
+              } else if (msg.type === 'received-stop') {
+                addTypingThenBubble(smsBody, 'imsg-bubble--received-stop', msg.text, 600);
+              }
+            }, smsDelays[i]);
+          });
+
+          // iMessage side
+          imsgMessages.forEach(function (msg, i) {
+            setTimeout(function () {
+              if (msg.type === 'sent') {
+                addBubble(imsgBody, 'imsg-bubble--sent', msg.text);
+              } else if (msg.type === 'received') {
+                addTypingThenBubble(imsgBody, 'imsg-bubble--received', msg.text, 800);
+              } else if (msg.type === 'delivered-read') {
+                var el = document.createElement('div');
+                el.className = 'imsg-delivered imsg-delivered--read';
+                el.textContent = 'Read 3:57 PM';
+                imsgBody.appendChild(el);
+                imsgBody.scrollTop = imsgBody.scrollHeight;
+              }
+            }, imsgDelays[i]);
+          });
+        }
+
+        runAnimation();
+        setInterval(runAnimation, totalCycle);
+      })();
+    </script>
+  <script defer src="/_vercel/speed-insights/script.js"></script></body>
+</html>

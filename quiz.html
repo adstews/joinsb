@@ -358,6 +358,73 @@
         color: var(--blue);
       }
 
+      /* Logo strip */
+      .logos {
+        margin: 40px -24px 0;
+        padding: 32px 0 0;
+        overflow: hidden;
+        border-top: 1px solid var(--border);
+      }
+      .logos-heading {
+        text-align: center;
+        font-size: 11px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 24px;
+        padding: 0 24px;
+      }
+      .logo-scroll {
+        position: relative;
+      }
+      .logo-scroll::before,
+      .logo-scroll::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 60px;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .logo-scroll::before {
+        left: 0;
+        background: linear-gradient(90deg, var(--bg), transparent);
+      }
+      .logo-scroll::after {
+        right: 0;
+        background: linear-gradient(270deg, var(--bg), transparent);
+      }
+      .logo-track {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        animation: logoScroll 30s linear infinite;
+        width: max-content;
+      }
+      .logo-track:hover {
+        animation-play-state: paused;
+      }
+      .logo-track img {
+        height: 28px;
+        width: auto;
+        opacity: 0.55;
+        filter: grayscale(100%);
+        transition:
+          opacity 0.3s,
+          filter 0.3s;
+        flex-shrink: 0;
+      }
+      .logo-track img:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+      }
+      @keyframes logoScroll {
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
       @media (max-width: 600px) {
         .step h1 {
           font-size: 24px;
@@ -507,6 +574,17 @@
     <main class="quiz">
       <!-- Q1 (first page) -->
       <section class="step active" id="q1">
+        <div class="pill-row">
+          <span class="pill">⚡ 60-second quiz</span>
+        </div>
+        <h1>How does your team's texting <em>stack up?</em></h1>
+        <p class="lede">
+          Answer 4 quick questions and we'll show you exactly where Sendblue can move the needle on your reply rates, pipeline, and team workflow.
+        </p>
+        <p class="cta-note" style="margin-bottom: 32px">
+          No setup fees · 20,000+ businesses on Sendblue
+        </p>
+
         <h2 class="step-question">Are you currently texting your leads?</h2>
         <div class="step-options tall-cards">
           <button class="option-btn tall-card" type="button" data-action="next" data-q="1" data-a="yes-sms">
@@ -517,6 +595,37 @@
             <span class="option-emoji">❓</span>
             <span class="option-text">Not yet</span>
           </button>
+        </div>
+
+        <div class="logos">
+          <p class="logos-heading">Trusted by leading sales teams</p>
+          <div class="logo-scroll">
+            <div class="logo-track">
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628728bf41a1054fbbf2b_Placeholder%20-%207.avif" alt="Dope" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8017_Placeholder%20-%208.avif" alt="Life Rx" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fb5feef1108f4df33_Placeholder%20-%209.avif" alt="Credit Captain" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fd12c2d66db97546d_Placeholder%20-%201.avif" alt="iClosed" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f62850b20d3c571a3f304d_Placeholder%20-%202.avif" alt="Compass" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f84c49bd40a5f1f82_Placeholder%20-%204.avif" alt="Whop" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628508324ac3e3b8284c4_Placeholder%20-%205.avif" alt="Fanbasis" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f2b55b32977257124_Placeholder%20-%2010.avif" alt="America First Healthcare" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f5916fbc4b9a12fd2_Placeholder%20-%2011.avif" alt="Done For Your Tax" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8023_Placeholder%20-%2012.avif" alt="Textla" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fa9ff03ce2854f6d6_Placeholder%20-%206.avif" alt="Elliott" loading="lazy" />
+              <!-- duplicate set for seamless scroll -->
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628728bf41a1054fbbf2b_Placeholder%20-%207.avif" alt="" aria-hidden="true" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8017_Placeholder%20-%208.avif" alt="" aria-hidden="true" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fb5feef1108f4df33_Placeholder%20-%209.avif" alt="" aria-hidden="true" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fd12c2d66db97546d_Placeholder%20-%201.avif" alt="" aria-hidden="true" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f62850b20d3c571a3f304d_Placeholder%20-%202.avif" alt="" aria-hidden="true" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f84c49bd40a5f1f82_Placeholder%20-%204.avif" alt="" aria-hidden="true" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f628508324ac3e3b8284c4_Placeholder%20-%205.avif" alt="" aria-hidden="true" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f2b55b32977257124_Placeholder%20-%2010.avif" alt="" aria-hidden="true" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284f5916fbc4b9a12fd2_Placeholder%20-%2011.avif" alt="" aria-hidden="true" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284ff224cfebfc8f8023_Placeholder%20-%2012.avif" alt="" aria-hidden="true" loading="lazy" />
+              <img src="https://cdn.prod.website-files.com/66edf6078b47584cfeee4b62/67f6284fa9ff03ce2854f6d6_Placeholder%20-%206.avif" alt="" aria-hidden="true" loading="lazy" />
+            </div>
+          </div>
         </div>
       </section>
 

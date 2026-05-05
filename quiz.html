@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Sendblue — How does your team's texting stack up?</title>
+    <meta
+      name="description"
+      content="60-second quiz. Find out where iMessage can move the needle on your team's reply rates, pipeline, and outreach."
+    />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://app.iclosed.io" crossorigin />
+    <style>
+      *,
+      ::after,
+      ::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --blue: #2563eb;
+        --blue-light: #3b82f6;
+        --bg: #ffffff;
+        --bg-card: #f8f9fb;
+        --bg-card-hover: #eef2ff;
+        --border: #e5e7eb;
+        --border-hover: #c7d2fe;
+        --text: #1a1a2e;
+        --text-muted: #64748b;
+        --heading: #0f172a;
+        --radius: 12px;
+      }
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+        overflow-x: hidden;
+      }
+      body {
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* Nav */
+      .nav {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-container {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .nav-logo-icon {
+        flex-shrink: 0;
+      }
+      .nav-logo-wordmark {
+        height: 22px;
+        width: auto;
+      }
+
+      /* Progress bar */
+      .progress {
+        max-width: 640px;
+        margin: 28px auto 0;
+        padding: 0 24px;
+        display: flex;
+        gap: 6px;
+      }
+      .progress.hidden {
+        display: none;
+      }
+      .progress-segment {
+        flex: 1;
+        height: 4px;
+        background: var(--border);
+        border-radius: 2px;
+        transition: background 0.3s ease;
+      }
+      .progress-segment.active {
+        background: var(--blue);
+      }
+
+      /* Quiz container */
+      .quiz {
+        flex: 1;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 40px 24px 56px;
+        width: 100%;
+      }
+
+      /* Steps */
+      .step {
+        display: none;
+      }
+      .step.active {
+        display: block;
+        animation: fadeIn 0.35s ease forwards;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Intro */
+      .pill-row {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text);
+      }
+      .step h1 {
+        font-size: clamp(28px, 4vw, 38px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        color: var(--heading);
+        text-align: center;
+        margin-bottom: 14px;
+      }
+      .step h1 em {
+        font-style: normal;
+        color: var(--blue);
+      }
+      .lede {
+        font-size: 15px;
+        color: var(--text-muted);
+        max-width: 540px;
+        margin: 0 auto 28px;
+        text-align: center;
+      }
+      .cta-row {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 32px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          box-shadow 0.2s;
+        font-family: inherit;
+      }
+      .btn-primary:hover {
+        background: var(--blue-light);
+        box-shadow: 0 0 24px rgba(37, 99, 235, 0.25);
+      }
+      .cta-note {
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      /* Question */
+      .step-question {
+        font-size: clamp(22px, 3vw, 28px);
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+        color: var(--heading);
+        text-align: center;
+        margin-bottom: 28px;
+      }
+      .step-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .option-btn {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 20px;
+        background: var(--bg-card);
+        border: 1.5px solid var(--border);
+        border-radius: var(--radius);
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--heading);
+        cursor: pointer;
+        text-align: left;
+        transition: all 0.15s ease;
+        font-family: inherit;
+        width: 100%;
+        line-height: 1.4;
+      }
+      .option-btn:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--border-hover);
+        transform: translateY(-1px);
+      }
+      .option-btn:active {
+        transform: translateY(0);
+      }
+      .option-emoji {
+        font-size: 22px;
+        flex-shrink: 0;
+        line-height: 1;
+      }
+      .option-text {
+        flex: 1;
+      }
+
+      /* Loading */
+      .loading {
+        text-align: center;
+        padding: 64px 24px;
+      }
+      .loading-spinner {
+        width: 56px;
+        height: 56px;
+        border: 4px solid var(--bg-card);
+        border-top-color: var(--blue);
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+        margin: 0 auto 24px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .loading h2 {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--heading);
+        margin-bottom: 6px;
+      }
+      .loading p {
+        color: var(--text-muted);
+        font-size: 14px;
+      }
+
+      /* Result */
+      .result-banner-row {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      .result-banner {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.1);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        font-size: 12px;
+        font-weight: 600;
+        color: #15803d;
+      }
+      .iclosed-wrap {
+        width: 100%;
+        max-width: 720px;
+        margin: 24px auto 0;
+      }
+      .iclosed-widget {
+        background: transparent;
+      }
+
+      /* Footer */
+      .footer {
+        padding: 20px 24px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-muted);
+        border-top: 1px solid var(--border);
+      }
+      .footer a {
+        color: var(--text-muted);
+        margin: 0 6px;
+      }
+      .footer a:hover {
+        color: var(--blue);
+      }
+
+      @media (max-width: 600px) {
+        .step h1 {
+          font-size: 24px;
+        }
+        .step-question {
+          font-size: 20px;
+        }
+        .option-btn {
+          font-size: 14px;
+          padding: 14px 16px;
+        }
+        .lede {
+          font-size: 14px;
+        }
+      }
+    </style>
+
+    <!-- Hyros -->
+    <script>
+      var head = document.head,
+        script = document.createElement("script");
+      ((script.type = "text/javascript"),
+        (script.async = !0),
+        (script.src =
+          "https://210016.t.hyros.com/v1/lst/universal-script?ph=8eab8ba789927c4c9ec63d8158dc7765f6f5b59f6b4e1359df1f901b321ddad7&tag=!clicked&ref_url=" +
+          encodeURI(document.URL)),
+        head.appendChild(script));
+    </script>
+    <!-- Meta Pixel -->
+    <script>
+      (!(function (e, t, n, c, o, a, f) {
+        e.fbq ||
+          ((o = e.fbq =
+            function () {
+              o.callMethod
+                ? o.callMethod.apply(o, arguments)
+                : o.queue.push(arguments);
+            }),
+          e._fbq || (e._fbq = o),
+          (o.push = o),
+          (o.loaded = !0),
+          (o.version = "2.0"),
+          (o.queue = []),
+          ((a = t.createElement(n)).async = !0),
+          (a.src = "https://connect.facebook.net/en_US/fbevents.js"),
+          (f = t.getElementsByTagName(n)[0]).parentNode.insertBefore(a, f));
+      })(window, document, "script"),
+        fbq("init", "1328875655536718"),
+        fbq("track", "PageView"));
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1328875655536718&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TL27X92C");
+    </script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5G77TBSB");
+    </script>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TL27X92C"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe></noscript
+    ><noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5G77TBSB"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <header class="nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo" aria-label="Sendblue">
+          <svg
+            class="nav-logo-icon"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19.5141 1.73315C17.9956 1.73315 16.7647 2.96429 16.7647 4.48299C16.7647 6.00168 17.9956 7.23282 19.5141 7.23282C21.0325 7.23282 22.2634 6.00168 22.2634 4.48299C22.2634 2.96429 21.0325 1.73315 19.5141 1.73315Z"
+              fill="#008BFF"
+            />
+            <path
+              d="M0.00400648 12C0.00400632 13.8933 1.45673 15.4423 3.30966 15.6024C2.11306 17.0233 2.18109 19.1488 3.51776 20.4857C4.85443 21.8225 6.97949 21.8906 8.4002 20.6938C8.55628 22.547 10.1091 24 12.002 24C13.8949 24 15.4437 22.547 15.6038 20.6938C17.0245 21.8906 19.1496 21.8225 20.4862 20.4857C21.8229 19.1488 21.8909 17.0233 20.6943 15.6024C22.5473 15.4463 24 13.8933 24 12C24 10.0027 22.3792 8.38159 20.3822 8.38159C20.2421 8.38159 20.1061 8.3936 19.97 8.40961C19.8219 8.42562 19.6698 8.42962 19.5138 8.42962C18.9975 8.42962 18.5053 8.32955 18.057 8.14943C17.0485 7.74917 16.2481 6.94463 15.8479 5.93996C15.6678 5.48766 15.5678 4.99533 15.5678 4.48299C15.5678 4.32689 15.5718 4.17879 15.5878 4.02669C15.6038 3.8906 15.6158 3.75451 15.6158 3.61842C15.6158 1.62108 13.995 0 11.998 0C10.1051 0 8.55628 1.45297 8.3962 3.3062C6.97549 2.10941 4.85043 2.17745 3.51376 3.51434C2.17709 4.85123 2.10906 6.97665 3.30566 8.3976C1.45273 8.5537 0 10.1067 0 12L0.00400648 12Z"
+              fill="#008BFF"
+            />
+          </svg>
+          <svg
+            class="nav-logo-wordmark"
+            viewBox="0 0 563 95"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 63.2012L15.402 63.4668C16.1986 74.3544 24.6963 81.6571 37.7083 81.6571C48.7287 81.6571 56.6952 76.7443 56.6952 67.8484C56.6952 58.023 47.0026 55.8986 32.2645 53.243C16.8625 50.5875 2.25719 45.6748 2.25719 27.219C2.25719 11.0204 15.5348 0 35.3183 0C56.5624 0 69.84 11.5515 70.5039 28.6795H55.2347C54.0397 19.2525 46.6043 12.8792 35.3183 12.8792C24.8291 12.8792 17.5264 17.3936 17.5264 26.1568C17.5264 35.7167 27.0862 37.7083 41.6916 40.231C57.0935 43.0193 72.0972 47.932 71.9644 66.2551C71.9644 82.9848 58.023 94.5363 37.5755 94.5363C14.4725 94.5363 0.531103 81.7898 0 63.2012Z" fill="#0f172a"/>
+            <path d="M116.21 94.5363C94.8329 94.5363 81.4226 80.7276 81.4226 59.8818C81.4226 38.9033 94.833 24.9618 114.882 24.9618C134.533 24.9618 147.678 37.4427 148.076 57.3591C148.076 59.0852 147.943 60.944 147.678 62.8029H96.4263V63.7323C96.8246 75.2838 104.127 82.852 115.413 82.852C124.176 82.852 130.55 78.4704 132.541 70.9022H146.881C144.491 84.3126 133.072 94.5363 116.21 94.5363ZM96.9574 52.3136H133.205C132.01 42.2227 124.973 36.5133 115.015 36.5133C105.853 36.5133 98.0196 42.621 96.9574 52.3136Z" fill="#0f172a"/>
+            <path d="M195.518 24.9618C210.522 24.9618 222.87 33.1939 222.87 55.8986V93.7396H208.398V57.0935C208.398 44.2143 202.954 37.31 192.199 37.31C180.78 37.31 174.009 45.6748 174.009 59.4835V93.7396H159.669V25.7585H172.15L173.743 34.6545C177.992 29.3434 184.498 24.9618 195.518 24.9618Z" fill="#0f172a"/>
+            <path d="M287.042 35.1856V0.796652H301.382V93.7396H288.901L287.175 83.5159C282.794 89.4908 275.756 94.5363 265.002 94.5363C246.546 94.5363 232.87 81.5243 232.87 59.7491C232.87 38.7705 246.546 24.9618 265.002 24.9618C275.358 24.9618 282.661 29.2107 287.042 35.1856ZM267.392 82.4537C279.341 82.4537 287.175 73.1594 287.175 60.0146C287.175 46.4715 279.341 37.1772 267.392 37.1772C255.442 37.1772 247.608 46.4715 247.608 59.7491C247.608 73.1594 255.442 82.4537 267.392 82.4537Z" fill="#0f172a"/>
+            <path d="M351.776 24.9618C370.364 24.9618 383.907 37.8411 383.907 59.7491C383.907 80.5948 370.364 94.5363 351.776 94.5363C341.154 94.5363 333.851 90.0219 329.602 83.9142L327.876 93.7396H315.395V0.796652H329.735V35.8494C334.249 29.7418 341.286 24.9618 351.776 24.9618ZM349.386 82.4537C361.336 82.4537 369.302 73.1594 369.302 59.7491C369.302 46.4715 361.336 37.1772 349.386 37.1772C337.436 37.1772 329.602 46.4715 329.602 59.6163C329.602 73.0266 337.436 82.4537 349.386 82.4537Z" fill="#0f172a"/>
+            <path d="M395.398 93.7396V0.796652H409.737V93.7396H395.398Z" fill="#0f172a"/>
+            <path d="M470.398 59.7491V25.7585H484.738V93.7396H472.124L470.531 85.1092C466.282 90.2875 460.042 94.5363 449.553 94.5363C435.08 94.5363 422.732 86.8353 422.732 63.5996V25.7585H437.072V62.0062C437.072 75.2838 442.383 82.0554 452.872 82.0554C463.76 82.0554 470.398 73.8233 470.398 59.7491Z" fill="#0f172a"/>
+            <path d="M531.134 94.5363C509.757 94.5363 496.347 80.7276 496.347 59.8818C496.347 38.9033 509.757 24.9618 529.806 24.9618C549.457 24.9618 562.602 37.4427 563 57.3591C563 59.0852 562.867 60.944 562.602 62.8029H511.35V63.7323C511.749 75.2838 519.051 82.852 530.337 82.852C539.1 82.852 545.474 78.4704 547.465 70.9022H561.805C559.415 84.3126 547.996 94.5363 531.134 94.5363ZM511.881 52.3136H548.129C546.934 42.2227 539.897 36.5133 529.939 36.5133C520.777 36.5133 512.944 42.621 511.881 52.3136Z" fill="#0f172a"/>
+          </svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="progress hidden" id="progress" aria-hidden="true">
+      <div class="progress-segment"></div>
+      <div class="progress-segment"></div>
+      <div class="progress-segment"></div>
+      <div class="progress-segment"></div>
+    </div>
+
+    <main class="quiz">
+      <!-- Intro -->
+      <section class="step active" id="intro">
+        <div class="pill-row">
+          <span class="pill">⚡ 60-second quiz</span>
+        </div>
+        <h1>How does your team's texting <em>stack up?</em></h1>
+        <p class="lede">
+          Answer 4 quick questions and we'll show you exactly where Sendblue can move the needle on your reply rates, pipeline, and team workflow.
+        </p>
+        <div class="cta-row">
+          <button class="btn-primary" data-action="start" type="button">
+            Start the Quiz →
+          </button>
+        </div>
+        <p class="cta-note">No setup fees · Trusted by 20,000+ business teams</p>
+      </section>
+
+      <!-- Q1 -->
+      <section class="step" id="q1">
+        <h2 class="step-question">Are you texting your customers right now?</h2>
+        <div class="step-options">
+          <button class="option-btn" type="button" data-action="next" data-q="1" data-a="texting-low-reply">
+            <span class="option-emoji">👍</span>
+            <span class="option-text">Yes, but reply rates are low</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="1" data-a="personal-phones">
+            <span class="option-emoji">📱</span>
+            <span class="option-text">Team's using personal phones</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="1" data-a="a2p-stuck">
+            <span class="option-emoji">🚫</span>
+            <span class="option-text">Stuck on A2P 10DLC approval</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="1" data-a="not-started">
+            <span class="option-emoji">❓</span>
+            <span class="option-text">Haven't started texting yet</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Q2 -->
+      <section class="step" id="q2">
+        <h2 class="step-question">What's your biggest blocker?</h2>
+        <div class="step-options">
+          <button class="option-btn" type="button" data-action="next" data-q="2" data-a="low-reply">
+            <span class="option-text">Low reply rates from green-bubble SMS</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="2" data-a="no-crm-sync">
+            <span class="option-text">Doesn't sync with our CRM</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="2" data-a="scale">
+            <span class="option-text">Need to send at scale (1,000s/day)</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="2" data-a="a2p">
+            <span class="option-text">A2P 10DLC has been a nightmare</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="2" data-a="compliance">
+            <span class="option-text">Compliance / risk concerns</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Q3 -->
+      <section class="step" id="q3">
+        <h2 class="step-question">What CRM does your team run on?</h2>
+        <div class="step-options">
+          <button class="option-btn" type="button" data-action="next" data-q="3" data-a="salesforce">
+            <span class="option-text">Salesforce</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="3" data-a="hubspot">
+            <span class="option-text">HubSpot</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="3" data-a="highlevel">
+            <span class="option-text">HighLevel</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="3" data-a="close">
+            <span class="option-text">Close</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="3" data-a="follow-up-boss">
+            <span class="option-text">Follow Up Boss</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="3" data-a="other">
+            <span class="option-text">Something else</span>
+          </button>
+          <button class="option-btn" type="button" data-action="next" data-q="3" data-a="none">
+            <span class="option-text">We don't use one</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Q4 -->
+      <section class="step" id="q4">
+        <h2 class="step-question">How urgent is this?</h2>
+        <div class="step-options">
+          <button class="option-btn" type="button" data-action="finish" data-q="4" data-a="this-week">
+            <span class="option-emoji">⏰</span>
+            <span class="option-text">Need to start this week</span>
+          </button>
+          <button class="option-btn" type="button" data-action="finish" data-q="4" data-a="30-days">
+            <span class="option-emoji">🗓️</span>
+            <span class="option-text">Looking to launch in next 30 days</span>
+          </button>
+          <button class="option-btn" type="button" data-action="finish" data-q="4" data-a="switching">
+            <span class="option-emoji">🔄</span>
+            <span class="option-text">Already have a tool — looking to switch</span>
+          </button>
+          <button class="option-btn" type="button" data-action="finish" data-q="4" data-a="researching">
+            <span class="option-emoji">💭</span>
+            <span class="option-text">Just researching for now</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Loading -->
+      <section class="step loading" id="loading">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <h2>We're analyzing your answers</h2>
+        <p>This will only take a few seconds.</p>
+      </section>
+
+      <!-- Result -->
+      <section class="step" id="result">
+        <div class="result-banner-row">
+          <span class="result-banner">✓ Looks like you're a great fit</span>
+        </div>
+        <h1>Pick a time to see <em>Sendblue</em> in action</h1>
+        <p class="lede">
+          Based on your answers, our team will walk you through exactly how Sendblue plugs into your stack and lifts reply rates&mdash;live demo, 15 minutes.
+        </p>
+        <div class="iclosed-wrap" id="iclosed-wrap">
+          <div
+            class="iclosed-widget"
+            data-url="https://app.iclosed.io/e/sendblue/sendblue-demo-7"
+            title="Sendblue Demo"
+            style="width: 100%; height: 620px"
+          ></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      &copy; 2026 Sendblue, Inc. ·
+      <a href="https://sendblue.com/privacy">Privacy</a> ·
+      <a href="https://sendblue.com/terms">Terms</a>
+    </footer>
+
+    <script>
+      (function () {
+        var stepIds = ["intro", "q1", "q2", "q3", "q4", "loading", "result"];
+        var currentStep = 0;
+        var answers = {};
+        var iclosedLoaded = false;
+
+        function showStep(idx) {
+          stepIds.forEach(function (id, i) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            if (i === idx) el.classList.add("active");
+            else el.classList.remove("active");
+          });
+          currentStep = idx;
+          updateProgress();
+          try {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          } catch (e) {
+            window.scrollTo(0, 0);
+          }
+        }
+
+        function updateProgress() {
+          var progress = document.getElementById("progress");
+          var isQuestion = currentStep >= 1 && currentStep <= 4;
+          if (isQuestion) {
+            progress.classList.remove("hidden");
+            var segments = progress.querySelectorAll(".progress-segment");
+            for (var i = 0; i < segments.length; i++) {
+              if (i < currentStep) segments[i].classList.add("active");
+              else segments[i].classList.remove("active");
+            }
+          } else {
+            progress.classList.add("hidden");
+          }
+        }
+
+        function loadIClosed() {
+          if (iclosedLoaded) return;
+          iclosedLoaded = true;
+          var s = document.createElement("script");
+          s.type = "text/javascript";
+          s.async = true;
+          s.src = "https://app.iclosed.io/assets/widget.js";
+          document.body.appendChild(s);
+        }
+
+        document.addEventListener("click", function (e) {
+          var btn = e.target.closest("[data-action]");
+          if (!btn) return;
+          var action = btn.dataset.action;
+
+          if (action === "start") {
+            showStep(1);
+            if (window.dataLayer) window.dataLayer.push({ event: "quiz_start" });
+            return;
+          }
+
+          if (action === "next" || action === "finish") {
+            var q = btn.dataset.q;
+            var a = btn.dataset.a;
+            answers["q" + q] = a;
+            if (window.dataLayer) {
+              window.dataLayer.push({
+                event: "quiz_answer",
+                question: q,
+                answer: a,
+              });
+            }
+          }
+
+          if (action === "next") {
+            showStep(currentStep + 1);
+            return;
+          }
+
+          if (action === "finish") {
+            showStep(5); // loading
+            if (window.fbq) fbq("track", "Lead");
+            if (window.dataLayer) {
+              window.dataLayer.push({
+                event: "quiz_complete",
+                answers: answers,
+              });
+            }
+            // Show result after analyzing animation
+            setTimeout(function () {
+              showStep(6);
+              loadIClosed();
+            }, 2200);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
